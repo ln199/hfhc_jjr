@@ -1,0 +1,25 @@
+/* pages/applyquit/applyquit.wxss */
+.wenben{
+  padding-top: 12rpx;
+  margin-bottom: 80rpx;
+}
+.wenben textarea{
+  width:648rpx;
+  height:400rpx;
+  border:2rpx solid rgba(159,159,159,1);
+  border-radius:8rpx;
+  margin: auto;
+  font-size: 32rpx;
+  font-weight: 500;
+  padding: 40rpx 10rpx 0 20rpx;
+}
+.btnk{
+  width:648rpx;
+  height:80rpx;
+  border-radius:40rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+  margin: auto;
+  text-align: center;
+  line-height: 80rpx;
+}

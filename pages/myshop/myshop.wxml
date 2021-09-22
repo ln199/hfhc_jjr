@@ -1,0 +1,56 @@
+<!--pages/myshop/myshop.wxml-->
+<view class="box {{isIphoneX?'isIPX':''}}">
+  <view class="userinfo">
+    <view class="avatar">
+      <image src="{{avatar}}" />
+    </view>
+    <view class="infos">
+      <text>{{name}}</text>
+      <view class="mobile"><image src="{{basicImg}}/my/mobile.png" />{{mobile}}</view>
+      <view class="company"> <image src="{{basicImg}}/my/address.png" />{{company}}</view>
+    </view>
+  </view>
+  <!-- 微店相关 -->
+  <view class="aboutShop">
+    <view class="setItem" wx:for="{{aboutShopList}}">
+      <view class="shopItem">
+        <image src="{{item.imgUrl}}" />
+        <text class="aboutShopLabel">{{item.itemName}}</text>
+      </view>
+    </view>
+  </view>
+  <!-- 微店数据 -->
+  <view class="wshop">
+    <view class="visitor-top">微店数据</view>
+    <view class="shopData">
+      <view class="data">
+        <view class="totakAccess">{{total_access}}</view>
+        <text class="label">累计数据</text>
+      </view>
+      <view class="dataInfos">
+      <view> <text class="label1">累积分享: </text>{{total_share}}</view>
+        <text class="label1">本月浏览: {{current_month_access}}</text>
+        <text class="label1">本月分享: {{current_month_share}}</text>
+      </view>
+    </view>
+  </view>
+  <!-- 最近访客 -->
+  <view class="visitor">
+    <view class="visitor-top">最近访客</view>
+    <view class="visitorlist">
+      <view class="visitor-item" wx:for="{{visitors}}">
+        <view class="pic"><image src="{{item.avatar_url}}"></image></view>
+        <view class="visitor-left">
+          <view class="liulan">
+            <text>{{item.nickname}}</text><view class="time gray">{{item.time_diff}}</view>
+            <text class="gray">最近浏览：{{item.access_name}}</text>
+          </view>
+          <view>
+            <button class="btn">转客</button>
+          </view>
+          
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

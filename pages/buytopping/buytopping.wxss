@@ -1,0 +1,125 @@
+/* pages/buytopping/buytopping.wxss */
+.top{
+  padding: 0 42rpx;
+  height: 121rpx;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 32rpx;
+  font-weight: 500;
+}
+.top_l text{
+  font-weight: bold;
+}
+.top_r{
+  font-weight: bold;
+}
+.fg{
+  width: 100%;
+  height: 10rpx;
+  margin: auto;
+}
+.cont{
+  padding-top: 44rpx;
+}
+.cont_title{
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-left: 40rpx;
+  margin-bottom: 16rpx;
+}
+.list{
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  width: 94%;
+  margin: auto;
+}
+.list_item{
+  width: 211rpx;
+  height: 121rpx;
+  background-color: white;
+  border: 2rpx solid rgba(234,84,20,1);
+  border-radius: 8rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 24rpx;
+  font-weight: 500;
+  margin: 20rpx 10rpx;
+  position: relative;
+  overflow: hidden;
+}
+.cur{
+  background-color: #fcf0e9;
+}
+.list_item text:last-child{
+  font-size: 32rpx;
+}
+.tuijian{
+  font-size: 14rpx;
+  font-weight: 500;
+  text-align: center;
+  width: 112rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+  position: absolute;
+  top: 5rpx;
+  right: -36rpx;
+  z-index: 1;
+  transform: rotate(45deg);
+}
+.xieyi{
+  font-size: 24rpx;
+  font-weight: 500;
+  padding-left: 38rpx;
+  margin-top: 52rpx;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.xieyi text:last-child{
+  text-decoration: underline;
+}
+checkbox .wx-checkbox-input{
+  border-radius: 50%;
+  width: 40rpx; 
+  height: 40rpx;
+}
+checkbox .wx-checkbox-input.wx-checkbox-input-checked{
+  border: none;
+  background: #EA5414;
+}
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before{
+  border-radius: 50%;
+  width: 40rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  text-align: center;
+  font-size:30rpx; 
+  color:#fff; 
+  background: transparent;
+  transform:translate(-50%, -50%) scale(1);
+  -webkit-transform:translate(-50%, -50%) scale(1);
+}
+.btnzu{
+  position: fixed;
+  bottom: 73rpx;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+.btnzu button{
+  width:648rpx;
+  height:80rpx;
+  border-radius:40rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+}
+.btnzu button:last-child{
+  border:2rpx solid rgba(234,84,19,1);
+  margin-top: 21rpx;
+  background-color: #ffffff;
+}

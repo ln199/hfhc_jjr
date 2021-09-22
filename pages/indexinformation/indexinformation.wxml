@@ -1,0 +1,19 @@
+
+<view class="indexInformation box {{isIphoneX?'isIPX':''}}">
+	<scroll-view scroll-y="true" style="height: 100%;">
+		<view bindtap="intoDetail" data-id='{{item.id}}' class='recordItem' wx:for='{{informationList}}' wx:key='index'>
+			<view class="pic">
+				<image src="https://www.hfhchsh.com{{item.img_path}}" />
+			</view>
+			<view class="rightp">
+				<view class="biaoti">{{item.title}}</view>
+				<view class="gray xq">{{item.summary}}</view>
+				<view class="gray fb" style="margin-bottom:8rpx;">发布人（单位）名称:{{item.author}}</view>
+				<view class="hangb">
+					<view class="gray fb">{{item.add_time_d}}</view>
+					<view class="ann btncolor white" wx:if="{{item.tag_d}}">{{item.tag_d}}</view>
+				</view>
+			</view>
+		</view>
+	</scroll-view>
+</view>

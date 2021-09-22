@@ -1,0 +1,31 @@
+<!--pages/addfollowup/addfollowup.wxml-->
+<view class="box {{isIphoneX?'isIPX':''}}">
+  <form>
+    <view class="graoupa">
+      <view class="title">跟进信息</view>
+      <view class="line">
+        <view class="lineleft"><text class="red">*</text>跟进日期</view>
+        <view class="lineright">
+          <picker mode="date" value="{{date}}" start="2015-01-01" end="2050-01-01" bindchange="bindDateChange" style="width: 90%;">
+            <view class="picker gray">{{date}}</view>
+          </picker>
+          <image src="{{basicImg}}/public/arrow.png" class="arrow"></image>
+        </view>
+      </view>
+      <view class="line">
+        <view class="lineleft"><text class="red">*</text>跟进类型</view>
+        <view class="lineright">
+          <picker bindchange="bindPickerChangeqk" value="{{indexqk}}" range="{{type}}" range-key="lxming" style="width: 90%;">
+            <view class="picker gray">{{type[indexqk].lxming}}</view>
+          </picker>
+          <image src="{{basicImg}}/public/arrow.png" class="arrow"></image>
+        </view>
+      </view>
+      <view class="linef">
+        <view class="linefleft"><text class="red">*</text>跟进内容</view>
+        <textarea placeholder="请输入跟进内容" bindinput="content" placeholder-class="placeholder_color" style="font-weight: 500;"></textarea>
+      </view>
+      <view class="btnk"><button type="button" class="btncolor white" bindtap="submitRecord">下一步</button></view>
+    </view>
+  </form>
+</view>

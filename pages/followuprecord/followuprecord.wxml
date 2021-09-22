@@ -1,0 +1,17 @@
+<!--pages/followuprecord/followuprecord.wxml-->
+<view class="box {{isIphoneX?'isIPX':''}}">
+  <view class='expressRecord'>
+    <view class='expressRecord-single-close' wx:for="{{recordArr}}" wx:key='index'>
+      <view class='expressRecord-single-noReach-online-top-close'>
+        <view class='dot-closing'><view class="{{item.state == 1?'yuaning':'yuan'}}"></view></view>
+        <view class='online-bottomimg'></view>
+      </view>
+      <view class='expressRecord-text'>
+        <view class='expressRecord-status'> 【{{item.genjinfangshi}}】 {{item.neirong}}</view>
+        <view class='expressRecord-status-address gray'><text> {{item.time_d}}</text><text>{{item.ygmingcheng}}</text></view>
+      </view>
+    </view>
+  
+  </view>
+  <view class="btnk"><button type="button" class="btncolor white" bindtap="addgen">添加跟进</button></view>
+</view>

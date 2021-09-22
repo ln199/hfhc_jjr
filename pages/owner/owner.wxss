@@ -1,0 +1,94 @@
+/* pages/owner/owner.wxss */
+.graoupa{
+  width: 100%;
+  height: auto;
+  margin: auto;
+}
+.line{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  border-bottom: 1rpx solid #F2F2F2;
+  height: 119rpx;
+  margin: auto 40rpx;
+}
+.lineleft{
+  font-size: 32rpx;
+  font-weight: bold;
+  width: 160rpx;
+  text-align: right;
+}
+.lineleft text{
+  margin-right: 8rpx;
+}
+.input-text{
+  width: 70%;
+  font-size: 32rpx;
+  font-weight: 500;
+  padding-left: 41rpx;
+}
+radio{
+  margin-left: 39rpx;
+}
+radio .wx-radio-input{
+  width: 25rpx;
+  height: 25rpx;
+  border-radius: 50%;
+}
+radio .wx-radio-input.wx-radio-input-checked{
+  width: 25rpx;
+  height: 25rpx;
+  border: 1rpx solid #EA5413 !important;
+  background: #EA5413 !important;
+}
+radio .wx-radio-input.wx-radio-input-checked::before{
+  border-radius: 50%;
+  text-align: center;
+  color: #fff;
+  font-size: 20rpx;
+  transform:translate(-50%, -50%) scale(1);
+  -webkit-transform:translate(-50%, -50%) scale(1);
+}
+.radio text{
+  font-size: 32rpx;
+  font-weight: 500;
+}
+.arrow{
+  width: 12rpx;
+  height: 19rpx;
+  display: block;
+}
+.picker{
+  font-size: 32rpx;
+  font-weight: 500;
+}
+.lineright{
+  width: 70%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 41rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+}
+.btnzu{
+  width: 100%;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+}
+.btnzu button{
+  width:648rpx;
+  height:80rpx;
+  border-radius:40rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+  margin-bottom: 21rpx;
+}
+.btnzu button:last-child{
+  border:2rpx solid rgba(234,84,19,1);
+  background-color: #ffffff;
+  margin-bottom: 72rpx;
+}

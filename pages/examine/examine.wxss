@@ -1,0 +1,32 @@
+/* pages/examine/examine.wxss */
+.kong{
+  font-size: 30rpx;
+  font-weight: 500;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40%;
+}
+.kong image{
+  width: 440rpx;
+  height: 440rpx;
+  display: block;
+  margin-bottom: 41rpx;
+}
+.btnk{
+  width: 100%;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  z-index: 1;
+}
+.btnk button{
+  width:648rpx;
+  height:80rpx;
+  border-radius:40rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+  margin-bottom: 80rpx;
+}

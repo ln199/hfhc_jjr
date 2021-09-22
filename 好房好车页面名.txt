@@ -1,0 +1,95 @@
+1
+1、index  首页
+2、registered  注册
+3、login  登录
+4、completion  补全信息
+5、news  消息
+6、download   未安装APP提示下载
+7、information_xq  资讯详情
+8、tool 工具
+9、switchcity 城市选择
+10、owner  业主信息
+11、information  资讯列表
+12、gotop  设置置顶（原）
+13、topping  设置置顶（改）
+14、buytopping  购买置顶套餐
+15、newsxq  消息详情
+
+1、sojourn  旅居房
+
+
+1、beautyhouse  美装房列表
+2、beautyhousexq  美装房详情
+
+
+1、rentlists  出租房列表
+2、rentxq  出租房详情
+3、rentfylists  出租房房源列表
+4、houseresourcesxqs  出租房房源详情
+5、rentalbook    出租房登记1
+6、rentalbook2   出租房登记2
+7、rentalbooks   出租房登记3
+
+
+1、buylist   客源-求购
+2、addbuy  客源-添加客源-求购
+3、buycompletion  客源-补全信息-求购
+4、rentlist  客源-求租
+5、addrent  客源-添加客源-求租
+6、rentcompletion  客源-补全信息-求租
+7、customerxq  客户详情
+8、addfollowup  添加跟进
+9、customerxx  客户信息
+10、reportcustomer  报备客源
+11、reportxq  报备详情
+12、followuprecord  跟进记录
+
+
+1、newhouse  新房列表
+2、newhousexq  新房详情
+3、commission  佣金列表
+4、report  报备
+5、housetype  户型
+6、bill  楼盘海报
+7、dynamic  楼盘动态
+8、periphery  周边配套
+
+
+1、secondhouse  二手房房源（可添加）
+2、secondhouses  二手房房源
+3、housecheckin   二手房登记1
+4、housecheckin2  二手房登记2
+5、housecheckins   二手房登记3
+6、secondhousexq  二手房详情
+7、choosevillage  选择小区
+8、cooperate  合作详情-待确认-成功-失败
+9、houseresourcesxq  二手房房源详情页
+
+
+1、my  我的
+2、myshop  我的微店
+3、runshop  微店管理
+4、previewshop  微店预览
+5、myachievement  我的业绩
+6、dealxq  成交详情
+7、mycollect  我的收藏
+8、feedback 意见反馈
+9、editpassword    修改密码
+10、synopsis  微店简介
+11、coin  好房币中心
+12、coinrule  好房币规则
+13、editi  个人信息
+14、broker  个人信息_经纪公司
+15、brokered  个人信息_经纪公司_已绑定
+16、attestation  个人信息_实名认证
+17、applyquit  申请离职
+18、examine  审核中
+19、collaborate   我的合作
+20、code  二维码名片
+
+
+
+
+
+
+

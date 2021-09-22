@@ -1,0 +1,73 @@
+<!--pages/editi/editi.wxml-->
+<view class="box {{isIphoneX?'isIPX':''}}">
+	<form>
+		<view class="group">
+			<view class="linea">
+				<text>头像</text>
+				<view class="piczu">
+					<image src="{{avatar_url}}" class="touxiang" bindtap="chooseImg"></image>
+					<image src="{{basicImg}}/public/arrow.png" class="arrow"></image>
+				</view>
+			</view>
+			<view class="lineb">
+				<text>昵称</text>
+				<input type="text" bindinput="userName" placeholder-class="placeholder_color" placeholder="" value="{{ygmingcheng}}"></input>
+			</view>
+			<view class="lineb">
+				<text style="margin-left:0;">手机号码</text>
+				<input type="number" bindinput="moblie" placeholder-class="placeholder_color" placeholder="" value="{{dianhua}}"></input>
+			</view>
+			<view class="linea">
+				<text style="margin-left:0;">实名认证</text>
+				<view bindtap="goRenzheng" class="piczu" wx:if="{{idcard_total_verified == 0}}">
+					<text class="gray">未认证</text>
+					<image src="{{basicImg}}/my/icon_renzheng_n@2x.png" class="renzheng"></image>
+					<image src="{{basicImg}}/public/arrow.png" class="arrow"></image>
+				</view>
+				<view class="piczu" wx:if="{{idcard_total_verified == 1}}">
+					<text class="gray">已认证</text>
+					<image src="{{basicImg}}/my/icon_renzheng_s@2x.png" class="renzheng"></image>
+					<image src="{{basicImg}}/public/arrow.png" class="arrow"></image>
+				</view>
+			</view>
+			<view class="linec">
+				<view class="linec-left">
+					<text>经纪公司</text>
+					<input type="text" placeholder-class="placeholder_color" placeholder="" value="{{gongsi}}"></input>
+				</view>
+				<view class="linec-right" wx:if="{{gongsi_bind == 0}}" bindtap="goCompanyN">
+					<text class="gray">未绑定</text>
+					<image src="{{basicImg}}/my/icon_bangding_n@2x.png" class="biao"></image>
+					<image src="{{basicImg}}/public/arrow.png" class="arrow"></image>
+				</view>
+				<view class="linec-right" wx:if="{{gongsi_bind == 1}}" bindtap="goCompanyF">
+					<text class="gray">已绑定</text>
+					<image src="{{basicImg}}/my/icon_bangding_s@2x.png" class="biao"></image>
+					<image src="{{basicImg}}/public/arrow.png" class="arrow"></image>
+				</view>
+			</view>
+			<view class="linee">
+				<picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+					<view class="pickerk">
+						<text>性别</text>
+						<view class="picker">{{array[index]}}</view>
+					</view>
+				</picker>
+				<image src="{{basicImg}}/public/arrow.png" class="arrow"></image>
+			</view>
+			<view class="linee">
+				<picker bindchange="bindPickerChanges" value="{{indexs}}" range="{{xueliObj}}" range-key="lxming">
+					<view class="pickerk">
+						<text style="margin-left:0;">个人学历</text>
+						<view class="picker">{{xueliObj[indexs].lxming}}</view>
+					</view>
+				</picker>
+				<image src="{{basicImg}}/public/arrow.png" class="arrow"></image>
+			</view>
+			<view class="lined">
+				<text>个人简介</text>
+				<textarea placeholder="您还没有输入个人简介" value="{{comment}}" bindinput="introduction" placeholder-class="placeholder_color"></textarea>
+			</view>
+		</view>
+	</form>
+</view>

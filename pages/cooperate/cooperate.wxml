@@ -1,0 +1,101 @@
+<!--pages/cooperate/cooperate.wxml-->
+<view class="box {{isIphoneX?'isIPX':''}}">
+	<view class="top">
+		<view class="piczu">
+			<image src="{{realtype==1?avatar1:avatar2}}" class="tou"></image>
+		</view>
+		<view class="middle">
+			<text>{{realtype==1?name1:name2}}</text>
+			<text class="gray">{{realtype==1?company1:company2}}</text>
+		</view>
+		<view class="biaozu">
+			<text class="btnblue white" wx-if='{{realtype==1}}'>房源方</text>
+			<text class="btncolor white" wx-if='{{realtype!=1}}'>合作方</text>
+			<text class="gray">分佣{{fenyong}}%</text>
+		</view>
+	</view>
+	<view class="lxfs">
+		<text>联系电话：{{realtype==1?dianhua1:dianhua2}}</text>			
+	</view>
+	<view class="fg btngray"></view>
+	<view class="cooperate" bindtap="cooperate" data-id="{{fy.id}}">
+		<view class="cooperate-title">合作房源</view>
+		<view class="cooperate-bottom">
+			<view class="cooperate-left">
+				<text>{{fy.fybiaoti}}[{{fy.xingzhengqu_d || ''}}]</text>
+				<text class="gray"> {{fy.fyhx}} 丨 {{fy.mianji}}㎡</text>
+			</view>
+			<view class="cooperate-right orange">{{fy.shoujia}}万</view>
+		</view>
+	</view>
+	<view class="fg btngray"></view>
+	<!-- 确认时只显示第一条 -->
+	<view class="cooperate-record">
+		<view class="cooperate-titles">合作记录</view>
+		<view class='expressRecord'>
+			<view class='expressRecord-single-close' wx:for="{{log}}" wx:key="index">
+				<view class='expressRecord-single-noReach-online-top-close'>
+					<view class='dot-closing'>
+						<view class="{{item.state ==1?'yuaning':'yuan'}}"></view>
+					</view>
+					<view class='online-bottomimg'></view>
+				</view>
+				<view class='expressRecord-text'>
+					<view class='expressRecord-status'>{{item.note}}</view>
+					<view class='expressRecord-status-address gray'><text>{{item.create_time}}</text></view>
+				</view>
+			</view>
+		</view>
+	</view>
+	<!-- 待确认显示 -->
+	<view class="btnk" wx:if="{{log[0].note == '您已发起合作，待对方确认'}}">
+		<button type="button" class="fangqi btncolor white" bindtap="giveUp">放弃合作</button>
+	</view>
+	<!-- 正常状态 -->
+	<view class="bottom-part" wx:if="{{log[0].note == '对方同意合作' || log[0].note == '您已同意合作'}}">
+		<view class="more" bindtap="stop">
+			<image src="{{basicImg}}/housecheckin/btn_end@2x.png"></image>
+		</view>
+		<button class="pipei orange" bindtap="onlineContext">在线沟通</button>
+		<button class="hezuo btncolor white" bindtap="tel">电话沟通</button>
+		<view class="tooltipsk" hidden="{{hiddentip}}">
+			<view class="tooltips white">
+				<view>终止合作</view>
+			</view>
+			<view class="sanjiao"></view>
+		</view>
+	</view>
+	<!-- 待确认显示 -->
+	<view class="btnk" wx:if="{{log[0].note == '对方发起合作，待您的确认'}}">
+		<button type="button" bindtap="refused" class="btnb orange">拒绝合作</button>
+		<button type="button" bindtap="accept" class="btnc btncolor white">接受合作</button>
+	</view>
+	<!-- 拒绝 -->
+	<view class="btnk" wx:if="{{log[0].note == '对方拒绝合作。您可以取消合作赎回金币'}}">
+		<button type="button" bindtap="reset" class="btnb orange">重新发起</button>
+		<button type="button" bindtap="giveUp" class="btnc btncolor white">放弃合作</button>
+	</view>
+	<!-- 电话沟通弹窗 -->
+	<view class="modal-mask-tel" bindtap="hideModaltel" catchtouchmove="preventTouchMovetel" wx:if="{{showModaltel}}"></view>
+	<view class="modal-dialog-tel" wx:if="{{showModaltel}}">
+		<view class="tel-title">电话沟通</view>
+		<view class="tel-hang">
+			<view class="tel-left">
+				<text>{{realtype==1?name1:name2}}</text>
+				<text class="gray">{{realtype==1?dianhua1:dianhua2}}</text>
+			</view>
+			<button type="" class="btncolor white hu" bindtap='call'>呼叫</button>
+		</view>
+		<view class="btn-cancel-tel" bindtap="onCanceltel">取消</view>
+	</view>
+	<!-- 终止合作弹窗 -->
+	<view class='modal-mask-tel' wx:if='{{hidden}}' bindtap='clickMask'>
+		<view class='modal-content'>
+			<view class="wenb">是否终止合作？</view>
+			<view class='modal-footer'>
+				<view class='cancel-btn' catchtap='cancel'>取消</view>
+				<view class='confirm-btn' catchtap='abort'>终止合作</view>
+			</view>
+		</view>
+	</view>
+</view>

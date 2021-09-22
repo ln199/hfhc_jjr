@@ -1,0 +1,76 @@
+<!--pages/dealxq/dealxq.wxml-->
+<view class="box {{isIphoneX?'isIPX':''}}">
+  <!-- 基本信息 -->
+  <view class="group">
+    <view class="group-title">基本信息</view>
+    <view class="xinxi">
+      <text class="gray">2020-03-28 02:30 </text>
+      <text class="orange">审核通过</text>
+    </view>
+    <view class="list">
+      <view class="linea">
+        <view class="first gray">客户姓名：</view><view>张三</view>
+      </view>
+      <view class="linea">
+        <view class="first gray">联系电话：</view><view>18013245678</view>
+      </view>
+      <view class="linea">
+        <view class="first gray">成交日期：</view><view>2020-03-28</view>
+      </view>
+      <view class="linea">
+        <view class="first gray">婚姻状况：</view><view>未婚</view>
+      </view>
+      <view class="linea">
+        <view class="first gray">首次购房：</view><view>是</view>
+      </view>
+      <view class="linea">
+        <view class="first gray">首次带看：</view><view>2020-03-28 11:06:21</view>
+      </view>
+    </view>
+  </view>
+  <view class="fg btngray"></view>
+  <!-- 购房信息 -->
+  <view class="group">
+    <view class="li" data-index="0" bindtap='changeToggle'>
+      <view class="group-titles">购房信息</view>
+      <text class="iconfont {{selectedFlag[0]?'icon-xiala':'icon-shangjiantou'}}"></text>
+    </view>
+    <view class="list" hidden="{{!selectedFlag[0]}}">
+      <block wx:for="{{list01}}" wx:for-item="item" wx:for-index="index">
+        <view class="linea li">
+          <view class="first gray">{{item.type}}</view><view style="width:66%">{{item.shu}}</view>
+        </view>
+      </block>
+    </view>
+  </view>
+  <view class="fg btngray"></view>
+  <!-- 接待信息 -->
+  <view class="group">
+    <view class="li" data-index="1" bindtap='changeToggle'>
+      <view class="group-titles">接待信息</view>
+      <text class="iconfont {{selectedFlag[1]?'icon-xiala':'icon-shangjiantou'}}"> </text>
+    </view>
+    <view class="list" hidden="{{!selectedFlag[1]}}">
+      <block wx:for="{{list02}}" wx:for-item="item" wx:for-index="index">
+        <view class="linea li">
+          <view class="first gray">{{item.type}}</view><view>{{item.shu}}</view>
+        </view>
+      </block>
+    </view>
+  </view>
+  <view class="fg btngray"></view>
+  <!-- 佣金信息 -->
+  <view class="group">
+    <view class="li" data-index="2" bindtap='changeToggle'>
+      <view class="group-titles">佣金信息</view>
+      <text class="iconfont {{selectedFlag[2]?'icon-xiala':'icon-shangjiantou'}}"> </text>
+    </view>
+    <view class="list" hidden="{{!selectedFlag[2]}}">
+      <block wx:for="{{list03}}" wx:for-item="item" wx:for-index="index">
+        <view class="linea li">
+          <view class="first gray">{{item.type}}</view><view>{{item.shu}}</view>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>

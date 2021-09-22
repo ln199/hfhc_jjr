@@ -1,0 +1,261 @@
+/* pages/coin/coin.wxss */
+page{
+  background-color: #f2f2f2;
+}
+.topk{
+  width: 100%;
+  height: auto;
+  padding: 12rpx 0 19rpx 0;
+  margin: auto; 
+  background-color: #ffffff;
+}
+.guize{
+  font-size: 24rpx;
+  font-weight: 500;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 13rpx;
+}
+.guize image{
+  width: 24rpx;
+  height: 24rpx;
+  display: block;
+}
+.guize text{
+  margin-left: 8rpx;
+  margin-right: 50rpx;
+}
+.top{
+  width: 648rpx;
+  height: 280rpx;
+  margin: auto;
+  position: relative;
+}
+.top image{
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.outsidek{
+  width: 648rpx;
+  height: 280rpx;
+  background: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.leftp{
+  padding-left: 40rpx;
+  padding-top: 34.5rpx;
+}
+.all{
+  font-size: 40rpx;
+  font-weight: 500;
+  line-height: 75rpx;
+}
+.price{
+  font-size: 53rpx;
+  font-weight: 500;
+  line-height: 87rpx;
+  margin-bottom: 36.5rpx;
+}
+.price text{
+  margin-left: 10rpx;
+}
+.tips{
+  font-size: 27rpx;
+  font-weight: 500;
+}
+.rightp{
+  height: 280rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-right: 42rpx;
+}
+.rightp image{
+  width:115rpx;
+  height:115rpx;
+  border-radius:50%;
+  display: block;
+  margin-bottom: 19rpx;
+}
+.rightp text{
+  font-size: 40rpx;
+  font-weight: 500;
+}
+/* tab */
+.swiper-tab{
+  width: 100%;
+  text-align: center;
+  height: 80rpx;
+  line-height: 80rpx;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  background-color: #ffffff;
+  font-size: 27rpx;
+}
+.swiper-tab-item{
+  width: 30%; 
+  color:#9F9F9F;
+  font-weight: 500;
+}
+.active{
+  color:#2F2F2F;
+  font-weight: bold;
+}
+/* 内容 */
+.list{
+  padding-top: 29rpx;
+  padding-bottom: 37rpx;
+}
+.listitem{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 43rpx 50rpx 0 50rpx;
+}
+.item-left{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.item-left image{
+  width: 48rpx;
+  height: 48rpx;
+  display: block;
+}
+.chong{
+  margin-left: 43rpx;
+}
+.come{
+  font-size: 40rpx;
+  font-weight: bold;
+  margin-bottom: 21rpx;
+}
+.time{
+  font-size: 27rpx;
+  font-weight: 500;
+}
+.item-right{
+  font-size: 40rpx;
+  font-weight: bold;
+}
+.item-right text{
+  margin-right: 10rpx;
+}
+/* 暂无 */
+.nomore{
+  width: 100%;
+  text-align: center;
+  margin-top: 43rpx;
+  font-size: 27rpx;
+  font-weight: 500;
+}
+.nomore text{
+  margin: 0 8rpx;
+}
+/* 置顶灰条 */
+.goTop{
+  width: 100%;
+  height: 80rpx;
+  background:rgba(47,47,47,.45);
+  margin: auto;
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 32rpx;
+  font-weight: 500;
+}
+.goTop text{
+  margin-left: 41rpx;
+}
+.tips-right{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.tips-right button{
+  width:140rpx;
+  height:60rpx;
+  border-radius:30rpx;
+  font-size: 24rpx;
+  font-weight: 500;
+  padding: 0;
+}
+.tips-right image{
+  width: 32rpx;
+  height: 32rpx;
+  display: block;
+  margin-left: 42rpx;
+  margin-right: 39rpx;
+}
+/* 弹窗 */
+.modal-mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.5;
+  overflow: hidden;
+  z-index: 9000;
+  color: #fff;
+}
+.modal-dialog {
+  width: 640rpx;
+  height: 320rpx;
+  overflow: hidden;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 9999;
+  border-radius: 16rpx;
+  margin-top: -160rpx;
+  margin-left: -320rpx;
+  background-color: #fff;
+}
+.modal-content {
+  padding: 60rpx 50rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.modal-footer {
+  display: flex;
+  flex-direction: row;
+  height: 109rpx;
+  border-top: 1px solid #F2F2F2;
+  font-size: 32rpx;
+  line-height: 109rpx;
+}
+.btn-cancel {
+  width: 50%;
+  text-align: center;
+  border-right: 1px solid #F2F2F2;
+}
+.btn-confirm {
+  width: 50%;
+  color: #4A8BF9;
+  text-align: center;
+}

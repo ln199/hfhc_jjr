@@ -1,0 +1,11 @@
+<!--pages/periphery/periphery.wxml-->
+<view class="box {{isIphoneX?'isIPX':''}}">
+  <view class="address-type gray">
+		<view class="{{indexs==index?'actives':''}}" wx:for="{{surrounding}}" bindtap="clickEvent" data-index="{{index}}">{{item}}</view>
+	</view>
+  <view class="map" style="height:{{scrollHeight}}px">
+		<view class="map_container">
+			<map class="map" style="height:{{scrollHeight}}px" id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" show-location="true" markers="{{markers}}" bindmarkertap="makertap"></map>
+		</view>
+	</view>	
+</view>

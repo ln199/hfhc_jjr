@@ -1,0 +1,81 @@
+/* pages/information/information.wxss */
+.swiper-tab{
+  width: 100%;
+  text-align: center;
+  height: 80rpx;
+  line-height: 80rpx;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  font-size: 27rpx;
+}
+.swiper-tab-item{
+  width: 50%; 
+  color:#9F9F9F;
+  font-weight: 400;
+}
+.active{
+  color:#2F2F2F;
+  font-weight: bold;
+}
+.recordItem{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0 20rpx;
+  margin-bottom: 43rpx;
+}
+.pic{
+  width:267rpx;
+  height:200rpx;
+  border-radius:8rpx;
+  margin-right: 17rpx;
+  background-color: #eee;
+}
+.pic image{
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: 8rpx;
+}
+.rightp{
+  width: 60%;
+}
+.biaoti{
+  font-size: 32rpx;
+  font-weight: bold;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  margin-bottom: 7rpx;
+}
+.xq{
+  font-size: 24rpx;
+  font-weight: 500;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  margin-bottom: 7rpx;
+}
+.fb{
+  font-size: 24rpx;
+  font-weight: 500;
+}
+.hangb{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.ann{
+  width:120rpx;
+  height:40rpx;
+  border:2rpx solid rgba(234,84,19,1);
+  border-radius:8rpx;
+  font-size: 24rpx;
+  font-weight: 500;
+  text-align: center;
+  line-height: 38rpx;
+}

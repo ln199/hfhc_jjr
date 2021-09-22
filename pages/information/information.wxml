@@ -1,0 +1,47 @@
+<!--pages/information/information.wxml-->
+<view class="box {{isIphoneX?'isIPX':''}}">
+	<view class="swiper-tab">
+		<view class="swiper-tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="clickTab">行业资讯</view>
+		<view class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab">其它类别</view>
+	</view>
+	<!-- 列表 -->
+	<swiper current="{{currentTab}}" duration="300" bindchange="swiperTab" style="height: 1200rpx;">
+		<swiper-item>
+			<scroll-view scroll-y="true" style="height: 1200rpx;">
+				<view bindtap="intoDetail" data-id='{{item.id}}' class='recordItem' wx:for='{{industry}}' wx:key='index'>
+					<view class="pic">
+						<image src="{{item.img_url==''?'../../img/public/default.png':item.img_url}}" data-index='{{index}}' data-img='../../img/public/default.png' binderror='errDetails'></image>
+					</view>
+					<view class="rightp">
+						<view class="biaoti">{{item.title}}</view>
+						<view class="gray xq">{{item.summary}}</view>
+						<view class="gray fb" style="margin-bottom:8rpx;">发布人（单位）名称:{{item.author}}</view>
+						<view class="hangb">
+							<view class="gray fb">{{item.add_time_d}}</view>
+							<view class="ann btncolor white">{{item.tag_d}}</view>
+						</view>
+					</view>
+				</view>
+			</scroll-view>
+		</swiper-item>
+
+		<swiper-item>
+			<scroll-view scroll-y="true" style="height: 1200rpx;">
+				<view bindtap="intoDetail" data-id='{{item.id}}' class='recordItem' wx:for='{{other}}' wx:key='index'>
+					<view class="pic">
+						<image src="{{item.desc}}"></image>
+					</view>
+					<view class="rightp">
+						<view class="biaoti">{{item.title}}</view>
+						<view class="gray xq">{{item.summary}}</view>
+						<view class="gray fb" style="margin-bottom:8rpx;">发布人（单位）名称:{{item.author}}</view>
+						<view class="hangb">
+							<view class="gray fb">{{item.add_time_d}}</view>
+							<view class="ann btncolor white">{{item.tag_d}}</view>
+						</view>
+					</view>
+				</view>
+			</scroll-view>
+		</swiper-item>
+	</swiper>
+</view>

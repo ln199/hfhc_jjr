@@ -1,0 +1,40 @@
+<!--pages/news/news.wxml-->
+<view class="box {{isIphoneX?'isIPX':''}}">
+  <view class="topart">
+    <view class="leftp">
+      <image src="{{basicImg}}/news/im_btn_tzxx@2x.png"></image>
+      <text>通知信息</text>
+    </view>
+    <view class="num">2</view>
+  </view>
+  <view class="fg btngray"></view>
+  <scroll-view scroll-y='true' class="newslist">
+    <block>
+      <view class="newsitem">
+        <view class="partleft">
+          <view class="userpic"><image src="{{basicImg}}/login/defult_p.png"></image></view>
+          <view class="middle">
+            <text>张胜</text>
+            <text class="gray">很好的明天见</text>
+          </view>
+        </view>
+        <view class="partright">
+          <text class="gray">1小时前</text>
+          <view class="num">2</view>
+        </view>
+      </view>
+      <view class="newsitem">
+        <view class="partleft">
+          <view class="userpic"><image src="{{basicImg}}/login/defult_p.png"></image></view>
+          <view class="middle">
+            <text>张胜</text>
+            <text class="gray">很好的明天见</text>
+          </view>
+        </view>
+        <view class="partright">
+          <text class="gray">1小时前</text>
+        </view>
+      </view>
+    </block>
+  </scroll-view>
+</view>

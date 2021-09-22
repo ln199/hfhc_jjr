@@ -1,0 +1,19 @@
+<!--pages/bill/bill.wxml-->
+<view class="box {{isIphoneX?'isIPX':''}}">
+  <view class="tips gray">下载图片、复制文案后，可快速发布至朋友圈。</view>
+  <scroll-view class="tab-scoller" scroll-y="true">
+    <block>
+      <view class="list-item" wx:for="{{postersArr}}" wx:key="index">
+        <view class="pics"><image src="{{item.img_path}}"></image></view>
+        <view class="rightp">
+          <view class="right-name">{{item.content}}</view>
+          <view class="time gray">{{item.create_time}}</view>
+          <view class="btnzu">
+            <button type="" class="orange" bindtap="downImg" data-url="{{item.img_path}}">分享图片</button>
+            <button type="" class="btncolor white" data-text="{{item.content}}" bindtap="copyText">复制文案</button>
+          </view>
+        </view>
+      </view>
+    </block>
+  </scroll-view>
+</view>

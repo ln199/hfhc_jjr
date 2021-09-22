@@ -1,0 +1,56 @@
+<!--pages/reportcustomer/reportcustomer.wxml-->
+<view class="box {{isIphoneX?'isIPX':''}}">
+	<!-- 搜索 -->
+	<view class='frame'>
+		<image src='{{basicImg}}/login/sousuo@2x.png' class="frame_zuo"></image>
+		<input class="frame_you" bindinput="searchResult" type='text' placeholder='请输入楼盘或客户电话进行搜索' placeholder-class='placeholder_color'></input>
+	</view>
+	<!-- tab -->
+	<scroll-view scroll-x="true" class="tab-h" scroll-left="{{scrollLeft}}">
+		<view class="tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="swichNav">全部</view>
+		<view class="tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="swichNav">报备申请</view>
+		<view class="tab-item {{currentTab==2?'active':''}}" data-current="2" bindtap="swichNav">已报备</view>
+		<view class="tab-item {{currentTab==3?'active':''}}" data-current="3" bindtap="swichNav">已到访</view>
+		<view class="tab-item {{currentTab==4?'active':''}}" data-current="4" bindtap="swichNav">已成交</view>
+		<view class="tab-item {{currentTab==5?'active':''}}" data-current="5" bindtap="swichNav">无效</view>
+		<view class="tab-item {{currentTab==6?'active':''}}" data-current="6" bindtap="swichNav">以结佣</view>
+		<!-- <view class="tab-item {{currentTab==7?'active':''}}" data-current="7" bindtap="swichNav">已过期</view> -->
+	</scroll-view>
+	<!-- 列表 -->
+	<swiper class="tab-content" current="{{currentTab}}" duration="300" bindchange="switchTab" style="height:{{winHeight}}rpx">
+		<swiper-item wx:for="{{[0,1,2,3,4,6,7]}}">
+			<scroll-view scroll-y="true" class="tab-scoller" bindscrolltolower="bottomSearch">
+				<block wx:for="{{userList}}" wx:key="index">
+					<view class="listitem">
+						<view class="itemleft">
+							<view class="hang">
+								<text class="gray">报备楼盘：</text>
+								<text>{{item.xmbiaoti}}</text>
+							</view>
+							<block wx:for="{{item.vistors}}" wx:for-item="i">
+								<view class="hang">
+									<text class="gray">客户姓名：</text>
+									<text>{{i.name}}</text>
+								</view>
+								<view class="hang">
+									<text class="gray">客户电话：</text>
+									<text>{{i.mobile}}</text>
+								</view>
+							</block>
+							<view class="hang">
+								<text class="gray">预计到访：</text>
+								<text>{{item.visit_time}}</text>
+							</view>
+						</view>
+						<button type="" class="btncolor white xq" bindtap="reportxq" data-id="{{item.id}}" data-status_d='{{item.status}}' data-visitors="{{item.vistors}}" data-ysfy_id="{{item.ysfy_id}}" data-xmbiaoti='{{item.xmbiaoti}}' data-note='{{item.note}}' data-daochang_tupian='{{item.daochang_tupian}}' data-kehu_desc='{{item.kehu_desc}}' data-qrcode='{{item.qrcode}}' data-visit_time="{{item.visit_time}}">详情</button>
+					</view>
+					<view class="fg btngray"></view>
+				</block>
+			</scroll-view>
+		</swiper-item>
+	</swiper>
+	<!-- 悬浮按钮 -->
+	<view class="add" bindtap="report">
+		<image src="{{basicImg}}/housecheckin/btn_add@2x.png"></image>
+	</view>
+</view>

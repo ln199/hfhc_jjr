@@ -1,0 +1,97 @@
+/* pages/choosevillage/choosevillage.wxss */
+/* 搜索 */
+.frame{
+  width:644rpx;
+  height:60rpx;
+  background:#ffffff;
+  border:2rpx solid rgba(159,159,159,1);
+  border-radius:30rpx;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 19rpx;
+  margin-top: 21rpx;
+}
+.frames{
+  width:644rpx;
+  height:60rpx;
+  background:#ffffff;
+  border:2rpx solid rgba(159,159,159,1);
+  border-radius:30rpx;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 19rpx;
+  margin-top: 21rpx;
+}
+.frame_zuo{
+  width:27rpx;
+  height:29rpx;
+  display: block;
+  margin: 15rpx 0 16rpx 73rpx;
+}
+.frame_zhong{
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 27rpx;
+  font-weight: 500;
+  text-align: left;
+  margin-left: 21rpx;
+}
+.frame_you{
+  width: 32rpx;
+  height: 32rpx;
+  display: block;
+  margin-right: 39rpx;
+}
+.hidden{
+  display: none;
+}
+.show{
+  display: block;
+}
+/* 搜索结果 */
+.search-list{
+  padding: 0 40rpx 0 91rpx;
+  font-size: 27rpx;
+  font-weight: 500;
+}
+.search-list view{
+  height: 100rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.choosed{
+  width: 24rpx;
+  height: 24rpx;
+  display: block;
+}
+.grays{
+  color: #9F9F9F;
+  display: none;
+}
+.oranges{
+  color: #EA5413;
+  display: block;
+}
+/* 按钮 */
+.btnk{
+  width: 100%;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  z-index: 1;
+}
+.btnk button{
+  width:648rpx;
+  height:80rpx;
+  border-radius:40rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+  margin-bottom: 80rpx;
+}

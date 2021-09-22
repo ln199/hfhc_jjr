@@ -1,0 +1,71 @@
+/* pages/code/code.wxss */
+.codek{
+  width:680rpx;
+  height:859rpx;
+  background:rgba(242,242,242,1);
+  border-radius:20rpx;
+  margin: auto;
+  margin-top: 17%;
+  padding-top: 41rpx;
+}
+.hanga{
+  width: 100%;
+  height: auto;
+  margin: auto;
+  display: flex;
+  justify-content: flex-start;
+  padding-bottom: 32rpx;
+}
+.userpic{
+  width:120rpx;
+  height:120rpx;
+  border-radius:50%;
+  display: block;
+  margin-left: 41rpx;
+}
+.ming{
+  width: 64%;
+  margin-left: 42rpx;
+  display: flex;
+  flex-direction: column;
+}
+.ming view{
+  font-size: 43rpx;
+  font-weight: bold;
+  margin-bottom: 35rpx;
+}
+.ming text{
+  font-size: 27rpx;
+  font-weight: 500;
+  line-height: 40rpx;
+  text-align: left;
+}
+.code{
+  width:570rpx;
+  height:570rpx;
+  background-color: white;
+  margin: auto;
+  margin-bottom: 33rpx;
+}
+.code image{
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.tips{
+  font-size: 27rpx;
+  font-weight: 500;
+  text-align: center;
+}
+.btn{
+  width:710rpx;
+  height:80rpx;
+  border-radius:40rpx;
+  line-height: 80rpx;
+  text-align: center;
+  font-size: 32rpx;
+  font-weight: 500;
+  margin-top: 17%;
+  padding: 0;
+  margin-bottom: 80rpx;
+}

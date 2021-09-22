@@ -1,0 +1,152 @@
+/* pages/editi/editi.wxss */
+.group {
+  padding: 20rpx 40rpx 0 40rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+}
+
+.linea {
+  height: 119rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1rpx solid #F2F2F2;
+}
+
+.linea text {
+  font-weight: bold;
+  margin-left: 63rpx;
+}
+
+.piczu {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.touxiang {
+  width: 59rpx;
+  height: 59rpx;
+  border-radius: 50%;
+}
+
+.arrow {
+  width: 12rpx;
+  height: 19rpx;
+  display: block;
+  margin-left: 21rpx;
+}
+
+.lineb {
+  height: 119rpx;
+  border-bottom: 1rpx solid #F2F2F2;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.lineb text {
+  font-weight: bold;
+  margin-left: 63rpx;
+}
+
+.lineb input {
+  padding-left: 41rpx;
+}
+
+.piczu text {
+  font-size: 24rpx;
+  font-weight: 500;
+}
+
+.renzheng {
+  width: 24rpx;
+  height: 24rpx;
+  display: block;
+  margin-left: 10rpx;
+}
+
+.linec {
+  height: 119rpx;
+  border-bottom: 1rpx solid #F2F2F2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.linec-left {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.linec-left text {
+  font-weight: bold;
+  width: 128rpx;
+}
+
+.linec-left input {
+  padding-left: 49rpx;
+}
+
+.linec-right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.linec-right text {
+  font-size: 24rpx;
+}
+
+.biao {
+  width: 24rpx;
+  height: 24rpx;
+  display: block;
+  margin-left: 10rpx;
+}
+
+.linee {
+  height: 119rpx;
+  border-bottom: 1rpx solid #F2F2F2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+picker {
+  width: 100%;
+}
+
+.pickerk {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.pickerk text {
+  font-weight: bold;
+  margin-left: 63rpx;
+}
+
+.picker {
+  padding-left: 45rpx;
+}
+
+.lined {
+  padding-top: 44rpx;
+  display: flex;
+  justify-content: flex-start;
+  border-bottom: 1rpx solid #F2F2F2;
+}
+
+.lined text {
+  font-weight: bold;
+}
+
+.lined textarea {
+  height: 190rpx;
+  padding-left: 46rpx;
+  font-size: 32rpx;
+  width: 70%;
+}

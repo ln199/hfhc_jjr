@@ -1,0 +1,22 @@
+/* pages/periphery/periphery.wxss */
+.address-type{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 27rpx;
+  font-weight: 500;
+  line-height: 80rpx;
+}
+.actives{
+  font-weight: bold;
+  color: #EA5413;
+}
+.map_container{ 
+  height: 100%; 
+  width: 100%; 
+}
+.map{
+  width:100%;
+  margin: auto;
+  position: relative;
+}

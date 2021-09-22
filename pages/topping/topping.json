@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "设置置顶",
+  "usingComponents": {
+    "pickerYMDHM": "/components/pickerYMDHM/pickerYMDHM"
+  }
+}

@@ -1,0 +1,7 @@
+<!--pages/applyquit/applyquit.wxml-->
+<view class="box {{isIphoneX?'isIPX':''}}">
+  <view class="wenben">
+    <textarea placeholder="请输入您的离职原因提交管理员审核" bindinput="departure" placeholder-class="placeholder_color"></textarea>
+  </view>
+  <view class="btnk btncolor white" bindtap="submitIntr">提交</view>
+</view>

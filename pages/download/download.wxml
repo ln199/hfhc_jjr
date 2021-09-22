@@ -1,0 +1,8 @@
+<!--pages/download/download.wxml-->
+<view class="box">
+  <view class="download">
+    <image src="{{basicImg}}/img@2x.png"></image>
+    <view>复制链接在浏览器中打开直接下载好房好车APP</view>
+    <button type="" class="btncolor white" bindtap="copyUrl">复制链接</button>
+  </view>
+</view>

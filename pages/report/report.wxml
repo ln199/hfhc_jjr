@@ -1,0 +1,112 @@
+<!--pages/report/report.wxml-->
+<view class="box {{isIphoneX?'isIPX':''}}">
+	<view class="tips gray">温馨提示:报备前请仔细阅读报备规则</view>
+	<form bindsubmit='submitReport'>
+		<view class="group">
+			<view class="titles">报备信息</view>
+			<view class="line">
+				<text><text class="red">*</text>报备楼盘</text>
+				<view class="lineright">
+					<input bindinput="houseName" bindtap="selectHouse" placeholder="请选择报备楼盘" value="{{name}}" disabled></input>
+				</view>
+			</view>
+			<view class="line">
+				<text><text class="red">*</text>到场人数</text>
+				<input type="number" placeholder="请输入到场人数" name="number" placeholder-class="placeholder_color" class="input-text gray"></input>
+			</view>
+			<view class="line">
+				<text><text class="red">*</text>预计到场</text>
+				<view class="lineright">
+					<picker mode="multiSelector" value="{{dateTime}}" bindchange="changeDateTime" bindcolumnchange="changeDateTimeColumn" range="{{dateTimeArray}}">
+						<view class="tui-picker-detail gray">
+							{{selectTime?selectTime:"请选择预计到场时间"}}
+							<!-- {{dateTimeArray[0][dateTime[0]]}}-{{dateTimeArray[1][dateTime[1]]}}-{{dateTimeArray[2][dateTime[2]]}} {{dateTimeArray[3][dateTime[3]]}}:{{dateTimeArray[4][dateTime[4]]}}:{{dateTimeArray[5][dateTime[5]]}} -->
+						</view>
+					</picker>
+					<image src="{{basicImg}}/public/arrow.png" class="arrow"></image>
+				</view>
+			</view>
+			<view class="line">
+				<text><text class="red">*</text>到访情况</text>
+				<radio-group class="radio-group" bindchange="radioChange">
+					<label class="radio" wx:for="{{classes_array}}" wx:key="index">
+						<radio value="{{item.value}}" name="sex" checked="{{sexItem==item.value}}" />
+						<text>{{item.name}}</text>
+					</label>
+				</radio-group>
+			</view>
+		</view>
+		<view class="fg btngray"></view>
+
+		<view>
+			<view class="group">
+				<view class="titles">客户信息(1)</view>
+				<view class="line">
+					<text><text class="red">*</text>客户姓名</text>
+					<view class="lineright" style="width:54%">
+						<input bindinput="userName" placeholder="请输入客户姓名" value="{{user}}"></input>
+					</view>
+					<button type="" class="btncolor white tongxun" bindtap="getBook" data-type="1">通讯录</button>
+				</view>
+				<view class="line">
+					<text><text class="red">*</text>手机号码</text>
+					<input type="number" placeholder="请输入客户手机号码" name="mobile_one" value="{{dianhua}}" placeholder-class="placeholder_color" class="input-text gray"></input>
+				</view>
+				<view class="line">
+					<text><text class="red">*</text>客户性别</text>
+					<view class="lineright">
+						<picker bindchange="bindPickerChangeqk" name="sex_one" value="{{indexqk}}" range="{{arrayqk}}">
+							<view class="picker gray">{{arrayqk[indexqk]}}</view>
+						</picker>
+						<image src="{{basicImg}}/public/arrow.png" class="arrow"></image>
+					</view>
+				</view>
+				<view class="line">
+					<text>身份证号</text>
+					<input type="number" placeholder="请输入客户身份证号" name="idcard" placeholder-class="placeholder_color" class="input-text gray"></input>
+				</view>
+				<button type="" class="addbtn orange" bindtap='addItem' wx:if="{{add}}">添加客户</button>
+			</view>
+
+			<view class="group" wx:if="{{second}}">
+				<view class="titles">客户信息(2)</view>
+				<view class="line">
+					<text><text class="red">*</text>客户姓名</text>
+					<view class="lineright" style="width:54%">
+						<input bindinput="userNames" placeholder="请输入客户姓名" value="{{users}}"></input>
+					</view>
+					<button type="" class="btncolor white tongxun" bindtap="getBook" data-type="2">通讯录</button>
+				</view>
+				<view class="line">
+					<text><text class="red">*</text>手机号码</text>
+					<input type="number" placeholder="请输入客户手机号码" name="mobile_two" placeholder-class="placeholder_color" class="input-text gray"></input>
+				</view>
+				<view class="line">
+					<text><text class="red">*</text>客户性别</text>
+					<view class="lineright">
+						<picker bindchange="bindPickerChangekq" name="sex_two" value="{{indexkq}}" range="{{arraykq}}">
+							<view class="picker gray">{{arrayqk[indexkq]}}</view>
+						</picker>
+						<image src="{{basicImg}}/public/arrow.png" class="arrow"></image>
+					</view>
+				</view>
+				<view class="line">
+					<text>身份证号</text>
+					<input type="number" placeholder="请输入客户身份证号" name="idcards" placeholder-class="placeholder_color" class="input-text gray"></input>
+				</view>
+				<button type="" class="delbtn white" bindtap='removeItem'>删除客户</button>
+			</view>
+			<view class="fg btngray"></view>
+		</view>
+
+
+		<view class="group">
+			<view class="titles">其它信息</view>
+			<view class="linef">
+				<text>备注信息</text>
+				<textarea placeholder="选填，可填写客户意向、户型、面积及其它备注信息" name="note" placeholder-class="placeholder_color" style="font-weight: 500;"></textarea>
+			</view>
+		</view>
+		<view class="btnk"><button form-type='submit' class="btncolor white">马上报备</button></view>
+	</form>
+</view>

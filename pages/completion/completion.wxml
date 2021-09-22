@@ -1,0 +1,35 @@
+<!--pages/completion/completion.wxml-->
+<view class="box">
+	<view class="title">补全信息</view>
+	<view class="subtitle gray">实名用户可以解锁佣金功能</view>
+	<view class="section">
+		<view style="width:90%;">
+			<text class="section__title">经纪公司</text>
+			<text class="picker gray" bindtap="selectCompany">{{company?company:"请选择经纪公司"}}</text>
+		</view>
+		<view class="gray">
+			<image src="{{basicImg}}/login/arrow.png" class="arrow"></image>
+		</view>
+	</view>
+	<view class="titles">身份证</view>
+	<view class="merch_img">
+		<view class="indentityCard">
+			<view class="identityCard_front" bindtap="frontimage">
+				<image wx:if='{{FilePaths.length==0}}' src="{{basicImg}}/login/btn_zm@2x.png" mode="aspecFill"></image>
+				<image wx:if='{{FilePaths.length!=0}}' src="{{FilePaths[0]}}" mode="aspecFill"></image>
+			</view>
+			<view class="identityCard_recite" bindtap="reciteimage">
+				<image wx:if='{{FilePath.length==0}}' src="{{basicImg}}/login/btn_bm@2x.png" mode="aspecFill"></image>
+				<image wx:if='{{FilePath.length!=0}}' src="{{FilePath[0]}}" mode="aspecFill"></image>
+			</view>
+		</view>
+		<view class="tips">
+			<image src="{{basicImg}}/login/icon_zy@2x.png"></image>
+			<text class="gray">格式为 jpg/png，图片不得超过3M</text>
+		</view>
+	</view>
+	<view class="btnzu">
+		<button type="" class="btncolor white" style="margin-bottom:19rpx;" bindtap="submit">提交</button>
+		<button type="" class="orange" style="background-color: white;" bindtap="skip">跳过</button>
+	</view>
+</view>

@@ -1,0 +1,65 @@
+<!--pages/rentalbooks/rentalbooks.wxml-->
+<view class="box {{isIphoneX?'isIPX':''}}">
+<form bindsubmit="nextStep">
+  <view class="graoupa">
+    <view class="title">详细信息</view>
+    <view class="line">
+      <view class="lineleft"><text class="red">*</text>房屋类型</view>
+      <view class="lineright">
+        <picker bindchange="bindPickerChangeqk" name="houseType" value="{{indexqk}}" range="{{arrayqk}}" range-key="lxming" style="width:90%;">
+          <view class="picker gray">{{arrayqk[indexqk].lxming}}</view>
+        </picker>
+        <image src="{{basicImg}}/public/arrow.png" class="arrow"></image>
+      </view>
+    </view>
+    <view class="line">
+      <view class="lineleft">建筑结构</view>
+        <view class="lineright">
+          <picker bindchange="bindPickerChangejg" name="structure" value="{{indexjg}}" range="{{arrayjg}}" range-key="lxming" style="width:90%;">
+            <view class="picker gray">{{arrayjg[indexjg].lxming}}</view>
+          </picker>
+          <image src="{{basicImg}}/public/arrow.png" class="arrow"></image>
+        </view>
+    </view>
+    <view class="line">
+      <view class="lineleft">建筑年代</view>
+      <input type="number" value="" bindinput="" name="years" value="{{fangyuan.niandai || ''}}" placeholder-class="placeholder_color" placeholder="请输入建筑年代" class="input-text"></input>
+    </view>
+    <view class="line">
+      <view class="lineleft">等级</view>
+      <view class="lineright">
+        <picker bindchange="bindPickerChangeqc" name="level" value="{{indexqc}}" range="{{arrayqc}}" range-key="lxming" style="width:90%;">
+          <view class="picker gray">{{arrayqc[indexqc].lxming}}</view>
+        </picker>
+        <image src="{{basicImg}}/public/arrow.png" class="arrow"></image>
+      </view>
+    </view>
+    <view class="line">
+      <view class="lineleft">地铁站</view>
+      <view class="lineright">
+        <picker bindchange="bindPickerChangecx" name="station" value="{{indexcx}}" range="{{arraycx}}" range-key="dtming" style="width:90%;">
+          <view class="picker gray">{{arraycx[indexcx].dtming}}</view>
+        </picker>
+        <image src="{{basicImg}}/public/arrow.png" class="arrow"></image>
+      </view>
+    </view>
+    <view class="line" style="justify-content: space-between;">
+      <view class="lineleft">无税</view>
+      <switch name="noTax" checked="{{fangyuan.wushui == 1}}"/>
+    </view>
+    <view class="line" style="justify-content: space-between;">
+      <view class="lineleft">个税</view>
+      <switch name="personalTax" checked="{{fangyuan.geshui == 1}}"/>
+    </view>
+    <view class="line" style="justify-content: space-between;">
+      <view class="lineleft">增值税</view>
+      <switch name="addedTax" checked="{{fangyuan.zengshui == 1}}"/>
+    </view>
+    <view class="linef">
+      <view class="linefleft">备注</view>
+      <textarea placeholder="请输入备注信息" name="note" value="{{fangyuan.beizhu || ''}}" placeholder-class="placeholder_color" style="font-weight: 500;"></textarea>
+    </view>
+    <view class="btnk"><button form-type='submit' class="btncolor white">提交</button></view>
+  </view>
+</form>
+</view>

@@ -1,0 +1,169 @@
+<!--pages/rentalbook/rentalbook.wxml-->
+<view class="box {{isIphoneX?'isIPX':''}}">
+<form bindsubmit="nextStep">
+  <view class="graoupa">
+    <view class="title">业主信息</view>
+    <view class="line">
+      <view class="lineleft"><text class="red">*</text>业主姓名</view>
+      <input type="text" value="{{user?user:''}}" bindinput="username" name="userName" placeholder-class="placeholder_color" placeholder="请输入客户姓名" class="input-text"></input>
+    </view>
+    <view class="line">
+      <view class="lineleft">业主性别</view>
+      <radio-group class="radio-group" bindchange="radioChange">
+        <label class="radio" wx:for="{{classes_array}}"  wx:key="index">
+          <radio value="{{item.value}}" name="sex" checked="{{realSex==item.value}}" />
+          <text>{{item.name}}</text>
+        </label>
+      </radio-group>
+    </view>
+    <view class="line">
+      <view class="lineleft"><text class="red">*</text>手机号码</view>
+      <input type="number" bindinput="mobile" value="{{phone?phone:''}}" name="mobile" placeholder-class="placeholder_color" placeholder="请输入手机号码" class="input-text"></input>
+    </view>
+    <view class="line">
+      <view class="lineleft">手机归属</view>
+      <view class="lineright">
+        <picker bindchange="bindPickerChange" name="belong" value="{{index}}" range="{{array}}" style="width:90%;">
+          <view class="picker gray">{{array[index]}}</view>
+        </picker>
+        <image src="{{basicImg}}/public/arrow.png" class="arrow"></image>
+      </view>
+    </view>
+    <view class="line">
+      <view class="lineleft">证件类型</view>
+      <input placeholder-class="placeholder_color" placeholder="身份证" class="input-text" disabled="disabled"></input>
+    </view>
+    <view class="line">
+      <view class="lineleft">证件号码</view>
+      <input type="number" bindinput="idnum" value="{{idnumber?idnumber:''}}" name="idNUm" placeholder-class="placeholder_color" placeholder="请输入证件号码" class="input-text"></input>
+    </view>
+  </view>
+  <view class="fg btngray"></view>
+  <view class="groupa">
+    <view class="title">出售信息</view>
+    <view class="line">
+      <view class="lineleft"><text class="red">*</text>房源标题</view>
+      <input type="text" bindinput="titles" value="{{titles?titles:''}}" name="title" placeholder-class="placeholder_color" placeholder="请输入房源标题" class="input-text"></input>
+    </view>
+    <view class="line">
+      <view class="lineleft"><text class="red">*</text>小区</view>
+        <view class="lineright" style="padding-left:0;width:75%;">
+          <input type="text" name="" value="{{xiaoqu || ''}}" placeholder-class="placeholder_color" placeholder="{{xiaoqu?xiaoqu:'请选择小区'}}" class="input-text" disabled="disabled" bindtap="goVillage"></input>
+          <image src="{{basicImg}}/public/arrow.png" class="arrow"></image> 
+      </view>
+    </view>
+    <view class="line">
+      <view class="lineleft"><text class="red">*</text>状态</view>
+      <view class="lineright">
+        <picker bindchange="bindPickerChanget" name="state" value="{{indext}}" range="{{arrayt}}" range-key="lxming" style="width:90%;">
+          <view class="picker gray">{{arrayt[indext].lxming}}</view>
+        </picker>
+        <image src="{{basicImg}}/public/arrow.png" class="arrow"></image>
+      </view>
+    </view>
+    <view class="line">
+      <view class="lineleft"><text class="red">*</text>用途</view>
+      <view class="lineright">
+        <picker bindchange="bindPickerChangej" name="use" value="{{indexj}}" range="{{arrayj}}" range-key="lxming" style="width:90%;">
+          <view class="picker gray">{{arrayj[indexj].lxming}}</view>
+        </picker>
+        <image src="{{basicImg}}/public/arrow.png" class="arrow"></image>
+      </view>
+    </view>
+    <view class="line">
+      <view class="lineleft"><text class="red">*</text>租价</view>
+      <view class="lineright">
+        <input type="number" name="rent" value="{{fangyuan.zujia || ''}}" placeholder-class="placeholder_color" placeholder="请输入租价" class="input-text"></input>
+        <text>元/月</text>
+      </view>
+    </view>
+    <view class="line">
+      <view class="lineleft"><text class="red">*</text>出租底价</view>
+      <view class="lineright">
+        <input type="number" name="minRent" value="{{fangyuan.chuzudj || ''}}" placeholder-class="placeholder_color" placeholder="请输入出租底价" class="input-text"></input>
+        <text>元/月</text>
+      </view>
+    </view>
+    <view class="line">
+      <view class="lineleft"><text class="red">*</text>出租押金</view>
+      <view class="lineright">
+        <input type="number" name="deposit" value="{{fangyuan.chuzuyajin || ''}}" placeholder-class="placeholder_color" placeholder="请输入出租押金" class="input-text"></input>
+        <text>元</text>
+      </view>
+    </view>
+    <view class="line">
+      <view class="lineleft"><text class="red">*</text>出租周期</view>
+      <view class="lineright">
+        <picker bindchange="bindPickerChangezq" name="cycle" value="{{indexzq}}" range="{{arrayzq}}" range-key="lxming" style="width:90%;">
+          <view class="picker gray">{{arrayzq[indexzq].lxming}}</view>
+        </picker>
+        <image src="{{basicImg}}/public/arrow.png" class="arrow"></image>
+      </view>
+    </view>
+    <view class="line">
+      <view class="lineleft"><text class="red">*</text>出租方式</view>
+      <view class="lineright">
+        <picker bindchange="bindPickerChangekf" name="seeWay" value="{{indexkf}}" range="{{arraykf}}" range-key="lxming" style="width:90%;">
+          <view class="picker gray">{{arraykf[indexkf].lxming}}</view>
+        </picker>
+        <image src="{{basicImg}}/public/arrow.png" class="arrow"></image>
+      </view>
+    </view>
+    <view class="line">
+      <view class="lineleft">付款方式</view>
+      <view class="lineright">
+        <picker bindchange="bindPickerChangefk" name="payWay" value="{{indexfk}}" range="{{arrayfk}}" range-key="lxming" style="width:90%;">
+          <view class="picker gray">{{arrayfk[indexfk].lxming}}</view>
+        </picker>
+        <image src="{{basicImg}}/public/arrow.png" class="arrow"></image>
+      </view>
+    </view>
+    <view class="line" wx:if="{{ally==''}}">
+      <view class="lineleft"><text class="red">*</text>合作分佣</view>
+      <view class="lineright">
+        <input type="number" name="cent" value="{{fangyuan.lianmenggx_yongjin || ''}}" placeholder-class="placeholder_color" placeholder="请输入合作分佣比例" class="input-text"></input>
+        <text>%</text>
+      </view>
+    </view>
+    <view class="linec">
+      <view class="linecleft">房屋图片</view>
+      <view class="tips gray">最多30张，限制jpg、png、gif，单张不得超过2M</view>
+      <view class="tips gray">可以拖动调整图片顺序，首张图片为房源主图</view>
+      <view class="img-v">
+        <view class="img" wx:for="{{imgs}}" wx:for-item="item" wx:key="*this">
+          <image src="{{item}}" data-index="{{index}}" mode="aspectFill" bindtap="previewImg"></image>
+          <view class="delete-btn" data-index="{{index}}" catchtap="deleteImg"><image src="{{basicImg}}/housecheckin/btn_del@2x.png"></image></view>
+        </view>
+        <view class="upload-img-btn" bindtap="chooseImg"><image src="{{basicImg}}/housecheckin/btn_img_add@2x.png"></image></view>
+      </view>
+    </view>
+    <view class="linec">
+      <view class="linecleft">户型图片</view>
+      <view class="tips gray">最多2张，限制jpg、png、gif，单张不得超过2M</view>
+      <view class="tips gray">可以拖动调整图片顺序，首张图片为房源主图</view>        
+      <view class="img-v">
+        <view class="img" wx:for="{{imgsHX}}" wx:for-item="item" wx:key="*this">
+          <image src="{{item}}" data-index="{{index}}" mode="aspectFill" bindtap="previewImgHX"></image>
+          <view class="delete-btn" data-index="{{index}}" catchtap="deleteImgHX">
+            <image src="{{basicImg}}/housecheckin/btn_del@2x.png"></image>
+          </view>
+        </view>
+        <view class="upload-img-btn" bindtap="chooseImgHX">
+          <image src="{{basicImg}}/housecheckin/btn_img_add@2x.png"></image>
+        </view>
+      </view>
+		</view>
+    <view class="linec" style="padding-bottom: 61rpx;">
+      <view class="linecleft">房源视频</view>
+      <view class="tips gray">最多1个，不得超过20M</view>
+      <view class="videok">
+        <view class="prew_video" hidden="{{chooesVideo==''}}">
+          <video bindfullscreenchange="bindVideoScreenChange" src="{{chooesVideo}}" controls='{{false}}'></video>
+        </view>
+        <view class='upvideo' bindtap='chooseVideo'><image src="{{basicImg}}/housecheckin/btn_video_add@2x.png"></image></view>
+      </view>
+    </view>
+    <view class="btnk"><button form-type='submit' class="btncolor white">下一步</button></view>
+  </view>
+  </form>
+</view>

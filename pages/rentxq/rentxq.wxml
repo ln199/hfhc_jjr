@@ -1,0 +1,294 @@
+<!--pages/rentxq/rentxq.wxml-->
+<wxs src="../../utils/format.wxs" module="format"></wxs>
+<view class="box {{isIphoneX?'isIPX':''}}">
+	<!-- 轮播 -->
+	<view class="swiper-box">
+		<swiper class="swiper" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay_all}}" interval="{{interval}}" duration="{{duration}}" current="{{currentTab}}" bindchange="swiperTab">
+			<swiper-item>
+				<swiper class="swiper" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" current="{{currentTabs}}">
+					<block wx:for="{{img}}" wx:key="index">
+						<swiper-item>
+							<view style="background-image:url({{item.img_path}})" class="fy-image" data-index="{{index}}" bindtap="previewImg"></view>
+							<!-- <image src="{{item.img_path}}" class="slide-image" mode="aspectFit" data-index="{{index}}" bindtap="previewImg"/> -->
+						</swiper-item>
+					</block>
+				</swiper>
+			</swiper-item>
+			<swiper-item wx:if='{{show_vr}}'>
+				<video id="myVideo" src='{{show_vr}}' bindtap="bofang" controls='true'></video>
+			</swiper-item>
+			<swiper-item wx:if='{{show_vedio}}'>
+				<video id="myVideo" src='{{show_vedio}}' bindtap="bofang" controls='true'></video>
+			</swiper-item>			
+		</swiper>
+		<view class="dots">
+			<view class="dot {{currentTab==current_index?'active':''}}" data-current="{{current_index}}" bindtap="clickTab">图片</view>
+			<view class="dot {{currentTab==1?'active':''}}" wx:if='{{show_vr}}' data-current="1" bindtap="clickTab">VR</view>
+			<view class="dot {{show_vr?(currentTab==2?'active':''):(currentTab==1?'active':'')}}" wx:if='{{show_vedio}}' data-current="{{show_vr?2:1}}" bindtap="clickTab">视频</view>
+		</view>
+	</view>
+	<!-- 房源信息 -->
+	<view class="groupa">
+		<view class="name">{{xiangqing.fybiaoti}}</view>
+		<view class="tips">
+			<text wx:for="{{xiangqing.biaoqian}}" wx:key="index">{{item.lxming}}</text>
+		</view>
+		<view class="kuai">
+			<view class="sj"><text class="orange">{{xiangqing.zujia}}元/月</text><text class="gray">租价</text></view>
+			<view class="xian"></view>
+			<view class="sj"><text>{{xiangqing.huxing.shi}}室{{xiangqing.huxing.ting}}厅{{xiangqing.huxing.wei}}卫</text><text class="gray">户型</text></view>
+			<view class="xian"></view>
+			<view class="sj"><text>{{xiangqing.mianji}}㎡</text><text class="gray">面积</text></view>
+		</view>
+		<view class="kuai1">
+			<view class="kuai1-left">
+				<view><text class="gray">押金：</text><text>{{xiangqing.chuzuyajin || '--'}}元</text></view>
+				<view><text class="gray">方式：</text><text>{{xiangqing.chuzufs_d || ''}}</text></view>
+				<view><text class="gray">装修：</text><text>{{xiangqing.zhuangxiu  || ''}}</text></view>
+				<view><text class="gray">楼层：</text><text>{{xiangqing.louceng || ''}}</text></view>
+				<view><text class="gray">用途：</text><text>{{xiangqing.yongtu || ''}}</text></view>
+				<view><text class="gray">状态：</text><text>{{xiangqing.zhuangtai || ''}}</text></view>
+				<view><text class="gray">供水：</text><text>{{xiangqing.gongshuilx || ''}}</text></view>
+				<view><text class="gray">采暖：</text><text>{{xiangqing.cainuanfs || ''}}</text></view>
+				<view><text class="gray">小区：</text><text>{{xiangqing.xiaoqum || ''}}</text></view>
+			</view>
+			<view class="kuai1-right">
+				<view><text class="gray">租期：</text><text>{{xiangqing.fukuanfs_d || ''}}</text></view>
+				<view><text class="gray">付款：</text><text>{{xiangqing.fukuanfs_d || ''}}</text></view>
+				<view><text class="gray">朝向：</text><text>{{xiangqing.chaoxiang || ''}}</text></view>
+				<view><text class="gray">总高：</text><text>{{xiangqing.zonglouceng || ''}}</text></view>
+				<view><text class="gray">年代：</text><text>{{xiangqing.niandai || ''}}</text></view>
+				<view><text class="gray">现状：</text><text>{{xiangqing.xianzhuang || ''}}</text></view>
+				<view><text class="gray">供电：</text><text>{{xiangqing.gongdianlx || ''}}</text></view>
+				<view><text class="gray">电梯：</text><text>{{xiangqing.dianti || ''}}</text></view>
+				<view><text class="gray">分佣：</text><text>{{xiangqing.lianmenggx_yongjin || ''}}</text></view>
+			</view>
+		</view>
+	</view>
+	<view class="fg btngray"></view>
+	<view class="groupb" wx:if="{{imgsHX.length > 0}}">
+		<view class="groupb-title">房屋户型</view>
+		<scroll-view scroll-x="true" class="housetype-list">
+			<block>			
+				<view wx:for="{{imgsHX}}" wx:key="index" class="housetype-itemk">
+					<view class="housetype-item">
+						<view class="hxpic">
+							<image src="{{domainURL + item.img_path}}" data-index='{{index}}'></image>
+						</view>
+					</view>
+				</view>
+			</block>
+		</scroll-view>
+	</view>
+	<view class="fg btngray" wx:if="{{imgsHX.length > 0}}"></view>
+	<!-- 配套信息 -->
+	<view class="groupb">
+		<view class="groupb-title">配套信息</view>
+		<view class="peitao">
+			<view wx:for="{{xiangqing.peitao}}" wx:key="index" wx:for-item="i">
+				<image src="{{i.img_full_path}}"></image><text>{{i.lxming}}</text>
+			</view>
+		</view>
+	</view>
+	<view class="fg btngray"></view>
+	<!-- 小区信息 {{xiaoqu.}}-->
+	<view class="groupb">
+		<view class="groupb-title">小区信息</view>
+		<view class="kfhang">
+			<view class="gray ku">开发商：</view><text>{{xiaoqu.kaifashang==null?"未设置":xiaoqu.kaifashang}}</text>
+		</view>
+		<view class="kuai1">
+			<view class="kuai1-left">
+				<!-- ==null?"未设置": -->
+				<view>
+					<view class="gray ku">供水类型：</view><text>{{xiaoqu.gongshuilx==null?"未设置":xiaoqu.gongshuilx}}</text>
+				</view>
+				<view>
+					<view class="gray ku">供气类型：</view><text>{{xiaoqu.gongqifs==null?"未设置":xiaoqu.gongqifs}}</text>
+				</view>
+				<view>
+					<view class="gray ku">年限：</view><text>{{xiaoqu.nianxian==null?"未设置":xiaoqu.nianxian}}</text>
+				</view>
+				<view>
+					<view class="gray ku">电梯：</view><text>{{xiaoqu.dianti==null?"未设置":xiaoqu.dianti}}</text>
+				</view>
+				<view>
+					<view class="gray ku">地上车位：</view><text>{{xiaoqu.dshangtcwsl==null?"未设置":xiaoqu.dshangtcwsl}}</text>
+				</view>
+				<view>
+					<view class="gray ku">占地面积：</view><text>{{xiaoqu.zhandimj==null?"未设置":xiaoqu.zhandimj}} ㎡</text>
+				</view>
+				<view>
+					<view class="gray ku">座栋数：</view><text>{{xiaoqu.zdshu==null?"未设置":xiaoqu.zdshu}}</text>
+				</view>
+				<view>
+					<view class="gray ku">容积率：</view><text>{{xiaoqu.rongjilv==null?"未设置":xiaoqu.rongjilv}}</text>
+				</view>
+				<view>
+					<view class="gray ku">开盘时间：</view><text>{{format.formatEmptyDate(xiaoqu.kpshijian==null?"未设置":xiaoqu.kpshijian)}}</text>
+				</view>
+				<view>
+					<view class="gray ku">物业类型：</view><text>{{xiaoqu.wuyelx==null?"未设置":xiaoqu.wuyelx}}</text>
+				</view>
+			</view>
+			<view class="kuai1-right">
+				<view>
+					<view class="gray ku">供电类型：</view><text>{{xiaoqu.gongdianlx==null?"未设置":xiaoqu.gongdianlx}}</text>
+				</view>
+				<view>
+					<view class="gray ku">采暖方式：</view><text>{{xiaoqu.cainuanfs==null?"未设置":xiaoqu.cainuanfs}}</text>
+				</view>
+				<view>
+					<view class="gray ku">建筑年代：</view><text>{{xiaoqu.jianzaond==null?"未设置":xiaoqu.jianzaond}}</text>
+				</view>
+				<view>
+					<view class="gray ku">房屋类型：</view><text wx:for="{{xiaoqu.fwleixing}}" wx:key="index">{{item==null?"未设置":item}}</text>
+				</view>
+				<view>
+					<view class="gray ku">地下车位：</view><text>{{xiaoqu.dxiatcwsl==null?"未设置":xiaoqu.dxiatcwsl}}</text>
+				</view>
+				<view>
+					<view class="gray ku">建筑面积：</view><text>{{xiaoqu.jianzhumj==null?"未设置":xiaoqu.jianzhumj}} ㎡</text>
+				</view>
+				<view>
+					<view class="gray ku">房间数：</view><text>{{xiaoqu.fjshu==null?"未设置":xiaoqu.fjshu}}</text>
+				</view>
+				<view>
+					<view class="gray ku">绿化率：</view><text>{{xiaoqu.lvhualv==null?"未设置":xiaoqu.lvhualv}}</text>
+				</view>
+				<view>
+					<view class="gray ku">入住时间：</view><text>{{format.formatEmptyDate(xiaoqu.rzshijian==null?"未设置":xiaoqu.rzshijian)}}</text>
+				</view>
+				<view>
+					<view class="gray ku">物业费：</view><text>{{xiaoqu.wuyefei==null?"未设置":xiaoqu.wuyefei}}元 / ㎡</text>
+				</view>
+			</view>
+		</view>
+		<view class="kfhang">
+			<view class="gray ku">物业公司：</view><text>{{xiaoqu.wuyemc==null?"未设置":xiaoqu.wuyemc}}</text>
+		</view>
+		<view class="kfhang">
+			<view class="gray ku">小区简介：</view><text>{{xiaoqu.jianjie==null?"未设置":xiaoqu.jianjie}}</text>
+		</view>
+	</view>
+	<view class="fg btngray"></view>
+	<!-- 位置及周边配套 -->
+	<view class="groupd">
+		<view class="groupd-title">位置及周边配套</view>
+		<view class="address">位置：<text>{{address}}</text></view>
+		<view class="map" bindtap="intoMap">
+			<view class="map_container" bindtap="intoMap">
+				<map class="map" bindtap="intoMap" id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" show-location="true" markers="{{markers}}" bindmarkertap="makertap"></map>
+			</view>
+		</view>
+		<view class="address-type gray">
+			<view class="{{indexs==index?'actives':''}}" wx:for="{{surrounding}}" wx:key="index" bindtap="clickEvent" data-index="{{index}}">{{item}}</view>
+		</view>
+	</view>
+	<view class="fg btngray"></view>
+	<!-- 周边出租房 -->
+	<view class="groupe" style="padding-bottom:163rpx">
+		<view class="groupe-title">
+			<text>周边出租房</text>
+			<text class="gray" bindtap="houstRent">查看全部 ></text>
+		</view>
+		<view class="sflist">
+			<view class="list-item" wx:for="{{zhoubian_ershoufang}}" data-id="{{item.id}}" bindtap="hrefSecond" wx:key="index">
+				<view class="pickk">
+									<image src="{{item.img==null||item.img==''?'../../img/public/default.png':item.img}}" data-index='{{index}}' data-img='../../img/public/default.png' binderror='errDetails'></image>
+					<view class="huic">
+						<image src="{{basicImg}}/housecheckin/icon_lm@2x.png"></image>
+						<text class="white">{{item.lianmenggx_yongjin}}</text>
+					</view>
+				</view>
+				<view class="listitem-right">
+					<view class="names">{{item.fybiaoti}}</view>
+					<view class="housexq">{{item.fyhx}}/{{item.mianji}} ㎡/{{item.fycx}}/{{item.xqm}}</view>
+					<view class="tipszu">
+						<text wx:for="{{zhoubian_ershoufang[index].biaoqian}}" wx:key="index" wx:for-item="i">{{i}}</text>
+					</view>
+					<view class="qianzu"><text class="orange">{{item.shoujia}}/月</text></view>
+				</view>
+			</view>
+		</view>
+	</view>
+	<view class="fg btngray"></view>
+	<!-- 底部 -->
+	<!-- 联盟显示:匹配和电话，非联盟显示：匹配和合作 -->
+	<view class="bottom-part">		
+		<view class="more" bindtap="goTips">
+			<image src="{{basicImg}}/housecheckin/bar_btn_more@2x.png"></image>
+		</view>
+		<button class="pipei orange" bindtap="onlineContext">匹配客源</button>
+		<button class="hezuo btncolor white" bindtap="tel" wx:if="{{ally == 1}}">电话沟通</button>
+		<button class="hezuo btncolor white" bindtap="goFaqi" wx:if="{{ally == 0}}">发起合作</button>
+		<button class="hezuo btncolor white" wx:if="{{ally == 3}}">查看合作</button>
+		<!-- Tooltips -->
+		<!-- 联盟显示:分享、收藏和在线沟通，非联盟显示：分享和收藏 -->
+		<view class="tooltipsk" hidden="{{hiddentip}}">
+			<view class="tooltips white">
+				<view bindtap="enjoy">分享</view>
+				<view bindtap="loveHouse">收藏</view>
+				<view bindtap="onlineContext">在线沟通</view>
+			</view>
+			<view class="sanjiao"></view>
+		</view>
+	</view>
+	<!-- 置顶 -->
+	<view class="goTop" hidden='{{!floorstatus}}' bindtap="goTop">
+		<image src="{{basicImg}}/housecheckin/btn_top@2x.png"></image>
+	</view>
+	<!-- 发起合作 -->
+	<view class="grayc" hidden="{{hiddenceng}}">
+		<view class="whitec">
+			<view class="whitec-title">发起合作</view>
+			<view class="whitec-tips">发起合作需消耗<text class="orange">{{cost}} 好房币</text>，支付成功后获得 对方经纪人联系方式，是否确认支付？</view>
+			<view class="whitec-beizhu gray">好房币余额： {{mycoin}}，<text class="blue">去充值 ></text></view>
+			<view class="btnzu">
+				<button type="" class="btncolor white" bindtap="startCooperation">确认支付</button>
+				<button type="" class="orange" bindtap="quxiao">取消</button>
+			</view>
+		</view>
+	</view>
+	<!-- 置顶灰条 -->
+	<view class="goTops white" wx:if="{{tips}}">
+		<text>使用APP签到领好房币！</text>
+		<view class="tips-right">
+			<button class="white btncolor" bindtap="goAPP">下载APP</button>
+			<image bindtap="closeTips" src="{{basicImg}}/my/guanbi@2x.png"></image>
+		</view>
+	</view>
+	<!-- 弹窗 -->
+	<view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+	<view class="modal-dialog" wx:if="{{showModal}}">
+		<view class="modal-content"><text>即将离开微信</text><text>打开“好房好车”</text></view>
+		<view class="modal-footer">
+			<view class="btn-cancel" bindtap="onCancel" data-status="cancel">取消</view>
+			<button class="btn-confirm" bindtap="onConfirm" data-status="confirm" open-type="launchApp" app-parameter="wechat" binderror="launchAppError">允许</button>
+		</view>
+	</view>
+	<!-- 分享弹窗 -->
+	<view class="modal-masks" bindtap="hideModals" catchtouchmove="preventTouchMoves" wx:if="{{showModals}}"></view>
+	<view class="modal-dialogs" wx:if="{{showModals}}">
+		<view class="enjoy-list">
+			<button open-type="share" class="enjoy-item">
+				<image src="{{basicImg}}/public/share_btn_wx@2x.png"></image>
+				<text>微信</text>
+			</button>
+		</view>
+		<view class="btn-cancels" bindtap="onCancels">取消</view>
+	</view>
+	<!-- 电话沟通弹窗 -->
+	<view class="modal-mask-tel" bindtap="hideModaltel" catchtouchmove="preventTouchMovetel" wx:if="{{showModaltel}}"></view>
+	<view class="modal-dialog-tel" wx:if="{{showModaltel}}">
+		<view class="tel-title">电话沟通</view>
+		<view class="tel-hang">
+			<view class="tel-left">
+				<text>{{name}}</text>
+				<text class="gray">{{phone}}</text>
+			</view>
+			<button type="" class="btncolor white hu" bindtap='call'>呼叫</button>
+		</view>
+		<view class="btn-cancel-tel" bindtap="onCanceltel">取消</view>
+	</view>
+</view>

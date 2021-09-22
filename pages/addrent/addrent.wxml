@@ -1,0 +1,49 @@
+<!--pages/addrent/addrent.wxml-->
+<view class="box {{isIphoneX?'isIPX':''}}">
+	<form bindsubmit="nextStep">
+		<view class="graoupa">
+			<view class="title">基本信息</view>
+			<view class="line">
+				<view class="lineleft"><text class="red">*</text>客户姓名</view>
+				<input type="text" name="userName" placeholder-class="placeholder_color" placeholder="请输入客户姓名" class="input-text"></input>
+			</view>
+			<view class="line">
+				<view class="lineleft">客户性别</view>
+				<radio-group class="radio-group" bindchange="radioChange">
+					<label class="radio" wx:for="{{classes_array}}" wx:key="">
+						<radio value="{{item.value}}" name="sex" checked="{{item.checked}}" />
+						<text>{{item.name}}</text>
+					</label>
+				</radio-group>
+			</view>
+			<view class="line">
+				<view class="lineleft"><text class="red">*</text>手机号码</view>
+				<input type="number" bindinput="getMobile" name="mobile" placeholder-class="placeholder_color" placeholder="请输入手机号码" class="input-text"></input>
+			</view>
+			<view class="lined">
+				<view class="linedleft">微信号码</view>
+				<input value="{{wxVal}}" name="weixin" placeholder-class="placeholder_color" placeholder="请输入微信号码" class="input-texts"></input>
+				<view class="tong" bindtap="selectWx">
+				  <label>
+        <checkbox checked="{{wx_check}}"></checkbox>
+          <text>同手机号</text>
+        </label>
+				</view>
+			</view>
+			<view class="line">
+				<view class="lineleft">客户来源</view>
+				<view class="lineright">
+					<picker bindchange="bindPickerChange" name="belong" value="{{index}}" range="{{array}}" range-key="lxming" style="width: 90%;">
+						<view class="picker gray">{{array[index].lxming}}</view>
+					</picker>
+					<image src="{{basicImg}}/public/arrow.png" class="arrow"></image>
+				</view>
+			</view>
+			<view class="linef">
+				<view class="linefleft">备注信息</view>
+				<textarea placeholder="请输入备注信息" name="note" placeholder-class="placeholder_color" style="font-weight: 500;"></textarea>
+			</view>
+			<view class="btnk"><button class="btncolor white" form-type="submit">下一步</button></view>
+		</view>
+	</form>
+</view>

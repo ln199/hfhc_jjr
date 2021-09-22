@@ -1,0 +1,16 @@
+<!--pages/newslist/newslist.wxml-->
+<view class="app">
+	<view class="list" style="height:{{height}}px">
+		<!-- <view type="button" class="read_all" bindtap="readAll">读取所有未读</view> -->
+		<view class="list_item" bindtap="readMsg" wx:for='{{list}}' wx:key='index' data-id='{{item.id}}'>
+		
+			<view class="msg_title"><text class="sign"></text>
+				<view>{{item.msg_source_d}}</view>
+			</view>
+			<view class="item_wrap">
+				<view class="msg_content">{{item.msg}}</view>
+				<view class="circle" wx:if='{{item.is_read==0}}'>1</view>
+			</view>
+		</view>
+	</view>
+</view>

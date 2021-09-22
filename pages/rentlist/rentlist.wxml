@@ -1,0 +1,35 @@
+<!--pages/rentlist/rentlist.wxml-->
+<view class="box {{isIphoneX?'isIPX':''}}">
+	<!-- 搜索 -->
+	<view class='frame'>
+		<image src='{{basicImg}}/login/sousuo@2x.png' class="frame_zuo"></image>
+		<input class="frame_you" bindinput="searchResult" type='text' placeholder='请输入楼盘或客户电话进行搜索' placeholder-class='placeholder_color'></input>
+	</view>
+	<!-- 列表 -->
+	<scroll-view class="tab-scoller" scroll-y="true">
+		<block>
+			<view class="listitem" wx:for='{{keyuan}}' wx:key="index">
+				<view class="itemleft">
+					<view class="hang">
+						<text class="gray">客户姓名：</text>
+						<text>{{item.khxm}}</text>
+					</view>
+					<view class="hang">
+						<text class="gray">需求区域：</text>
+						<text>{{item.xqquyu==""?"暂无信息":item.xqquyu}}</text>
+					</view>
+					<view class="hang">
+						<text class="gray">维护人：</text>
+						<text>{{item.weihuren==""?"暂无信息":item.weihuren}}</text>
+					</view>
+				</view>
+				<button type="" class="btncolor white xq" bindtap="customersDetail" data-id="{{item.id}}" data-private="{{item.is_private}}">详情</button>
+			</view>
+			<view class="fg btngray"></view>
+		</block>
+	</scroll-view>
+	<!-- 悬浮按钮 -->
+	<view class="add" bindtap="addRent">
+		<image src="{{basicImg}}/housecheckin/btn_add@2x.png"></image>
+	</view>
+</view>

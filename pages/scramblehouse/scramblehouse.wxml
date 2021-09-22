@@ -1,0 +1,31 @@
+<!--pages/newhouse/newhouse.wxml-->
+<view class="box {{isIphoneX?'isIPX':''}}">			
+	<!-- 列表 -->
+	<view>
+		<scroll-view scroll-y='true' class="nav-content">
+			<block>
+				<view class="list-item" wx:for="{{houseList}}" wx:key="index" data-id="{{item.id}}" data-name="{{item.xmbiaoti}}" bindtap="hrefDetail">
+					<view class="pickk">
+						<image src="{{item.img==''?'../../img/public/default.png':item.img}}" data-index='{{index}}' data-img='../../img/public/default.png' binderror='errDetails'></image>
+					</view>
+					<view class="listitem-right">
+						<view class="name">
+							<view class="names">{{item.xmbiaoti}}</view>
+							<view class="biao btnblue white" wx:if="{{item.xlpzt=='在售'}}">在售</view>
+							<view class="biao btncolor white" wx:if="{{item.xlpzt=='未开盘'}}">待售</view>
+							<view class="biao white btngray" wx:if="{{item.xlpzt=='售罄'}}">售罄</view>
+						</view>
+						<view class="mian">{{item.xfjunjia}}</view>
+						<!-- <view class="housexq">{{item.lpdizhi}}</view> -->
+						<view class="tipszu">
+							<text wx:for="{{item.tese}}" wx:key="index" wx:for-item="items">{{items}}</text>
+						</view>
+						<view class="qianzu"><text class="orange">{{item.ysfyongjin || '--'}}</text></view>
+						<!-- <text class="gray">建面 {{item.ysfjm}} ㎡</text> -->
+					</view>
+				</view>
+			</block>
+			<view class="zanwu gray">暂无更多</view>
+		</scroll-view>		
+	</view>
+</view>

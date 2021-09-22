@@ -1,0 +1,118 @@
+/* pages/brokered/brokered.wxss */
+.linea{
+  padding-top: 19rpx;
+  border-bottom: 1rpx solid #F2F2F2;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+  margin-bottom: 40rpx;
+  height: 120rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+  width: 90%;
+}
+.linea-left{
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.linea-left text{
+  font-weight: bold;
+}
+.linea-left input{
+  padding-left: 45rpx;
+  text-align: left;
+}
+.linea-right{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+.linea-right text{
+  font-size: 24rpx;
+}
+.linea-right image{
+  width: 27rpx;
+  height: 27rpx;
+  display: block;
+  margin-left: 9rpx;
+}
+.btna{
+  width:648rpx;
+  height:80rpx;
+  border: none;
+  border-radius:40rpx;
+  text-align: center;
+  line-height: 80rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+  margin: auto;
+  margin-bottom: 19rpx;
+}
+.btnb{
+  width:648rpx;
+  height:80rpx;
+  background:#ffffff;
+  border:2rpx solid #ea5413;
+  border-radius:40rpx;
+  text-align: center;
+  line-height: 80rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+  margin: auto;
+}
+/* 弹窗 */
+.modal-mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.5;
+  overflow: hidden;
+  z-index: 9000;
+  color: #fff;
+}
+.modal-dialog {
+  width: 640rpx;
+  height: 320rpx;
+  overflow: hidden;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 9999;
+  border-radius: 16rpx;
+  margin-top: -160rpx;
+  margin-left: -320rpx;
+  background-color: #fff;
+}
+.modal-content {
+  padding: 60rpx 50rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+  text-align: center;
+}
+.modal-footer {
+  display: flex;
+  flex-direction: row;
+  height: 109rpx;
+  border-top: 1px solid #F2F2F2;
+  font-size: 32rpx;
+  line-height: 109rpx;
+}
+.btn-cancel {
+  width: 50%;
+  text-align: center;
+  border-right: 1px solid #F2F2F2;
+}
+.btn-confirm {
+  width: 50%;
+  color: #4A8BF9;
+  text-align: center;
+}

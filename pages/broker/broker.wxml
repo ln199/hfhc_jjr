@@ -1,0 +1,38 @@
+<!--pages/broker/broker.wxml-->
+<view class="box {{isIphoneX?'isIPX':''}}">
+	<!-- 搜索 -->
+	<view class='frame'>
+		<image src='{{basicImg}}/login/sousuo@2x.png' class="frame_zuo"></image>
+		<input class="frame_you" bindinput="searchResult" type='number' placeholder='请输入经纪公司编码或负责人手机号码' placeholder-class='placeholder_color'></input>
+	</view>
+	<!-- 搜索结果 -->
+	<view class="list" wx:if="{{show}}">
+		<view class="list_title" wx:if="{{companyList.length != 0}}">搜索结果</view>
+		<view class="list_title" wx:if="{{companyList.length == 0}}">暂无搜索结果</view>
+		<block wx:for="{{companyList}}" wx:key="index">
+			<view class="list_item {{index==indexc?'active':''}}" bindtap="selectCompany" data-id="{{item.id}}" data-index="{{index}}">
+				<view class="hang">
+					<text class="orange">{{item.name}}</text>
+					<image wx:if="{{index==indexc}}" src="{{basicImg}}/login/radio-checked@2x@2x.png"></image>
+				</view>
+				<view class="hanga">
+					<image src="{{item.avatar_url}}"></image>
+					<text class="namr">{{item.admin}}（负责人）</text>
+					<text class="gray tel">{{item.dianhua || ''}}</text>
+				</view>
+			</view>
+		</block>
+	</view>
+	<!-- 按钮 -->
+	<view class="btnk"><button type="" wx:if="{{showBtn0}}" class="btngray gray">确认选择</button></view>
+	<view class="btnk"><button type="" wx:if="{{showBtn1}}" class="btncolor white" bindtap="submitCompany">确认选择</button></view>
+	<!-- 绑定须知 -->
+	<view class="notek">
+		<view class="notetitle gray">绑定须知</view>
+		<view class="content gray">
+			<text>1.若您所属房产经纪公司未在好房好车开通账号，您可以联系客 服挂靠好房好车经纪公司，解锁全部功能；</text>
+			<text>2.如需开设公司账号，请联系您所在片区好房好车渠道服务人员 或联系客服；</text>
+			<text>3.好房好车客服电话：<text class="blue">4002-123-334</text></text>
+		</view>
+	</view>
+</view>

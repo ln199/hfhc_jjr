@@ -1,0 +1,153 @@
+<!--pages/mycollect/mycollect.wxml-->
+<view class="box {{isIphoneX?'isIPX':''}}">
+	<!-- tab -->
+	<view class="swiper-tab">
+		<view class="swiper-tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="clickTab">新房</view>
+		<view class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab">二手房</view>
+		<view class="swiper-tab-item {{currentTab==2?'active':''}}" data-current="2" bindtap="clickTab">精装二手房</view>
+		<view class="swiper-tab-item {{currentTab==3?'active':''}}" data-current="3" bindtap="clickTab">出租房</view>
+		<view class="swiper-tab-item {{currentTab==4?'active':''}}" data-current="4" bindtap="clickTab">旅居房</view>
+	</view>
+	<!-- 内容 -->
+	<swiper current="{{currentTab}}" duration="300" bindchange="swiperTab" style="height:{{250*cellLength}}px;padding-top:80rpx;">
+
+		<swiper-item>
+			<view class="weui-cells">
+				<mp-slideview wx:for="{{loveDataX}}" wx:key="index" data-id="{{item.id}}" buttons="{{slideButtons}}" bindbuttontap="slideButtonTap" data-type="1" bindtap="intoDetails" bindshow="showxq" bindhide="hidexq">
+					<mp-cell value="" footer="">
+						<view class="itemlist">
+							<view class="pics">
+								<image src="{{item.img}}"></image>
+							</view>
+							<view class="item-right">
+								<view class="linea">
+									<text>{{item.xmbiaoti}}</text>
+									<text class="btnblue white">{{item.xlpzt}}</text>
+								</view>
+								<view class="address">{{item.lpdizhi}}</view>
+								<view class="biaozu">
+									<text wx:for="{{item.tesc}}" wx:key="index" wx:for-item="i">{{i}}</text>
+								</view>
+								<view class="pricek">
+									<text class="orange">{{item.xfjunjia}}</text>
+									<text class="gray">建面{{item.ysfjm}}</text>
+								</view>
+							</view>
+						</view>
+					</mp-cell>
+				</mp-slideview>
+			</view>
+		</swiper-item>
+
+		<swiper-item>
+			<view class="weui-cells">
+				<mp-slideview wx:for="{{loveDataE}}" wx:key="index" data-id="{{item.id}}" buttons="{{slideButtons}}" bindbuttontap="slideButtonTap" data-type="2" bindtap="intoDetails" bindshow="showxq" bindhide="hidexq">
+					<mp-cell value="" footer="">
+						<view class="list-item" bindtap="hrefDetail">
+							<view class="pickk">
+								<image src="{{item.img}}"></image>
+								<!-- <image src="{{basicImg}}/housecheckin/banner.png"></image> -->
+								<view class="huic">
+									<!-- <image src="{{basicImg}}/housecheckin/icon_lm@2x.png"></image> -->
+									<text class="white">{{item.lianmeng_gx_yongjin}}</text>
+								</view>
+							</view>
+							<view class="listitem-right">
+								<view class="name">{{item.fybiaoti}}</view>
+								<view class="housexq">{{item.fyhx}}/{{item.mianji}}㎡/{{item.fycx}}/{{item.xqm}}</view>
+								<view class="tipszu">
+									<text wx:for="{{item.biaoqian}}" wx:key="index" wx:for-item="items">{{items}}</text>
+								</view>
+								<view class="qianzu"><text class="orange">{{item.shoujia}}万</text><text class="gray">{{item.danjia}}/㎡</text></view>
+							</view>
+						</view>
+					</mp-cell>
+				</mp-slideview>
+			</view>
+		</swiper-item>
+
+		<swiper-item>
+			<view class="weui-cells">
+				<mp-slideview wx:for="{{loveDataM}}" wx:key="index" data-id="{{item.id}}" buttons="{{slideButtons}}" bindbuttontap="slideButtonTap" data-type="3" bindtap="intoDetails" bindshow="showxq" bindhide="hidexq">
+					<mp-cell value="" footer="">
+						<view class="list-item" bindtap="hrefDetail">
+							<view class="pickk">
+								<image src="{{item.img}}"></image>
+								<!-- <image src="{{basicImg}}/housecheckin/banner.png"></image> -->
+								<view class="huic">
+									<!-- <image src="{{basicImg}}/housecheckin/icon_lm@2x.png"></image> -->
+									<text class="white">{{item.lianmeng_gx_yongjin}}</text>
+								</view>
+							</view>
+							<view class="listitem-right">
+								<view class="name">{{item.fybiaoti}}</view>
+								<view class="housexq">{{item.fyhx}}/{{item.mianji}}㎡/{{item.fycx}}/{{item.xqm}}</view>
+								<view class="tipszu">
+									<text wx:for="{{item.biaoqian}}" wx:key="index" wx:for-item="items">{{items}}</text>
+								</view>
+								<view class="qianzu"><text class="orange">{{item.shoujia}}万</text><text class="gray">{{item.danjia}}/㎡</text></view>
+							</view>
+						</view>
+					</mp-cell>
+				</mp-slideview>
+			</view>
+		</swiper-item>
+		<swiper-item>
+			<view class="weui-cells">
+				<mp-slideview wx:for="{{loveDataC}}" wx:key="index" data-id="{{item.id}}" buttons="{{slideButtons}}" bindbuttontap="slideButtonTap" data-type="4" bindtap="intoDetails" bindshow="showxq" bindhide="hidexq">
+					<mp-cell value="" footer="">
+						<view class="list-item">
+							<view class="pickk">
+								<image src="{{item.img}}"></image>
+								<view class="huic">
+									<!-- <image src="{{item.img}}"></image> -->
+									<!-- <text class="white">{{item.lianmenggx}}</text> -->
+								</view>
+							</view>
+							<view class="listitem-right">
+								<view class="name">{{item.fybiaoti}}</view>
+								<view class="housexq">{{item.fyhx}}/{{item.mianji}}㎡/{{item.fycx}}/{{item.xqm}}</view>
+								<view class="tipszu">
+									<text wx:for="{{item.biaoqian}}" wx:key="index" wx:for-item="items">{{items}}</text>
+								</view>
+								<view class="qianzu"><text class="orange">{{item.zujia}}元/月</text></view>
+							</view>
+						</view>
+					</mp-cell>
+				</mp-slideview>
+			</view>
+		</swiper-item>
+
+		<swiper-item>
+			<view class="weui-cells">
+				<mp-slideview wx:for="{{loveDataL}}" wx:key="index" data-id="{{item.id}}" buttons="{{slideButtons}}" bindbuttontap="slideButtonTap" data-type="5" bindtap="intoDetails" bindshow="showxq" bindhide="hidexq">
+					<mp-cell value="" footer="">
+						<view class="itemlist">
+							<view class="pics">
+								<image src="{{item.img}}"></image>
+							</view>
+							<view class="item-right">
+								<view class="linea">
+									<text>{{item.xmbiaoti}}</text>
+									<text class="btnblue white">{{item.xlpzt}}</text>
+								</view>
+								<view class="address">{{item.lpdizhi}}</view>
+								<view class="biaozu">
+									<text wx:for="{{item.tesc}}" wx:key="index" wx:for-item="i">{{i}}</text>
+								</view>
+								<view class="pricek">
+									<text class="orange">{{item.xfjunjia}}</text>
+									<text class="gray">建面{{item.ysfjm}}</text>
+								</view>
+							</view>
+						</view>
+					</mp-cell>
+				</mp-slideview>
+			</view>
+		</swiper-item>
+
+
+	</swiper>
+	<!-- 暂无 -->
+	<view class="nomore gray" wx:if='{{loveDataE.length==0}}'><text>-</text>暂无更多<text>-</text></view>
+</view>

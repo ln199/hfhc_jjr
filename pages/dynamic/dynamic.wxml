@@ -1,0 +1,15 @@
+<!--pages/dynamic/dynamic.wxml-->
+<view class="box {{isIphoneX?'isIPX':''}}">
+  <scroll-view class="tab-scoller" scroll-y="true">
+    <block>
+      <view class="listitem" wx:for="{{ysfdt}}">
+        <view class="hotpic"><image src="{{basicImg}}/newhouse/icon_hot@2x.png"></image></view>
+        <view class="words">
+          <text>{{item.dtbiaoti}}</text>
+          <text class="gray">{{item.addtime}}</text>
+        </view>
+      </view>
+      
+    </block>
+  </scroll-view>
+</view>

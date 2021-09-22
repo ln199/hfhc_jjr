@@ -1,0 +1,88 @@
+/* pages/buycompletion/buycompletion.wxss */
+.graoupa{
+  width: 100%;
+  height: auto;
+  margin: auto;
+}
+.title{
+  font-size: 40rpx;
+  font-weight: bold;
+  margin-left: 23rpx;
+  padding-top: 41rpx;
+  padding-bottom: 36rpx;
+}
+.line{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  border-bottom: 1rpx solid #F2F2F2;
+  height: 119rpx;
+  margin: auto 40rpx;
+}
+.lineleft{
+  font-size: 32rpx;
+  font-weight: bold;
+  width: 160rpx;
+  text-align: right;
+}
+.lineright{
+  width: 70%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 41rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+}
+.linerights{
+  width: 70%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 41rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+}
+.arrow{
+  width: 12rpx;
+  height: 19rpx;
+  display: block;
+}
+.picker{
+  font-size: 32rpx;
+  font-weight: 500;
+}
+.input-text{
+  font-size: 32rpx;
+  font-weight: 500;
+  width: 100rpx;
+}
+.input-texts{
+  font-size: 32rpx;
+  font-weight: 500;
+  width: 98rpx;
+}
+.btnk{
+  width: 100%;
+  height: 239rpx;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 85rpx;
+}
+.btnk button{
+  width: 86.36%;
+  height: 80rpx;
+  border-radius: 80rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+}
+.btnk button:last-child{
+  border:2rpx solid rgba(234,84,19,1);
+  margin-top: 19rpx;
+  background-color: #fff;
+}

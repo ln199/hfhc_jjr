@@ -1,0 +1,124 @@
+/* pages/broker/broker.wxss */
+/* 搜索 */
+.frame{
+  width:644rpx;
+  height:60rpx;
+  background:#ffffff;
+  border:2rpx solid rgba(159,159,159,1);
+  border-radius:30rpx;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 39rpx;
+}
+.frame_zuo{
+  width:27rpx;
+  height:29rpx;
+  display: block;
+  margin: 15rpx 21rpx 16rpx 73rpx;
+}
+.frame_you{
+  width: 75%;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 27rpx;
+  font-weight: 500;
+  text-align: left;
+}
+/* 搜索结果 */
+.list{
+  padding: 0 51rpx;
+}
+.list_title{
+  font-size: 32rpx;
+  font-weight: bold;
+  text-align: left;
+  margin-bottom: 21rpx;
+}
+.list_item{
+  width:648rpx;
+  height:243rpx;
+  background:#ffffff;
+  border:2rpx solid rgba(159,159,159,1);
+  border-radius:8rpx;
+  margin: auto;
+  margin-bottom: 19rpx;
+}
+.active{
+  border: 2rpx solid rgba(234,84,19,1);
+}
+.hang{
+  width: 100%;
+  padding: 32rpx 0 31rpx 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.hang text{
+  margin-left: 43rpx;
+  font-size: 40rpx;
+  font-weight: bold;
+}
+.hang image{
+  width: 53rpx;
+  height: 53rpx;
+  display: block;
+  margin-right: 22rpx;
+}
+.hanga{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 27rpx;
+}
+.hanga image{
+  width: 59rpx;
+  height: 59rpx;
+  border-radius: 50%;
+  display: block;
+  margin-left: 30rpx;
+  margin-right: 19rpx;
+}
+.name{
+  font-weight: bold;
+  margin-right: 46rpx;
+}
+.tel{
+  font-weight: 500;
+}
+/* 按钮 */
+.btnk{
+  width: 100%;
+  text-align: center;
+  margin-top: 75rpx;
+  margin-bottom: 80rpx;
+}
+.btnk button{
+  width:648rpx;
+  height:80rpx;
+  border-radius:40rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+  border: none;
+}
+/* 绑定须知 */
+.notek{
+  width:673rpx;
+  height: auto;
+  margin: auto;
+}
+.notetitle{
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 21rpx;
+}
+.content text{
+  font-size: 24rpx;
+  font-weight: 500;
+  line-height: 37rpx;
+  text-align: left;
+}

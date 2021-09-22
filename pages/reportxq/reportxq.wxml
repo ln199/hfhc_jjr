@@ -1,0 +1,63 @@
+<!--pages/reportxq/reportxq.wxml-->
+<view class="box {{isIphoneX?'isIPX':''}}">
+	<view class="function">
+		<navigator hover-class="none" url="/pages/addfollowup/addfollowup">
+			<view class="function-item">
+				<image src="{{basicImg}}/report/btn_tjgj@2x.png"></image>
+				<text>添加跟进</text>
+			</view>
+		</navigator>
+		<navigator hover-class="none" url="/pages/followuprecord/followuprecord">
+			<view class="function-item">
+				<image src="{{basicImg}}/report/btn_bjjl@2x.png"></image>
+				<text>跟进记录</text>
+			</view>
+		</navigator>
+		<navigator hover-class="none">
+			<view class="function-item">
+				<image src="{{basicImg}}/report/btn_lxzc@2x.png"></image>
+				<text>联系驻场</text>
+			</view>
+		</navigator>
+	</view>
+	<view class="fg btngray"></view>
+	<view class="group">
+		<view class="hanga">
+			<view><text class="gray">报备楼盘：</text>{{xmbiaoti}}</view>
+			<view class="orange">{{status_d}}</view>
+		</view>
+		<view class="hang"><text class="gray">到场人数：</text>{{visitors.length}}</view>
+		<block wx:for="{{visitors}}" wx:key="index">
+			<view class="hang"><text class="gray">客户姓名：</text>{{item.name}}</view>
+			<view class="hang"><text class="gray">手机号码：</text>{{item.mobile}}</view>
+		</block>
+		<view class="hang"><text class="gray">预计到场：</text>{{visit_time}}</view>
+		<view class="hang">
+			<text class="gray">备注信息：</text>
+			<view class="kehu">{{note?note:"暂无备注"}}</view>
+		</view>
+	</view>
+	<view class="fg btngray"></view>
+	<view class="groupa">
+		<view class="hangb">
+			<text class="gray">驻场：</text>{{zhuchang_names}}			
+		</view>
+		<!-- <view class="hangb"><text class="gray">客户描述：</text>{{kehu_desc?kehu_desc:"暂无描述"}}</view> -->
+		<view class="hangb" style="margin-bottom:36rpx;">
+			<text class="gray">确认二维码：</text>
+			<view class="erweima">
+				<image bindtap='previewImgs' data-effect_pic='{{qrcode}}' data-src='{{qrcode}}' src="{{qrcode}}" mode="aspectFill"></image>
+			</view>
+		</view>
+		<view class="hangb">
+			<text class="gray">到场图片：</text>
+			<view class="piczu">
+				<block wx:for='{{daochang_tupian}}' wx:key='index'>
+					<block wx:for='{{item.images}}' wx:key='i' wx:for-item="obj">
+						<image src='{{obj.vistor_imgs}}' data-i="{{i}}" data-imgs='{{item.images}}' bindtap='previewImg'></image>
+					</block>					
+				</block>
+			</view>
+		</view>
+	</view>
+</view>

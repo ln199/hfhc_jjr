@@ -1,0 +1,93 @@
+<!--pages/commission/commission.wxml-->
+<view class="box {{isIphoneX?'isIPX':''}}">
+  <view class="commission-title">佣金方案</view>
+  <view class="table">
+    <view class="tr bg-w">
+      <view class="th" style="width:56rpx;">业态</view>
+      <view class="th" style="width:118rpx;">经纪人类型</view>
+      <view class="th" style="width:98rpx;">跳点统计方式</view>
+      <view class="th" style="width:98rpx;">跳点</view>
+      <view class="th" style="width:100rpx;">正常佣金</view>
+      <view class="th" style="width:100rpx;">提前佣金</view>
+      <view class="th" style="width:142rpx;">佣金生效日期</view>
+    </view>
+    <block wx:for="{{listData}}" wx:key="{{code}}">
+      <view class="tr bg-g" wx:if="{{index % 2 == 0}}">
+        <view class="td" style="width:56rpx;">{{item.code}}</view>
+        <view class="td" style="width:90rpx;padding: 0 15rpx;">{{item.text}}</view>
+        <view class="td" style="width:98rpx;">{{item.type}}</view>
+        <view class="td" style="width:98rpx;">{{item.tiao}}</view>
+        <view class="td" style="width:100rpx;">{{item.yong}}</view>
+        <view class="td" style="width:100rpx;">{{item.ti}}</view>
+        <view class="td" style="width:142rpx;">{{item.date}}</view>
+      </view>
+      <view class="tr" wx:else>
+        <view class="td" style="width:56rpx;">{{item.code}}</view>
+        <view class="td" style="width:90rpx;padding: 0 15rpx;">{{item.text}}</view>
+        <view class="td" style="width:98rpx;">{{item.type}}</view>
+        <view class="td" style="width:98rpx;">{{item.tiao}}</view>
+        <view class="td" style="width:100rpx;">{{item.yong}}</view>
+        <view class="td" style="width:100rpx;">{{item.ti}}</view>
+        <view class="td" style="width:142rpx;">{{item.date}}</view>
+      </view>
+    </block>
+  </view>
+  <view class="commission-titles">结佣须知</view>
+  <view class="table">
+    <view class="tr bg-w">
+      <view class="th" style="width:56rpx;">业态</view>
+      <view class="th" style="width:120rpx;">结佣节点</view>
+      <view class="th" style="width:200rpx;">快结比例/快结金额</view>
+      <view class="th" style="width:195rpx;">跳点统计周期</view>
+      <view class="th" style="width:142rpx;">生效日期</view>
+    </view>
+    <block wx:for="{{listDatas}}" wx:key="{{code}}">
+      <view class="tr bg-g" wx:if="{{index % 2 == 0}}">
+        <view class="td" style="width:56rpx;">{{item.code}}</view>
+        <view class="td" style="width:120rpx;">{{item.text}}</view>
+        <view class="td" style="width:200rpx;">{{item.type}}</view>
+        <view class="td" style="width:195rpx;">{{item.tiao}}</view>
+        <view class="td" style="width:142rpx;">{{item.yong}}</view>
+      </view>
+      <view class="tr" wx:else>
+        <view class="td" style="width:56rpx;">{{item.code}}</view>
+        <view class="td" style="width:120rpx;">{{item.text}}</view>
+        <view class="td" style="width:200rpx;">{{item.type}}</view>
+        <view class="td" style="width:195rpx;">{{item.tiao}}</view>
+        <view class="td" style="width:142rpx;">{{item.yong}}</view>
+      </view>
+    </block>
+  </view>
+  <view class="commission-titles">历史佣金方案</view>
+  <view class="table">
+    <view class="tr bg-w" style="background-color:#F2F2F2;">
+      <view class="th" style="width:56rpx;">业态</view>
+      <view class="th" style="width:118rpx;">经纪人类型</view>
+      <view class="th" style="width:98rpx;">跳点统计方式</view>
+      <view class="th" style="width:98rpx;">跳点</view>
+      <view class="th" style="width:100rpx;">正常佣金</view>
+      <view class="th" style="width:100rpx;">提前佣金</view>
+      <view class="th" style="width:142rpx;">佣金生效日期</view>
+    </view>
+    <block wx:for="{{listDatass}}" wx:key="{{code}}">
+      <view class="tr bg-g" wx:if="{{index % 2 == 0}}">
+        <view class="td" style="width:56rpx;">{{item.code}}</view>
+        <view class="td" style="width:90rpx;padding: 0 15rpx;">{{item.text}}</view>
+        <view class="td" style="width:98rpx;">{{item.type}}</view>
+        <view class="td" style="width:98rpx;">{{item.tiao}}</view>
+        <view class="td" style="width:100rpx;">{{item.yong}}</view>
+        <view class="td" style="width:100rpx;">{{item.ti}}</view>
+        <view class="td" style="width:142rpx;">{{item.date}}</view>
+      </view>
+      <view class="tr" wx:else>
+        <view class="td" style="width:56rpx;">{{item.code}}</view>
+        <view class="td" style="width:90rpx;padding: 0 15rpx;">{{item.text}}</view>
+        <view class="td" style="width:98rpx;">{{item.type}}</view>
+        <view class="td" style="width:98rpx;">{{item.tiao}}</view>
+        <view class="td" style="width:100rpx;">{{item.yong}}</view>
+        <view class="td" style="width:100rpx;">{{item.ti}}</view>
+        <view class="td" style="width:142rpx;">{{item.date}}</view>
+      </view>
+    </block>
+  </view>
+</view>

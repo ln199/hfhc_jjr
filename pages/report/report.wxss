@@ -1,0 +1,136 @@
+/* pages/report/report.wxss */
+.tips{
+  line-height: 60rpx;
+  font-size: 24rpx;
+  font-weight: 500;
+  margin-left: 20rpx;
+}
+.group{
+  padding: 0 20rpx 41rpx 20rpx;
+}
+.titles{
+  font-size: 40rpx;
+  font-weight: bold;
+  line-height: 119rpx;
+}
+.line{
+  height: 119rpx;
+  border-bottom: 1rpx solid #F2F2F2;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 32rpx;
+}
+.line text{
+  font-weight: bold;
+}
+.input-text{
+  font-weight: 500;
+  padding-left: 40rpx;
+  color: #2F2F2F;
+}
+.lineright{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 43rpx;
+  width: 70%;
+}
+.arrow{
+  width: 12rpx;
+  height: 19rpx;
+  display: block;
+}
+picker{
+  height: 119rpx;
+  line-height: 119rpx;
+  width: 100%;
+}
+.addbtn{
+  width:280rpx;
+  height:80rpx;
+  background:rgba(255,255,255,1);
+  border:2rpx solid rgba(234,84,19,1);
+  border-radius:40rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+  margin-top: 40rpx;
+}
+.delbtn{
+  width:280rpx;
+  height:80rpx;
+  background:#F94039;
+  border-radius:40rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+  margin-top: 40rpx;
+}
+.fg{
+  width: 100%;
+  height: 8rpx;
+  margin: auto;
+}
+.linef{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 273rpx;
+}
+.linef text{
+  font-size: 32rpx;
+  font-weight: bold;
+  width: 147rpx;
+  text-align: right;
+  padding-top: 44rpx;
+}
+textarea{
+  width: 70%;
+  padding-left: 39rpx;
+  text-align: left;
+  font-size: 32rpx;
+  padding-top: 44rpx;
+  height: 227rpx;
+}
+.btnk button{
+  width:648rpx;
+  height:80rpx;
+  border-radius:40rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+  margin-bottom: 84rpx;
+}
+.tongxun{
+  width:140rpx;
+  height:53rpx;
+  border-radius:27rpx;
+  font-size: 27rpx;
+  font-weight: 500;
+  line-height: 53rpx;
+}
+radio{
+  margin-left: 39rpx;
+}
+radio .wx-radio-input{
+  width: 25rpx;
+  height: 25rpx;
+  border-radius: 50%;
+}
+radio .wx-radio-input.wx-radio-input-checked{
+  width: 25rpx;
+  height: 25rpx;
+  border: 1rpx solid #EA5413 !important;
+  background: #EA5413 !important;
+}
+radio .wx-radio-input.wx-radio-input-checked::before{
+  border-radius: 50%;
+  text-align: center;
+  color: #fff;
+  font-size: 20rpx;
+  transform:translate(-50%, -50%) scale(1);
+  -webkit-transform:translate(-50%, -50%) scale(1);
+}
+.radio text{
+  font-size: 32rpx;
+  font-weight: 500;
+}

@@ -1,0 +1,86 @@
+/* pages/reportxq/reportxq.wxss */
+.function{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 8rpx 20rpx 28rpx 20rpx;
+}
+.function-item{
+  font-size: 24rpx;
+  font-weight: 500;
+}
+.function-item image{
+  width: 80rpx;
+  height: 80rpx;
+  display: block;
+  margin-bottom: 21rpx;
+}
+.fg{
+  width: 100%;
+  height: 8rpx;
+  margin: auto;
+}
+.group{
+  font-size: 27rpx;
+  font-weight: 500;
+  line-height: 48rpx;
+  padding: 36rpx 21rpx 40rpx 47rpx;
+}
+.hang{
+  display: flex;
+  justify-content: flex-start;
+}
+.hanga{
+  display: flex;
+  justify-content: space-between;
+}
+.kehu{
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+}
+.erweima{
+  width:200rpx;
+  height:200rpx;
+  margin-top: 10rpx;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+.erweima image{
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.piczu{
+  width:65%;
+  height: auto;
+  margin-top: 10rpx;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+.piczu image{
+  width:200rpx;
+  height: 200rpx;
+  display: block;
+  margin-right: 20rpx;
+  margin-bottom: 20rpx;
+}
+.groupa{
+  font-size: 27rpx;
+  font-weight: 500;
+  line-height: 48rpx;
+  padding: 36rpx 21rpx 40rpx 21rpx;
+}
+.hangb{
+  display: flex;
+  justify-content: flex-start;
+}
+.hangb text{
+  width: 156rpx;
+  text-align: right;
+}
+.mr10 {
+  margin-right: 10rpx;
+}

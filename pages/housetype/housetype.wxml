@@ -1,0 +1,27 @@
+<!--pages/housetype/housetype.wxml-->
+<view class="box {{isIphoneX?'isIPX':''}}">
+  <!-- TAB -->
+  <view class="swiper-tab">
+    <view wx:for="{{hxjs}}" class="swiper-tab-item {{currentTab==index?'active':''}}" data-current="{{index}}" bindtap="clickTab" data-shi="{{item.shi}}">{{item.jushi}}</view>
+  </view>
+  <!-- 列表 -->
+  <swiper current="{{currentTab}}" duration="300" bindchange="swiperTab" style="height:{{scrollHeight}}px">
+    <swiper-item wx:for="{{hxjs}}" wx:for-item="i" wx:key="index">
+      <scroll-view class="tab-scoller" scroll-y="true" style="height:{{scrollHeight}}px">
+        <block>
+          <view class="housetype-item" wx:for="{{ysfhx}}">
+            <view class="hxpic"><image src="{{item.img_path}}"></image></view>
+            <view class="housetype-you">
+              <view class="hanga">{{item.jushi}}<text class="white btnblue">{{item.hxzhuangtai}}</text></view>
+              <view class="surface">建面 {{item.jzmianji}}㎡  朝向 <text wx:for="{{item.chaoxiang}}" wx:key="index" wx:for-item="key">{{key}}</text></view>
+              <view class="biaoqian">
+                <text class="gray" wx:for="{{item.hxbiaoqian}}" wx:key="index" wx:for-item="i">{{i}}</text>
+              </view>
+              <view class="average orange">均价<text>{{item.ckjunjia}}/㎡</text></view>
+            </view>
+          </view>
+        </block>
+      </scroll-view>
+    </swiper-item>
+  </swiper>
+</view>

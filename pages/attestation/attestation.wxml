@@ -1,0 +1,24 @@
+<!--pages/attestation/attestation.wxml-->
+<view class="box {{isIphoneX?'isIPX':''}}">
+	<view class="att-title">身份证</view>
+	<view class="att-tips gray">实名用户可以解锁佣金功能</view>
+	<view class="merch_img">
+		<view class="indentityCard">
+			<view class="identityCard_front" bindtap="frontimage">
+				<image wx:if='{{FilePaths.length==0}}' src="{{basicImg}}/my/btn_zm@2x.png" mode="aspecFill"></image>
+				<image wx:if='{{FilePaths.length!=0}}' src="{{FilePaths[0]}}" mode="aspecFill"></image>
+			</view>
+			<view class="identityCard_recite" bindtap="reciteimage">
+				<image wx:if='{{FilePath.length==0}}' src="{{basicImg}}/my/btn_bm@2x.png" mode="aspecFill"></image>
+				<image wx:if='{{FilePath.length!=0}}' src="{{FilePath[0]}}" mode="aspecFill"></image>
+			</view>
+		</view>
+		<view class="tips">
+			<image src="{{basicImg}}/login/icon_zy@2x.png"></image>
+			<text class="gray">格式为 jpg/png，图片不得超过3M</text>
+		</view>
+	</view>
+	<view class="btnk">
+		<button type="submit" class="btncolor white" bindtap="submit">提交</button>
+	</view>
+</view>

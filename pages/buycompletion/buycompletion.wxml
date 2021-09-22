@@ -1,0 +1,91 @@
+<!--pages/buycompletion/buycompletion.wxml-->
+<view class="box {{isIphoneX?'isIPX':''}}">
+	<form bindsubmit="complete">
+		<view class="graoupa">
+			<view class="title">客户意向</view>
+			<view class="line">
+				<view class="lineleft">预算</view>
+				<view class="linerights">
+					<input type="number" name='min_price' placeholder-class="placeholder_color" class="input-texts" placeholder="最低"></input>
+					<text style="margin-right: 30rpx;">万元至</text>
+					<input type="number" name='max_price' placeholder-class="placeholder_color" class="input-texts" placeholder="最高"></input>
+					<text>万元</text>
+				</view>
+			</view>
+			<view class="line">
+				<view class="lineleft">面积</view>
+				<view class="linerights">
+					<input type="number" name='min_area' placeholder-class="placeholder_color" class="input-text" placeholder="最小"></input>
+					<text style="margin-right: 16rpx;letter-spacing: 0.5em;">㎡至</text>
+					<input type="number" name='max_area' placeholder-class="placeholder_color" class="input-text" placeholder="最大"></input>
+					<text>㎡</text>
+				</view>
+			</view>
+			<view class="line">
+				<view class="lineleft">户型</view>
+				<view class="linerights">
+					<input type="number" name='min_house' placeholder-class="placeholder_color" class="input-text" placeholder="最小"></input>
+					<text style="margin-right: 16rpx;letter-spacing: 0.5em;">室至</text>
+					<input type="number" name='max_house' placeholder-class="placeholder_color" class="input-text" placeholder="最大"></input>
+					<text>室</text>
+				</view>
+			</view>
+			<view class="line">
+				<view class="lineleft">楼层</view>
+				<view class="linerights">
+					<input type="number" name='min_step' placeholder-class="placeholder_color" class="input-text" placeholder="最小"></input>
+					<text style="margin-right: 16rpx;letter-spacing: 0.5em;">楼至</text>
+					<input type="number" name='max_step' placeholder-class="placeholder_color" class="input-text" placeholder="最大"></input>
+					<text>楼</text>
+				</view>
+			</view>
+			<view class="line">
+				<view class="lineleft">装修</view>
+				<view class="lineright">
+					<picker bindchange="bindPickerChange" name="" value="{{index}}" range="{{array}}" range-key="lxming" style="width: 90%;">
+						<view class="picker gray">{{array[index].lxming}}</view>
+					</picker>
+					<image src="{{basicImg}}/public/arrow.png" class="arrow"></image>
+				</view>
+			</view>
+			<view class="line">
+				<view class="lineleft">朝向</view>
+				<view class="lineright">
+					<picker bindchange="bindPickerChangecx" name="" value="{{indexcx}}" range="{{arraycx}}" range-key="lxming" style="width: 90%">
+						<view class="picker gray">{{arraycx[indexcx].lxming}}</view>
+					</picker>
+					<image src="{{basicImg}}/public/arrow.png" class="arrow"></image>
+				</view>
+			</view>
+			<view class="line">
+				<view class="lineleft">用途</view>
+				<view class="lineright">
+					<picker bindchange="bindPickerChangeyt" name="" value="{{indexyt}}" range="{{arrayyt}}" range-key="lxming" style="width: 90%">
+						<view class="picker gray">{{arrayyt[indexyt].lxming}}</view>
+					</picker>
+					<image src="{{basicImg}}/public/arrow.png" class="arrow"></image>
+				</view>
+			</view>
+			<view class="line">
+				<view class="lineleft">需求区域</view>
+				<view class="lineright">
+					<input type="number" name="area" style="width:100%" placeholder-class="placeholder_color" placeholder="请输入需求区域" class="input-text"></input>
+				</view>
+			</view>
+			
+			<view class="line">
+				<view class="lineleft">意向小区</view>
+				<view class="lineright">
+					<picker bindchange="bindPickerChangexqO" name="" value="{{indexx0}}" range="{{arrayx}}" range-key="xiaoqum" style="width: 90%">
+						<view class="picker gray">{{arrayx[indexx0].xiaoqum}}</view>
+					</picker>
+					<image src="{{basicImg}}/public/arrow.png" class="arrow"></image>
+				</view>
+			</view>
+			<view class="btnk">
+				<button class="btncolor white" form-type="submit" data-type="1">完成</button>
+				<button class="orange" form-type="submit" data-type="0">跳过</button>
+			</view>
+		</view>
+	</form>
+</view>

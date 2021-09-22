@@ -1,0 +1,60 @@
+<!--pages/collaborate/collaborate.wxml-->
+<view class="box {{isIphoneX?'isIPX':''}}">
+	<!-- Tab -->
+	<view class="swiper-tab">
+		<view class="swiper-tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="clickTab">进行中</view>
+		<view class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab">已结束</view>
+	</view>
+	<!-- 列表 -->
+	<swiper current="{{currentTab}}" duration="300" bindchange="swiperTab" style="height:{{scrollHeight}}px;padding-top: 80rpx;">
+		<swiper-item>
+			<scroll-view class="tab-scoller" scroll-y="true" style="height:{{scrollHeight}}px;">
+				<block>
+					<view class="listitem" bindtap="goXq" wx:for="{{doing}}" wx:key="index" data-id="{{item.id}}" data-realtype="{{item.yonghub != user_id?'1':'2'}}">
+						<view class="userk">
+							<image src="{{item.fangyuan.img}}" class="head"></image>
+						</view>
+						<view class="rightp">
+							<view class="hang" style="margin-bottom:24rpx;">
+								<text class="name">{{item.yonghub != user_id?item.duixiang:item.faqizhe}}</text>
+								<view class="biaozu">
+									<text class="{{item.yonghub != user_id?'btnblue':'btncolor'}} white">{{item.yonghub != user_id?"房源方":"合作方"}}</text>
+									<text class="gray"></text>
+								</view>
+							</view>
+							<view class="hang">
+								<view class="project gray">{{item.fangyuan.fybiaoti}}</view>
+							</view>
+						</view>
+					</view>
+				</block>
+			</scroll-view>
+		</swiper-item>
+
+		<swiper-item>
+			<scroll-view class="tab-scoller" scroll-y="true">
+				<block>
+					<view class="listitem" bindtap="goXq" wx:for="{{finish}}" wx:key="index" data-id="{{item.id}}" data-realtype="{{item.yonghub != user_id?'1':'2'}}">
+						<view class="userk">
+							<image src="{{item.fangyuan.img}}" class="head"></image>
+						</view>
+						<view class="rightp">
+							<view class="hang" style="margin-bottom:24rpx;">
+								<text class="name">{{item.yonghub != user_id?item.faqizhe:item.duixiang}}</text>
+								<view class="biaozu">
+									<text class="{{item.yonghub != user_id?'btnblue':'btncolor'}} white">{{item.yonghub != user_id?"房源方":"合作方"}}</text>
+									<text class="gray">分佣{{item.fenyong}}%</text>
+								</view>
+							</view>
+							<view class="hang">
+								<view class="project gray">{{item.fangyuan.fybiaoti}}</view>
+							</view>
+						</view>
+					</view>
+					<view class="fg btngray"></view>
+					<view class="fg btngray"></view>
+				</block>
+			</scroll-view>
+		</swiper-item>
+	</swiper>
+</view>

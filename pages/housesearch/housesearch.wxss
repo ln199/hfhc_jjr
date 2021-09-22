@@ -1,0 +1,113 @@
+/* pages/newhouse/newhouse.wxss */
+/* 下拉筛选框 */
+.box {
+  height: 100%;
+  overflow: hidden;
+}
+
+/* 搜索 */
+.framek {
+  width: 100%;
+  height: 75rpx;
+  margin: auto;
+  background-color: #ffffff;
+  position: relative;
+  z-index: 999;
+  padding-top: 15rpx;
+}
+
+.frame {
+  width: 644rpx;
+  height: 60rpx;
+  background: #ffffff;
+  border: 2rpx solid rgba(159, 159, 159, 1);
+  border-radius: 30rpx;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.frame-l {
+  font-size: 27rpx;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 190rpx;
+  border-right: 1rpx solid #9f9f9f;
+}
+
+.frame-l image {
+  width: 20rpx;
+  height: 20rpx;
+  display: block;
+  margin-left: 8rpx;
+}
+
+.frame-r {
+  width: 70%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.frame_zuo {
+  width: 27rpx;
+  height: 29rpx;
+  display: block;
+  margin-left: 13rpx;
+}
+
+.frame_you {
+  width: 80%;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 27rpx;
+  font-weight: 500;
+  text-align: left;
+  padding-left: 14rpx;
+}
+
+/* 筛选 */
+.nav {
+  position: relative;
+  z-index: 99;
+  display: flex;
+  background: #fff;
+}
+
+.nav-son {
+  display: flex;
+  flex: 1;
+  text-align: center;
+  height: 80rpx;
+  align-items: center;
+  justify-content: center;
+  font-size: 27rpx;
+  font-weight: 500;
+}
+
+.content {
+  display: inline-block;
+  font-size: 27rpx;
+  color: #2F2F2F;
+}
+
+.icon {
+  display: inline-block;
+  color: #000002;
+  width: 8rpx;
+  height: 8rpx;
+  border-top: 2rpx solid #000002;
+  border-right: 2rpx solid #000002;
+  transform: rotate(135deg);
+  margin-left: 7rpx;
+}
+.xq-item {
+  margin: 10rpx;
+  padding-left: 20rpx;
+}
+
+

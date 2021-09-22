@@ -1,0 +1,20 @@
+<!--pages/tool/tool.wxml-->
+<view class="box {{isIphoneX?'isIPX':''}}">
+  <view class="content">
+    <navigator url="" hover-class="none">
+      <view class="io"><image src="{{basicImg}}/tool/tool_btn_fjpg@2x.png"></image><text>房价评估</text></view>
+    </navigator>
+    <navigator url="" hover-class="none">
+      <view class="io"><image src="{{basicImg}}/tool/tool_btn_dkjs@2x.png"></image><text>贷款计算</text></view>
+    </navigator>
+    <navigator url="" hover-class="none">
+      <view class="io"><image src="{{basicImg}}/tool/tool_btn_sfjs@2x.png"></image><text>税费计算</text></view>
+    </navigator>
+    <navigator url="" hover-class="none">
+      <view class="io"><image src="{{basicImg}}/tool/tool_btn_dkzgpg@2x.png"></image><text>贷款资格评估</text></view>
+    </navigator>
+    <navigator url="" hover-class="none">
+      <view class="io"><image src="{{basicImg}}/tool/tool_btn_jyzs@2x.png"></image><text>交易助手</text></view>
+    </navigator>
+  </view>  
+</view>

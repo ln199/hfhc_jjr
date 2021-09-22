@@ -1,0 +1,7 @@
+<!--pages/synopsis/synopsis.wxml-->
+<view class="box {{isIphoneX?'isIPX':''}}">
+  <view class="wenben">
+    <textarea placeholder="请输入您的微店简介" bindinput="readIntr" placeholder-class="placeholder_color"></textarea>
+  </view>
+  <view class="btnk btncolor white" bindtap="getUserInfoAndSubmit">提交</view>
+</view>

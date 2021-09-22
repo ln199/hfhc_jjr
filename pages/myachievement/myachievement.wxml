@@ -1,0 +1,40 @@
+<!--pages/myachievement/myachievement.wxml-->
+<view class="box {{isIphoneX?'isIPX':''}}">
+  <view class="topk">
+    <view class="top">
+      <image src="{{basicImg}}/my/bg_jbzx@2x.png"></image>
+      <view class="outsidek white">
+        <view class="leftp">
+          <view class="all">总业绩</view>
+          <view class="price">{{sum}}<text>元</text></view>
+          <view class="tips">成交业绩以开发商最终确认为准</view>
+        </view>
+        <view class="rightp">
+          <image src="{{avatar_url}}"></image>
+          <text>{{ygmingcheng}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="fg btngray"></view>
+  <view class="middle">
+    <view class="middle-title">业绩明细</view>
+    <view class="middle-item" wx:for="{{results}}" wx:key='index' bindtap="intoDetails">
+      <view class="pic"><image src="{{basicImg}}/my/icon_sr@2x.png"></image></view>
+      <view class="middle-right">
+        <view class="hangyi"><text>成交收入</text><text class="blue">+{{item.fcyj}}</text></view>
+        <view class="shijian gray">{{item.cjtime_d}}</view>
+        <view class="hanger"><text class="gray">楼盘名称：</text><text>{{item.xiangmumc}}</text></view>
+        <view class="hangsan">
+          <view class="ming"><text class="gray">客户姓名：</text><text>{{item.khname}}</text></view>
+          <view class="annv blue" bindtap="look" data-id="{{item.id}}" >查看详情 ></view>
+        </view>
+      </view>
+    </view>
+    <view class="fg btngray"></view>
+  
+
+  </view>
+  <!-- 暂无 -->
+  <view class="nomore gray"><text>-</text>暂无更多<text>-</text></view>
+</view>

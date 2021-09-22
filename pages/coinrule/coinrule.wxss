@@ -1,0 +1,35 @@
+/* pages/coinrule/coinrule.wxss */
+.rules{
+  padding: 40rpx 20rpx 0 20rpx;
+}
+.rule-title{
+  font-size: 40rpx;
+  font-weight: bold;
+  margin-bottom: 40rpx;
+}
+.rule-item{
+  font-size: 27rpx;
+  font-weight: 500;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-bottom: 20rpx;
+}
+.rule-item view{
+  width: 195rpx;
+  text-align: left;
+}
+.rule-item text{
+  width: 90%;
+  margin-left: 38rpx;
+}
+.dui{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+.dui text{
+  margin-left: 29rpx;
+}

@@ -1,0 +1,419 @@
+/* pages/cooperate/cooperate.wxss */
+.top{
+  display: flex;
+  justify-content: flex-start;
+  height: 200rpx;
+  align-items: center;
+}
+.piczu{
+  width: 120rpx;
+  height: 120rpx;
+  position: relative;
+  margin-left: 32rpx;
+  margin-right: 41rpx;
+}
+.tou{
+  width: 120rpx;
+  height: 120rpx;
+  display: block;
+  border-radius: 50%;
+}
+.sex{
+  width: 32rpx;
+  height: 32rpx;
+  display: block;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+}
+.middle{
+  width: 269rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+}
+.middle text:first-child{
+  font-weight: bold;
+  margin-bottom: 20rpx;
+}
+.biaozu text{
+  border-radius: 8rpx;
+  font-size: 24rpx;
+  font-weight: 500;
+}
+.biaozu text:first-child{
+  padding: 9rpx 25rpx;
+  margin-right: 14rpx;
+}
+.biaozu text:last-child{
+  padding: 9rpx 6.5rpx;
+  border: 2rpx solid rgba(159,159,159,1);
+}
+.fg{
+  width: 100%;
+  height: 8rpx;
+  margin: auto;
+}
+/* 合作房源 */
+.cooperate{
+  padding: 0 40rpx 47rpx 31rpx;
+}
+.cooperate-title{
+  font-size: 40rpx;
+  font-weight: bold;
+  line-height: 120rpx;
+}
+.cooperate-bottom{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cooperate-left{
+  font-size: 32rpx;
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+}
+.cooperate-left text:first-child{
+  font-weight: bold;
+  margin-bottom: 19rpx;
+}
+.cooperate-right{
+  font-size: 40rpx;
+  font-weight: bold;
+}
+/* 合作记录 */
+.cooperate-record{
+  padding-top: 43rpx;
+}
+.cooperate-titles{
+  font-size: 40rpx;
+  font-weight: bold;
+  margin-left: 31rpx;
+}
+.expressRecord {
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 23rpx;
+}
+.expressRecord-single-close {
+  width: 100%;
+  height: 143rpx;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+}
+.expressRecord-single-noReach-online-top-close {
+  display: flex;
+  flex-direction: column;
+}
+.dot-closing {
+  width: 28rpx;
+  height: 28rpx;
+  border-radius: 50%;
+  border: 4rpx solid #faddd1;
+  margin-left: 20rpx;
+  background-color:#fff;
+  position: relative;
+}
+.yuaning{
+  width: 20rpx;
+  height: 20rpx;
+  border-radius: 50%;
+  background-color: #EA5413;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -10rpx;
+  margin-left: -10rpx;
+  z-index: 1;
+}
+.dot-close {
+  width: 28rpx;
+  height: 28rpx;
+  border-radius: 50%;
+  border: 4rpx solid #f2f2f2;
+  margin-left: 20rpx;
+  background-color: #fff;
+  position: relative;
+}
+.yuan{
+  width: 20rpx;
+  height: 20rpx;
+  border-radius: 50%;
+  background-color: #f2f2f2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -10rpx;
+  margin-left: -10rpx;
+  z-index: 1;
+}
+.online-bottom {
+  width: 4rpx;
+  height: 50rpx;
+  background-color: #f2f2f2;
+  margin-left: 35rpx;
+}
+.online-bottomimg {
+  width: 4rpx;
+  height: 50rpx;
+  background-color: #faddd1;
+  margin-left: 35rpx;
+}
+.expressRecord-text {
+  width: 85%;
+  margin-left: 20rpx;
+}
+.expressRecord-status {
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 23rpx;
+}
+.expressRecord-status-address {
+  font-size: 32rpx;
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.btnk{
+  padding-top: 13rpx;
+  width: 100%;
+  height: 154rpx;
+  margin: auto;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+}
+.btna{
+  width:648rpx;
+  height:80rpx;
+  border-radius:40rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+}
+.btnb{
+  width:345rpx;
+  height:80rpx;
+  border-radius:40rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+  border: 2rpx solid #EA5413;
+  background-color: #fff;
+}
+.btnc{
+  width:345rpx;
+  height:80rpx;
+  border-radius:40rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+}
+/* 底部 */
+.bottom-part{
+  width:100%;
+  height:150rpx;
+  margin: auto;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  padding-top: 13rpx;
+  position: fixed;
+  bottom: 0;
+}
+.more{
+  width: 80rpx;
+  height: 80rpx;
+  margin-right: 35rpx;
+}
+.more image{
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.bottom-part button{
+  width:280rpx;
+  height:80rpx;
+  border-radius:40rpx;
+  text-align: center;
+  line-height: 80rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+  margin: 0;
+}
+.pipei{
+  border:2rpx solid rgba(234,84,19,1);
+  background-color: #ffffff;
+  margin-right: 21rpx !important;
+}
+.fangqi{
+  width: 702rpx;
+  height: 80rpx;
+  border-radius: 40rpx;
+  text-align: center;
+  line-height: 80rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+}
+/* Tooltips */
+.tooltipsk{
+  position: absolute;
+  bottom: 163rpx;
+  left: 32.5rpx;
+  z-index: 9;
+}
+.tooltips{
+  width: 200rpx;
+  padding: 0 20rpx;
+  background-color: #2f2f2f;
+  font-size: 32rpx;
+  font-weight: 500;
+  border-radius: 8rpx;
+  text-align: center;
+}
+.tooltips view{
+  border-bottom: 1rpx solid #FFFFFF;
+  line-height: 79rpx;
+}
+.tooltips view:last-child{
+  border-bottom: 0;
+}
+.sanjiao{
+  width: 0;
+  height: 0;
+  border-left: 15rpx solid transparent;
+  border-right: 15rpx solid transparent;
+  border-top: 20rpx solid #2F2F2F;
+  margin-left: 25rpx;
+}
+/* 电话沟通 */
+.modal-mask-tel {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,.5);
+  overflow: hidden;
+  z-index: 9000;
+  color: #fff;
+}
+.modal-dialog-tel {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  z-index: 9999;
+  border-radius:8rpx 8rpx 0rpx 0rpx;
+  background-color: #fff;
+}
+.tel-title{
+  font-size: 40rpx;
+  font-weight: bold;
+  line-height: 133rpx;
+  margin-left: 22rpx;
+}
+.tel-hang{
+  width: 670rpx;
+  height: 145rpx;
+  margin: auto;
+  border-bottom: 1rpx solid #F2F2F2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.tel-left{
+  font-size: 27rpx;
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+}
+.tel-left text:first-child{
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 21rpx;
+}
+.hu{
+  width:140rpx;
+  height:53rpx;
+  border-radius:27rpx;
+  font-size: 27rpx;
+  font-weight: 500;
+  text-align: center;
+  line-height: 53rpx;
+  padding: 0;
+  margin: 0;
+}
+.btn-cancel-tel{
+  width: 670rpx;
+  height: 174rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+  text-align: center;
+  line-height: 120rpx;
+  margin: auto;
+}
+/* 终止合作弹窗 */
+.modal-content{
+  width:640rpx;
+  height:260rpx;
+  background:rgba(255,255,255,1);
+  border-radius:16rpx;
+  margin: auto;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -160rpx;
+  margin-left: -320rpx;
+  z-index: 9001;
+  padding-top: 60rpx;
+}
+.wenb{
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #2F2F2F;
+  width: 393rpx;
+  margin: auto;
+  text-align: center;
+  line-height: 48rpx;
+}
+.modal-footer{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 109rpx;
+  border-top: 1rpx solid #F2F2F2;
+}
+.cancel-btn{
+  width: 319rpx;
+  height: 109rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #2F2F2F;
+  border-right: 1rpx solid #F2F2F2;
+  text-align: center;
+  line-height: 109rpx;
+}
+.confirm-btn{
+  width: 320rpx;
+  height: 109rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #4A8BF9;
+  text-align: center;
+  line-height: 109rpx;
+}
+.lxfs {
+  margin-left: 193rpx;
+  margin-bottom: 30rpx;
+  font-size: 32rpx;
+}

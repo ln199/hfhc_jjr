@@ -1,0 +1,38 @@
+<!--pages/historycustomes/historycustomes.wxml-->
+<view class="box" style="height:100%">
+	<!-- tab页 -->
+	<view class="swiper_tab">
+		<view class="swiper_tab_item {{currentTab==index?'active':''}}" bindtap="clickTab" wx:for='{{swiperTab}}' wx:key='index' data-index="{{index}}">{{item}}</view>
+	</view>
+	<!-- 搜索 -->
+	<view>
+		<input class="search_input" placeholder="请输入楼盘或客户电话进行搜索" placeholder-style="color:#ddd;font-size:25rpx"></input>
+	</view>
+	<!-- 列表 -->
+	<swiper current="{{currentTab}}" duration="300" bindchange="swiperTab" style="height:{{windowHeight}}px">
+		<swiper-item wx:for="{{swiperTab}}" wx:key='index' style="height:100%">
+			<scroll-view scroll-y="true" style="height:{{windowHeight}}px" bindscrolltolower='bindscrolltolower'>
+				<block wx:for="{{keyuan}}" wx:key="index">
+					<view class="listitem">
+						<view class="itemleft">
+							<view class="hang">
+								<text class="gray">客户姓名：</text>
+								<text>{{item.khxm}}</text>
+							</view>
+							<view class="hang">
+								<text class="gray">需求区域：</text>
+								<text>{{item.xqquyu}}</text>
+							</view>
+							<view class="hang">
+								<text class="gray">客户来源：</text>
+								<text>{{item.khlaiyuan_d}}</text>
+							</view>
+						</view>
+						<button type="" class="btncolor white xq" bindtap="customersDetail" data-id="{{item.id}}" data-private="{{item.is_private}}">详情</button>
+					</view>
+					<view class="fg btngray"></view>
+				</block>
+			</scroll-view>
+		</swiper-item>
+	</swiper>
+</view>

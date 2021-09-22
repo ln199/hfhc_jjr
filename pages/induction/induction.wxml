@@ -1,0 +1,7 @@
+<!--pages/feedback/feedback.wxml-->
+<view class="box {{isIphoneX?'isIPX':''}}">
+  <view class="wenben">
+    <textarea bindinput="opinion" placeholder="请输入您的入职申请" placeholder-class="placeholder_color"></textarea>
+  </view>
+  <view class="btnk btncolor white" bindtap="submit">申请</view>
+</view>

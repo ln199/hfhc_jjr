@@ -1,0 +1,15 @@
+<!--pages/newhouse/newhouse.wxml-->
+<view class="box {{isIphoneX?'isIPX':''}}">
+	<!-- 搜索 -->
+	<view class="framek">
+		<view class='frame'>			
+			<view class="frame-r">
+				<image src='{{basicImg}}/newhouse/sousuo@2x.png' class="frame_zuo"></image>
+				<input class="frame_you" focus="{{true}}" bindinput="search" type='text' placeholder='请输入搜索内容' placeholder-class='placeholder_color'></input>
+			</view>
+		</view>
+	</view>
+	<view wx:for="{{list}}" wx:key="index" class="xq">
+		<view class="xq-item" bindtap="goList" data-xq="{{item.xiaoqum || item.title}}">{{item.xiaoqum || item.title}}</view>
+	</view>
+</view>

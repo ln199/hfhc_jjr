@@ -1,0 +1,107 @@
+<!--pages/housecheckin2/housecheckin2.wxml-->
+<view class="box {{isIphoneX?'isIPX':''}}">
+	<form bindsubmit="nextStep">
+		<view class="groupa">
+			<view class="title">房屋信息</view>
+			<view class="line">
+				<view class="lineleft"><text class="red">*</text>位置</view>
+				<view class="lineright" style="justify-content: flex-start;padding-left: 23rpx;">
+					<input type="number" name="building" placeholder-class="placeholder_color" placeholder="几栋" class="input-texts"></input>
+					<text class="gray" style="padding-right:15rpx;">|</text>
+					<input type="number" name="unit" placeholder-class="placeholder_color" placeholder="几单元" class="input-texts"></input>
+					<text class="gray" style="padding-left:15rpx;">|</text>
+					<input type="number" name="num" placeholder-class="placeholder_color" placeholder="门牌号" class="input-texts"></input>
+				</view>
+			</view>
+			<view class="line">
+				<view class="lineleft"><text class="red">*</text>楼层</view>
+				<view class="lineright" style="justify-content: flex-start;">
+					<input type="number" name="inStep" placeholder-class="placeholder_color" placeholder="第几层" class="input-texts"></input>
+					<text class="gray" style="padding-left:15rpx;">|</text>
+					<input type="number" name="totalStep" placeholder-class="placeholder_color" placeholder="总楼层" class="input-texts"></input>
+				</view>
+			</view>
+			<view class="line">
+				<view class="lineleft">梯户</view>
+				<view class="lineright" style="justify-content: flex-start;padding-left: 7rpx;">
+					<input type="number" name="stepNum" placeholder-class="placeholder_color" placeholder="几梯" class="input-texts"></input>
+					<text class="gray" style="">|</text>
+					<input type="number" name="stepUser" placeholder-class="placeholder_color" placeholder="几户" class="input-texts"></input>
+				</view>
+			</view>
+			<view class="line">
+				<view class="lineleft"><text class="red">*</text>户型</view>
+				<view class="lineright" style="justify-content: flex-start;padding-left: 16rpx;">
+					<input type="number" name="houseRoom" placeholder-class="placeholder_color" placeholder="几室" class="input-texts"></input>
+					<text class="gray">|</text>
+					<input type="number" name="houseHall" placeholder-class="placeholder_color" placeholder="几厅" class="input-texts"></input>
+					<text class="gray">|</text>
+					<input type="number" name="houseToilet" placeholder-class="placeholder_color" placeholder="几卫" class="input-texts"></input>
+					<text class="gray" style="padding-right:15rpx;">|</text>
+					<input type="number" name="houseBalcony" placeholder-class="placeholder_color" placeholder="几阳台" class="input-texts"></input>
+				</view>
+			</view>
+			<view class="line">
+				<view class="lineleft"><text class="red">*</text>面积</view>
+				<view class="lineright" style="justify-content: flex-start;">
+					<input type="number" name="areaHouse" placeholder-class="placeholder_color" placeholder="建筑面积" class="input-texts"></input>
+					<text class="gray" style="padding:0 15rpx;">|</text>
+					<input type="number" name="areaCover" placeholder-class="placeholder_color" placeholder="套内面积" class="input-texts"></input>
+				</view>
+			</view>
+			<view class="line">
+				<view class="lineleft"><text class="red">*</text>朝向</view>
+				<view class="lineright">
+					<picker bindchange="bindPickerChangel" name="direction" value="{{indexl}}" range="{{arrayl}}" range-key="lxming" style="width:90%;">
+						<view class="picker gray">{{arrayl[indexl].lxming}}</view>
+					</picker>
+					<image src="{{basicImg}}/public/arrow.png" class="arrow"></image>
+				</view>
+			</view>
+			<view class="line">
+				<view class="lineleft"><text class="red">*</text>装修</view>
+				<view class="lineright">
+					<picker bindchange="bindPickerChanget" name="decorate" value="{{indext}}" range="{{arrayt}}" range-key="lxming" style="width:90%;">
+						<view class="picker gray">{{arrayt[indext].lxming}}</view>
+					</picker>
+					<image src="{{basicImg}}/public/arrow.png" class="arrow"></image>
+				</view>
+			</view>
+			<view class="line">
+				<view class="lineleft"><text class="red">*</text>现状</view>
+				<view class="lineright">
+					<picker bindchange="bindPickerChangej" name="shape" value="{{indexj}}" range="{{arrayj}}" range-key="lxming" style="width:90%;">
+						<view class="picker gray">{{arrayj[indexj].lxming}}</view>
+					</picker>
+					<image src="{{basicImg}}/public/arrow.png" class="arrow"></image>
+				</view>
+			</view>
+			<view class="line">
+				<view class="lineleft"><text class="red">*</text>来源</view>
+				<view class="lineright">
+					<picker bindchange="bindPickerChangely" name="source" value="{{indexly}}" range="{{arrayly}}" range-key="lxming" style="width:90%;">
+						<view class="picker gray">{{arrayly[indexly].lxming}}</view>
+					</picker>
+					<image src="{{basicImg}}/public/arrow.png" class="arrow"></image>
+				</view>
+			</view>
+			<view class="lineb">
+				<view class="lineb_left">房屋配套</view>
+				<view class="biaozu">
+					<view class="box-container {{item.states==1?'_left':'left'}}" wx:for="{{list}}" wx:key="index">
+						<view bindtap='goIndex' data-index="{{index}}">{{item.lxming}}</view>
+					</view>
+				</view>
+			</view>
+			<view class="lineb">
+				<view class="lineb_left">房源标签</view>
+				<view class="biaozu">
+					<view class="box-container {{item.states==1?'_left':'left'}}" wx:for="{{lists}}" wx:key="index">
+						<view bindtap='goIndexs' data-lxid='{{item.lxid}}' data-index="{{index}}">{{item.lxming}}</view>
+					</view>
+				</view>
+			</view>
+			<view class="btnk"><button form-type='submit' class="btncolor white">下一步</button></view>
+		</view>
+	</form>
+</view>

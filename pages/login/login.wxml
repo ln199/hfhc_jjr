@@ -1,0 +1,35 @@
+<!--pages/login/login.wxml-->
+<view class="login_wrap">
+	<!-- logo -->
+	<view class="logo_wrap">
+		<image class="logo" src="{{basicImg}}/login/login_img_logo@2x.png"></image>
+    <view class="phone_text">账号密码登录</view>
+	</view>
+	<!-- 表单 -->
+	<view class="reg_form">
+		<input class="weui-input form_input" value="{{mobile}}" type="text" bindinput="mobile" placeholder="请输入手机号" />
+	</view>
+  <view class="reg_form">
+		<input class="weui-input form_input" password value="{{password}}" type="text" bindinput="password" placeholder="请输入密码" placeholder-class="placeholder_color"></input>
+	</view>
+  <!-- 按钮 -->
+  <view class="login btncolor white" bindtap="login">登录</view>
+  <!-- 注册 -->
+  <view class="footer">
+    <view class="gray">没有账号，<text class="blue" bindtap="regPage">去注册</text></view>
+    <view class="blue" bindtap="intoForget">忘记密码</view>
+  </view>    
+  <!-- 第三方登录 -->
+  <!-- <view class="trilateral-login gray">
+    <text>——</text>
+    <text style="margin:0 10rpx;">第三方账号登录</text>
+    <text>——</text>
+  </view>
+  <view class="weixin-btn">
+    <image src="{{basicImg}}/login/weixin@2x.png"></image>
+    <text class="gray">微信</text>    
+    <button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" class="shouquan"></button>
+  </view> -->
+</view>
+<!-- 协议 -->
+<view class="agreement gray">点击登录则代表您已经同意<text class="blue" bindtap="userAgreement">用户协议</text>和<text class="blue" bindtap="privateAgreement">隐私政策</text></view>

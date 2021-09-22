@@ -1,0 +1,67 @@
+/* pages/historycustomes/historycustomes.wxss */
+.active {
+  color: #2F2F2F;
+  font-weight: bold;
+}
+
+.swiper_tab {
+  width: 65%;
+  height: 50rpx;
+  padding: 0 120rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 25rpx;
+}
+
+.search_input {
+  width: 60%;
+  border: 2rpx solid rgba(159, 159, 159, 1);
+  margin: 40rpx auto;
+  border-radius: 30rpx;
+  padding: 10rpx 100rpx;
+  background: url('https://www.hfhchsh.com/Upload/wximg/login/sousuo@2x.png') no-repeat;
+  background-size: 43rpx;
+  background-position: 43rpx 10rpx;
+  font-size: 28rpx;
+}
+
+.list {
+  height: 100%;
+}
+
+.listitem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 23rpx;
+  padding-bottom: 45rpx;
+}
+
+.itemleft {
+  line-height: 48rpx;
+  margin-left: 19rpx;
+}
+
+.hang {
+  font-size: 27rpx;
+  font-weight: 500;
+}
+
+.xq {
+  width: 140rpx;
+  height: 53rpx;
+  border-radius: 27rpx;
+  font-size: 27rpx;
+  font-weight: 500;
+  padding: 0;
+  margin: 0;
+  line-height: 53rpx;
+  margin-right: 23rpx;
+}
+
+.fg {
+  width: 100%;
+  height: 8rpx;
+  margin: auto;
+}

@@ -1,0 +1,129 @@
+/* pages/runshop/runshop.wxss */
+.top{
+  padding: 38rpx 0 0 0;
+}
+.top-title{
+  font-size: 40rpx;
+  font-weight: bold;
+  line-height: 84rpx;
+  margin-left: 41rpx;
+}
+.hangb{
+  padding: 21rpx 40rpx;
+  margin: auto;
+  border-bottom: 1rpx solid #F2F2F2;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.hangb text{
+  font-size: 32rpx;
+  font-weight: bold;
+}
+.piczu{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+.tou{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+}
+.arrow{
+  width: 12rpx;
+  height: 19rpx;
+  display: block;
+  margin-left: 21rpx;
+}
+.hangb-right{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+.hangb-right text{
+  font-size: 32rpx;
+  font-weight: 500;
+}
+.fg{
+  width: 100%;
+  height: 7rpx;
+  margin: auto;
+}
+/* tab */
+.swiper-tab{
+  width: 100%;
+  text-align: center;
+  height: 80rpx;
+  line-height: 80rpx;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+}
+.swiper-tab-item{
+  width: 25%; 
+  color: #9F9F9F;
+  font-size: 27rpx;
+  font-weight: 500;
+}
+.active{
+  color:#2F2F2F;
+  font-size: 27rpx;
+  font-weight: bold;
+}
+swiper{
+  padding-top: 23rpx;
+}
+.tip{
+  font-size: 24rpx;
+  font-weight: 500;
+  margin-bottom: 12rpx;
+  margin-left: 40rpx;
+}
+.list{
+  padding: 0 40rpx;
+}
+.list-item{
+  width: 100%;
+  height: 119rpx;
+  border-bottom: 1rpx solid #F2F2F2;
+}
+.inside{
+  width: 100%;
+  height: 119rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.item-left{
+  font-size: 32rpx;
+  font-weight: bold;
+}
+.item-right{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+.picker{
+  font-size: 32rpx;
+  font-weight: 500;
+}
+.item-right image{
+  width: 12rpx;
+  height: 19rpx;
+  display: block;
+  margin-left: 21rpx;
+}
+.btna{
+  width:710rpx;
+  height:80rpx;
+  border-radius:40rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+  margin-top: 80rpx;
+}

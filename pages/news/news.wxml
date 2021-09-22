@@ -1,0 +1,31 @@
+<!--pages/news/news.wxml-->
+<view class="box {{isIphoneX?'isIPX':''}}">
+	<view class="topart" bindtap="intoSystemList">
+		<view class="leftp">
+			<image src="{{basicImg}}/news/im_btn_tzxx@2x.png"></image>
+			<text>通知信息</text>
+		</view>
+		<view class="num" wx:if='{{unread_msg!=0}}'>{{unread_msg}}</view>
+	</view>
+	<view class="fg btngray"></view>
+	<scroll-view scroll-y='true' class="newslist">
+		<block>
+			<view class="newsitem" bindtap="intoDeails" wx:for="{{conversationList}}" wx:key='index' data-friendId='{{item.userProfile.userID}}' data-friendName="{{item.userProfile.nick}}" data-friendAvatarUrl="{{item.userProfile.avatar}}" data-conversationID="{{item.conversationID}}">
+				<view class="partleft">
+					<view class="userpic">
+						<image src="{{item.userProfile.avatar}}"></image>
+					</view>
+					<view class="middle">
+						<text>{{item.userProfile.nick}}</text>
+						<text class="gray">{{item.lastMessage.show_short_info}}</text>
+					</view>
+				</view>
+				<view class="partright">
+					<text class="gray">{{item.lastMessage.lastTime}}</text>
+					<view class="num" wx:if='{{item.unreadCount !=0}}'>{{item.unreadCount}}</view>
+				</view>
+			</view>
+			<view class="error_show" wx:if='{{conversationList.length==0}}'>– 暂无消息 -</view>
+		</block>
+	</scroll-view>
+</view>

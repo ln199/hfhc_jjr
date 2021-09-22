@@ -1,0 +1,19 @@
+<view class="loupanlist">
+    <view wx:for="{{loupanList}}" class="loupanhaibaoList">
+        <view class="leftImg">
+            <image src="{{domainURL+item.img_path}}" />
+        </view>
+        <view class="rightContent">
+            <view>
+                {{item.content}}
+            </view>
+            <view class="time">
+                {{item.create_time}}
+            </view>
+            <view class="btn">
+                <view class="checkImg" data-imgpath="{{domainURL+item.img_path}}" bindtap="previewImg">查看图片</view>
+                <view class="copywa" data-text="{{item.content}}" bindtap="copyText">复制文案</view>
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,102 @@
+/* pages/login/login.wxss */
+.login_wrap{
+  width: 86.36%;
+  margin: auto;
+}
+/* logo */
+.logo_wrap{
+  width: 100%;
+  text-align: center;
+  padding: 65rpx 0;
+}
+.logo {
+  width: 376rpx;
+  height: 50rpx;
+  display: block;
+  margin: auto;
+  margin-bottom: 33rpx;
+}
+.phone_text {
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+  font-size: 48rpx;
+}
+/* 表单 */
+.reg_form {
+  margin-top: 40rpx;
+}
+.form_input {
+  width: 100%;
+  height: 80rpx;
+  margin-bottom: 40rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+}
+/* 按钮 */
+.login {
+  width: 100%;
+  height: 80rpx;
+  margin: auto;
+  border-radius: 80rpx;
+  text-align: center;
+  line-height: 80rpx;
+  margin-top: 80rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+  margin-bottom: 73rpx;
+}
+/* 注册 */
+.footer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 27rpx;
+  font-weight: 400;
+}
+/* 协议 */
+.agreement{
+  margin: auto;
+  font-size: 27rpx;
+  font-weight: 400;
+  text-align: center;
+  position: fixed;
+  bottom: 103rpx;
+  left: 0;
+  right: 0;
+}
+.agreement text{
+  margin: 0 3rpx;
+}
+/* 第三方登录 */
+.trilateral-login{
+  text-align: center;
+  font-size: 27rpx;
+  font-weight: 400;
+  margin-top: 80rpx;
+}
+.weixin-btn image{
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 8rpx;
+}
+.weixin-btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 27rpx;
+  font-weight: 400;
+  margin-top: 69rpx;
+  position: relative;
+}
+.shouquan{
+  width: 200rpx;
+  height: 60rpx;
+  background: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}

@@ -1,0 +1,55 @@
+.loupanlist{
+
+}
+.loupanhaibaoList{
+    display: flex;
+    align-items: center;
+    border: 1px solid #f1f0f0;
+    padding: 30rpx 20rpx 30rpx 20rpx;
+}
+.leftImg{
+    width: 250rpx;
+    height: 325rpx;
+    margin-right: 20rpx;
+}
+.leftImg image{
+    width: 250rpx;
+    height: 325rpx;
+
+}
+.rightContent{
+    display: flex;
+    flex-direction: column;
+}
+.time{
+    color: gray;
+    font-size: 26rpx;
+    margin-bottom: 18rpx;
+}
+.btn{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.checkImg{
+    width: 148rpx;
+    height: 48rpx;
+    line-height: 48rpx;
+    text-align: center;
+    border: 1px solid #ec5c31;
+    color: #ec5c31;
+    border-radius: 27rpx;
+    font-size: 24rpx;
+    margin-right: 20rpx;
+}
+.copywa{
+    width: 148rpx;
+    height: 48rpx;
+    line-height: 48rpx;
+    text-align: center;
+    background-color: #ec5c31;
+    border: 1px solid ec5c31;
+    color:white;
+    border-radius: 27rpx;
+    font-size: 24rpx;
+}

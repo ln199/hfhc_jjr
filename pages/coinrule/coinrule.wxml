@@ -1,0 +1,46 @@
+<!--pages/coinrule/coinrule.wxml-->
+<view class="box {{isIphoneX?'isIPX':''}}">
+  <view class="rules">
+    <view class="rule-title">好房币获取规则</view>
+    <view class="rule-item">
+      <view>1.充值：</view>
+      <view class="dui" style="width:90%;">
+      <text wx:for = "{{chongzhi}}">
+      {{item.k}}元={{item.v}}好房币
+      </text>
+      </view>
+    </view>
+    <view class="rule-item">
+      <view>2.注册：</view>
+      <text>注册成功获得 {{zhuce}} 好房币；</text>
+    </view>
+    <view class="rule-item">
+      <view>3.实名认证：</view>
+      <text>实名认证通过获得 {{shimingrenzheng}} 好房币；</text>
+    </view>
+    <view class="rule-item">
+      <view>4.一周签到：</view>
+      <text>周一到周日，分别获得 {{qiandao}}好房币；</text>
+    </view>
+    <view class="rule-item">
+      <view>5.分享：</view>
+      <text>成功分享微店/房源获得 {{fenxiangfangyuan}} 好房币；</text>
+    </view>
+    <view class="rule-item">
+      <view>6.有效报备：</view>
+      <text>有效报备获得 {{baobei}} 好房币；</text>
+    </view>
+    <view class="rule-item">
+      <view>7.上传房源：</view>
+      <text>成功上传房源获得 {{shangchuanfangyuan}} 好房币；</text>
+    </view>
+    <view class="rule-item">
+      <view>8.合作房源：</view>
+      <text>成功合作房源获得 {{hezuofangyuan}} 好房币；</text>
+    </view>
+    <view class="rule-item">
+      <view>9.成交：</view>
+      <text>成交获得 {{chengjiao}} 好房币；</text>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,31 @@
+<!--pages/gotop/gotop.wxml-->
+<view class="box {{isIphoneX?'isIPX':''}}">
+  <view class="sflist">
+    <view class="list-item">
+      <view class="pickk">
+        <image src="{{details.img[0]}}"></image>
+        <view class="huic">
+          <image src="{{basicImg}}/housecheckin/icon_lm@2x.png"></image>
+          <text class="white">{{details.lianmenggx_yongjin}}</text>
+        </view>
+      </view>
+      <view class="listitem-right">
+        <view class="names">{{details.fybiaoti}}</view>
+        <view class="housexq">{{details.huxing.shi}}室{{details.huxing.ting}}厅/{{details.mianji}}㎡/{{details.chaoxiang}}/{{details.xiaoqum}}</view>
+        <view class="tipszu">
+          <text wx:for="{{details.biaoqian}}" wx:key="index" wx:for-item="i">{{i.lxming}}</text>
+        </view>
+        <view class="qianzu"><text class="orange">{{details.shoujia}}万</text><text class="gray">{{details.danjia}}/㎡</text></view>
+      </view>
+    </view>
+  </view>
+  <view class="fg btngray"></view>
+  <view class="tips" wx:if="{{mybalance>0}}">设置置顶需消耗<text class="orange">1</text>置顶次数，支付成功后获得 对方经纪人联系方式，是否确认支付？</view>
+   <view class="tips">设置置顶需消耗<text class="orange">{{cost}}好房币</text>，支付成功后获得 对方经纪人联系方式，是否确认支付？</view>
+  <view class="beizhu gray">好房币余额： {{mycoin}}，<text class="blue">去充值 > </text></view>
+  <view class="beizhu gray" wx:if="{{mybalance>0}}">置顶套餐余额： {{mybalance}}次，<text class="blue">去兑换 > </text></view>
+  <view class="btnzu">
+    <button type="" class="btncolor white" bindtap="payToTop">支付</button>
+    <button type="" class="orange" bindtap="backPage">取消</button>
+  </view>
+</view>

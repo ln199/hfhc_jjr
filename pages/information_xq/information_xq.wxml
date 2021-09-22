@@ -1,0 +1,4 @@
+<!--pages/information_xq/information_xq.wxml-->
+<view class="box {{isIphoneX?'isIPX':''}}"></view>
+<web-view src="http://www.hfhchsh.com/brokerweb/hfzixun/zxs?id={{id}}"></web-view>
+

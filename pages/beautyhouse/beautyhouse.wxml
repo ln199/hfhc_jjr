@@ -1,0 +1,134 @@
+<!--pages/beautyhouse/beautyhouse.wxml-->
+<view class="box {{isIphoneX?'isIPX':''}}">
+	<!-- 搜索 -->
+	<view class="framek">
+		<view class='frame'>
+			<image src='{{basicImg}}/housecheckin/sousuo@2x.png' class="frame_zuo"></image>
+			<input class="frame_you" bindtap="search" value="{{search}}" type='text' placeholder='搜索' placeholder-class='placeholder_color'></input>
+		</view>
+	</view>
+	<!-- 轮播图 -->
+	<view class='swiper-box'>
+		<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="swiperChange">
+			<block wx:for="{{imgUrls}}" wx:key="index">
+				<swiper-item>
+					<image src="{{item.img_url}}" class="slide-image" bindtap="advertising" data-action="{{item.action}}" />
+				</swiper-item>
+			</block>
+		</swiper>
+		<view class="dots">
+			<block wx:for="{{imgUrls}}" wx:key="index">
+				<view class="dot{{index == swiperCurrent ? ' active' : ''}}"></view>
+			</block>
+		</view>
+	</view>
+	<!-- 筛选 -->
+	<view class="nav">
+		<view class="nav-son {{shownavindex == 1? 'active' : ''}}" bindtap="listqy" data-nav="1">
+			<view class="content">{{name1}}</view>
+			<view class="icon"></view>
+		</view>
+		<view class="nav-son {{shownavindex == 2? 'active' : ''}}" bindtap="list" data-nav="2">
+			<view class="content">{{name2}}</view>
+			<view class="icon"></view>
+		</view>
+		<view class="nav-son {{shownavindex == 3? 'active' : ''}}" bindtap="listhx" data-nav="3">
+			<view class="content">{{name3}}</view>
+			<view class="icon"></view>
+		</view>
+		<view class="nav-son {{shownavindex == 4? 'active' : ''}}" bindtap="listpx" data-nav="4">
+			<view class="content">{{name4}}</view>
+			<view class="icon"></view>
+		</view>
+	</view>
+	<!-- 区域筛选 -->
+	<view class="quyu {{qyopen ? 'slidown' : 'slidup'}} {{qyshow ? 'disappear':''}}">
+		<view class="qy quyu-left">
+			<view class="{{select1 == index ? 'current' : ''}}" wx:for="{{cityleft}}" bindtap="selectleft" data-city='{{index}}'>
+				{{item.name}}
+			</view>
+		</view>
+		<view class="qy quyu-center" style="width:74%;float:right;">
+			<view class="{{select2 == index ? 'current2' : ''}}" wx:for="{{cityleft[select1].item}}" bindtap="selectcenter" data-city='{{index}}' data-id="{{item.id}}">
+				<label bindtap="selectcenter" data-city='{{index}}' data-id="{{item.id}}">{{item.name}}</label>
+				<image src='{{basicImg}}/housecheckin/icon_sel@2x.png' style="{{select2 == index?'display:block':'display:none'}}" class="tiao"></image>
+			</view>
+		</view>
+		<view class='form-btn'>
+			<button class='btn-reset' bindtap='quyuEmpty'>重置</button>
+			<button class='btn-submit' bindtap='submitFilter'>确定</button>
+		</view>
+	</view>
+	<!-- 价格筛选 -->
+	<view class="quyu {{nzopen ? 'slidown' : 'slidup'}} {{nzshow ? 'disappear':''}}">
+		<view class="qy quyu-left">
+			<view class="{{select4 == index ? 'current6' : ''}}" wx:for="{{priceleft}}" bindtap="selectprice" data-price="{{index}}">
+				{{item.name}}
+			</view>
+		</view>
+		<view class="qy quyu-center" style="width:74%;float:right;">
+			<view class="jiage">
+				<input type="number" bindinput="min_price_d" placeholder="最低单价" placeholder-class="placeholder_color"></input>
+				<text>至</text>
+				<input type="number" bindinput="max_price_d" placeholder="最高单价" placeholder-class="placeholder_color" style="padding-left: 38rpx;"></input>
+			</view>
+			<view class="{{select5 == index ? 'current7' : ''}}" wx:for="{{priceleft[select4].item}}" bindtap="selectpr" data-min="{{item.min}}" data-max="{{item.max}}" data-price="{{index}}">
+				<label bindtap="selectpr" data-min="{{item.min}}" data-max="{{item.max}}" data-price="{{index}}">{{item.name}}</label>
+				<image src='{{basicImg}}/housecheckin/icon_sel@2x.png' style="{{select5 == index?'display:block':'display:none'}}" class="tiao"></image>
+			</view>
+		</view>
+		<view class='form-btn'>
+			<button class='btn-reset' bindtap='PriceEmpty'>重置</button>
+			<button class='btn-submit' bindtap='submitPrice'>确定</button>
+		</view>
+	</view>
+	<!-- 户型筛选 -->
+	<view class="temp temp3 {{hxopen ? 'slidown' : 'slidup'}} {{hxshow ? 'disappear':''}}">
+		<view style="padding: 35rpx 26rpx 0 26rpx;height:370rpx;">
+			<view wx:for="{{content}}" bindtap='selectHX' data-index="{{index}}" class="tempview3 {{hxIndex == index?'current5':''}}">
+				<label>{{item}}</label>
+			</view>
+		</view>
+		<view class='form-btn'>
+			<button class='btn-reset' bindtap='hxEmpty'>重置</button>
+			<button class='btn-submit' bindtap='submithx'>确定</button>
+		</view>
+	</view>
+	<!-- 排序筛选 -->
+	<view class="temp temp2 contentCenter {{pxopen ? 'slidown' : 'slidup'}} {{pxshow ? 'disappear':''}}">
+		<view wx:for="{{contents}}" bindtap='selectPX' data-index="{{index}}" data-id="{{item.id}}" class="{{pxIndex == index?'current4':''}}">
+			<label bindtap='selectPX' data-index="{{index}}">{{item.comment}}</label>
+			<image src='{{basicImg}}/housecheckin/icon_sel@2x.png' style="{{pxIndex == index?'display:block':'display:none'}}" class="tiao"></image>
+		</view>
+		<view class='form-btn'>
+			<button class='btn-reset' bindtap='typeEmpty'>重置</button>
+			<button class='btn-submit' bindtap='submittype'>确定</button>
+		</view>
+	</view>
+	<!-- 灰层 -->
+	<view wx:if="{{isfull}}" class="fullbg {{isfull ?'fullopacity':''}}" bindtap="hidebg"></view>
+	<!-- 列表 -->
+	<view hidden="{{hidden}}">
+		<scroll-view scroll-y='true' class="nav-content">
+			<block>
+				<view class="list-item" wx:for="{{houseList}}" wx:key="index" data-id="{{item.id}}" bindtap="hrefDetail">
+					<view class="pickk">
+						<image src="{{item.img==''?'../../img/public/default.png':item.img}}" data-index='{{index}}' data-img='../../img/public/default.png' binderror='errDetails'></image>
+						<view class="huic">
+							<image src="{{basicImg}}/housecheckin/icon_lm@2x.png"></image>
+							<text class="white">{{item.lianmeng_gx_yongjin}}</text>
+						</view>
+					</view>
+					<view class="listitem-right">
+						<view class="name">{{item.fybiaoti}}</view>
+						<view class="housexq">{{item.fyhx}}/{{item.mianji}}㎡/{{item.fycx}}/{{item.xqm}}</view>
+						<view class="tipszu">
+							<text wx:for="{{item.biaoqian}}" wx:key="index" wx:for-item="items">{{items}}</text>
+						</view>
+						<view class="qianzu"><text class="orange">{{item.shoujia}}万</text><text class="gray">{{item.danjia}}/㎡</text></view>
+					</view>
+				</view>
+			</block>
+		</scroll-view>
+	</view>
+</view>

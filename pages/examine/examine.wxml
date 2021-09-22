@@ -1,0 +1,8 @@
+<!--pages/examine/examine.wxml-->
+<view class="box {{isIphoneX?'isIPX':''}}">
+  <view class="kong">
+    <image src="{{basicImg}}/my/img_fbcg@2x.png"></image>
+    <text class="gray">您的离职申请已提交，请等待管理员审核</text>
+  </view>
+  <view class="btnk"><button type="" class="white btncolor" bindtap="backHome">返回</button></view>
+</view>

@@ -1,0 +1,77 @@
+<!--pages/topping/topping.wxml-->
+<view class="box {{isIphoneX?'isIPX':''}}">
+	<view class="swiper-tab">
+		<view class="swiper-tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="clickTab">立即置顶</view>
+		<view class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab">预约置顶</view>
+	</view>
+
+	<swiper current="{{currentTab}}" duration="300" bindchange="swiperTab" style="height:{{scrollHeight}}px">
+		<!-- 立即置顶 -->
+		<swiper-item>
+			<view class="groupa">
+				<view class="leftp">置顶余额：<text>{{balance || 0}}</text>次</view>
+				<view class="blue" bindtap="goBuy">去购买 ></view>
+			</view>
+			<view class="fg btngray"></view>
+			<view class="cont">
+				<view class="texts">设置置顶需消耗<text class="orange num">1 次</text>置顶套餐余额，支付成功 后立即刷新置顶，是否确认支付？</view>
+				<view class="tips gray">提示：</view>
+				<view class="tipswords gray">
+					<text>1.刷新后将立即获得相应区域的信息排位置顶展示效果。</text>
+					<text>2.当前时间刷新一次。</text>
+				</view>
+			</view>
+			<view class="btnzu" style="margin-top:500rpx;">
+				<button type="" bindtap="payAndSubmit" class="btncolor white">支付并置顶</button>
+				<button type="" bindtap="backPage" class="orange">取消</button>
+			</view>
+		</swiper-item>
+		<swiper-item>
+			<view class="groupa">
+				<view class="leftp">置顶余额：<text>{{balance}}</text>次</view>
+				<view class="blue" bindtap="goBuy">去购买 ></view>
+			</view>
+			<view class="fg btngray"></view>
+			<view class="conts">
+				<view class="hanga">
+					<view class="hang-left">开始时间</view>
+					<view class="hang-right">
+						<pickerYMDHM bind:onPickerChange="onPickerChange3" date="{{endedTime}}"></pickerYMDHM>
+						<image src="{{basicImg}}/public/arrow.png" class="arrow"></image>
+					</view>
+				</view>
+				<view class="hanga">
+					<view class="hang-left">时间间隔</view>
+					<picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}" range-key="name">
+						<view class="hang-right">
+							{{array[index].name}}
+							<image src="{{basicImg}}/public/arrow.png" class="arrow"></image>
+						</view>
+					</picker>
+				</view>
+				<view class="hanga">
+					<view class="hang-left">每天次数</view>
+					<picker bindchange="bindPickerChanges" value="{{indexs}}" range="{{arrays}}" range-key="name">
+						<view class="hang-right">
+							{{arrays[indexs].name}}
+							<image src="{{basicImg}}/public/arrow.png" class="arrow"></image>
+						</view>
+					</picker>
+				</view>
+				<view class="hanga">
+					<view class="hang-left">每天刷新</view>
+					<switch bindchange="switchChange" color="#EA5413" class="switch_default_address"></switch>
+				</view>
+				<view class="tips gray">提示：</view>
+				<view class="tipswords gray">
+					<text>1.设置时间早于当前时间，已过时的设置当天不再进行置顶刷新。</text>
+					<text>2.当置顶套餐余额不足时，将会终止自动刷新。购买套餐后需重 新设置预约置顶。</text>
+				</view>
+			</view>
+			<view class="btnzu">
+				<button type="" bindtap="payAndSubmit" class="btncolor white">支付并置顶</button>
+				<button type="" bindtap="backPage" class="orange">取消</button>
+			</view>
+		</swiper-item>
+	</swiper>
+</view>

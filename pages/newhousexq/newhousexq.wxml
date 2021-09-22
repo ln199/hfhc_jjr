@@ -1,0 +1,338 @@
+<!--pages/newhousexq/newhousexq.wxml-->
+<wxs src="../../utils/format.wxs" module="format"></wxs>
+<view class="box {{isIphoneX?'isIPX':''}}">
+	<!-- 轮播 -->
+	<view class="swiper-box">
+		<swiper class="swiper" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay_all}}" interval="{{interval}}" duration="{{duration}}" current="{{currentTab}}" bindchange="swiperTab">
+			<swiper-item>
+				<swiper class="swiper" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" current="{{currentTabs}}">
+					<block wx:for="{{photo}}" wx:key="index">
+						<swiper-item>
+							<view style="background-image:url({{item.img_path}})" class="fy-image" data-index="{{index}}" bindtap="previewImg"></view>
+							<!-- <image src="{{item.img_path}}" class="slide-image" mode="aspectFit" data-index="{{index}}" bindtap="previewImg"/> -->
+						</swiper-item>
+					</block>
+				</swiper>
+			</swiper-item>
+			<swiper-item wx:if='{{show_vr}}'>
+				<video id="myVideo" src='{{show_vr}}' bindtap="bofang" controls='true'></video>
+			</swiper-item>
+			<swiper-item wx:if='{{show_vedio}}'>
+				<video id="myVideo" src='{{show_vedio}}' bindtap="bofang" controls='true'></video>
+			</swiper-item>			
+		</swiper>
+		<view class="dots">
+			<view class="dot {{currentTab==current_index?'active':''}}" data-current="{{current_index}}" bindtap="clickTab">图片</view>
+			<view class="dot {{currentTab==1?'active':''}}" wx:if='{{show_vr}}' data-current="1" bindtap="clickTab">VR</view>
+			<view class="dot {{show_vr?(currentTab==2?'active':''):(currentTab==1?'active':'')}}" wx:if='{{show_vedio}}' data-current="{{show_vr?2:1}}" bindtap="clickTab">视频</view>
+		</view>
+	</view>
+	<!-- 房源信息 -->
+	<view class="groupa">
+		<view class="name">{{ysfang.xmbiaoti||''}}</view>
+		<view class="tips">
+			<text wx:for="{{ysfang.tese}}" wx:key='index'>{{item}}</text>
+		</view>
+		<view class="kuai1">
+			<view class="kuai1-left">
+				<view><text class="gray">均价：</text><text class="orange">{{ysfang.junjia||''}}</text></view>
+				<view><text class="gray">用途：</text><text>{{ysfang.wuyelx||''}}</text></view>
+				<view><text class="gray">户型：</text><text>{{ysfang.jushi||''}}</text></view>
+			</view>
+			<view class="kuai1-right">
+				<view><text class="gray">总价：</text><text class="orange">{{ysfang.zongjia||''}}万/套起</text></view>
+				<view><text class="gray">开盘：</text><text>{{format.formatEmptyDate(ysfang.kaipansj||'')}}</text></view>
+				<view><text class="gray">建面：</text><text>{{ysfang.ysfjm||''}}</text></view><!-- ㎡ -->
+			</view>
+		</view>
+		<view class="kuai">
+			<view class="kuai2">
+				<text class="gray">地址：</text>
+				<text style="width:88%;">{{ysfang.lpdizhi}}</text>
+			</view>
+			<image src="{{basicImg}}/public/arrow.png" class="arrow"></image>
+		</view>
+	</view>
+	<view class="fg btngray"></view>
+	<!-- tab -->
+	<view class="swiper-tab">
+		<view class="swiper-tab-item {{currentTabs==0?'actives':''}}" data-current="0" bindtap="clickTabs">详情</view>
+		<view class="swiper-tab-item {{currentTabs==1?'actives':''}}" data-current="1" bindtap="clickTabs">推广</view>
+		<view class="swiper-tab-item {{currentTabs==2?'actives':''}}" data-current="2" bindtap="clickTabs">周边</view>
+		<view class="swiper-tab-item {{currentTabs==3?'actives':''}}" data-current="3" bindtap="clickTabs">动态</view>
+	</view>
+	<view class="fg btngray"></view>
+	<swiper current="{{currentTabs}}" duration="300" bindchange="swiperTabs" style="height:{{scrollHeight}}px">
+		<!-- 详情 -->
+		<swiper-item>
+			<!-- 佣金 -->
+			<view class="commission">
+				<view class="commission-title" bindtap="commission">
+					<text>佣金</text>
+					<view class="all gray" wx:if="{{companyName!=''}}">查看全部({{ysfang.yongjin.length}})<image src="{{basicImg}}/public/arrow.png"></image>
+					</view>
+				</view>
+				<!-- 用户已绑定经济公司 -->
+				<scroll-view scroll-x="true" class="commission-list" wx:if="{{companyName!=''}}">
+					<block>
+						<view class="commission-itemk" wx:for="{{ysfang.yongjin_entity}}" wx:key='index'>
+							<view class="commission-item btncolor white">
+								<view style="margin-bottom:20rpx">{{item.srule||''}}</view>
+								<view>{{item.sset||''}}</view>
+							</view>
+						</view>
+					</block>
+				</scroll-view>
+				<!-- 用户未绑定经济公司 -->
+				<view class="bang" wx:if="{{companyName==''}}">
+					<text class="gray">绑定公司才能查看佣金哦</text>
+					<button type="" class="btncolor white" bindtap="bang">绑定公司</button>
+				</view>
+				<!-- 报名人数和剩余时间 -->
+				<!-- <view class="hangz gray" wx:if="{{companyName!=''}}">
+					<view>报名人数：<text>1167</text></view>
+					<view>剩余时间：<text>32</text>天</view>
+				</view> -->
+			</view>
+			<view class="fg btngray"></view>
+			<!-- 报备规则 -->
+			<view class="rule">
+				<view class="rule-title">报备规则</view>
+				<view class="rules">
+					<view wx:for="{{ysfang.baobeiguize}}" wx:key='index'><text class="gray" >{{item.title||''}}：</text><text>{{item.show_value||''}}</text></view>
+				</view>
+			</view>
+			<view class="fg btngray"></view>
+			<!-- 抢展位 -->
+			<view class="booth">
+				<view class="booth-title">抢展位</view>
+				<view class="booth-list">
+					<view class="booth-item gray" wx:for="{{ysfang.zhanwei}}" wx:key='index'>
+						<image src="{{item.avatar}}"></image>
+						<text style="margin-bottom: 19rpx;">{{item.ysfy_biaoti||''}}</text>
+						<text>{{item.time_d||''}}</text>
+					</view>
+				</view>
+				<view class="booth-btn"><button type="" class="btncolor white" bindtap="settled">立即入驻</button></view>
+			</view>
+			<view class="fg btngray"></view>
+			<!-- 户型 -->
+			<view class="housetype">
+				<view class="commission-title" bindtap="housetype">
+					<text>户型</text>
+					<view class="all gray">查看全部<image src="{{basicImg}}/public/arrow.png"></image>
+					</view>
+				</view>
+				<scroll-view scroll-x="true" class="housetype-list">
+					<block>
+						<view class="housetype-itemk" wx:for="{{ysfhx}}" wx:key="index">
+							<view class="housetype-item">
+								<view class="hxpic">
+									<image src="{{basicImg}}/newhouse/huxing.png"></image>
+								</view>
+								<view class="hanga">{{item.jushi||''}}<text class="white btnblue">{{item.hxzhuangtai||''}}</text></view>
+								<view class="biaoqian">
+									<text class="gray" wx:for="{{item.hxbq}}" wx:key='index' wx:for-item="i" wx:if="{{index < 4}}">{{i.lxming}}</text>
+								</view>
+								<view class="surface">建面 {{item.jzmianji||''}}㎡ 朝向{{item.hxcx||''}}</view>
+								<view class="average orange">均价<text>{{item.ckjunjia||''}}/㎡</text></view>
+							</view>
+
+						</view>
+					</block>
+				</scroll-view>
+			</view>
+			<view class="fg btngray"></view>
+			<!-- 楼盘信息 -->
+			<view class="building">
+				<view class="building-title">楼盘信息</view>
+				<view class="kuai1">
+					<view class="kuai1-left">
+						<view><text class="gray">开盘时间：</text><text>{{format.formatEmptyDate(ysfang.kaipansj||'')}}</text></view>
+						<view><text class="gray">绿化率：</text><text>{{ysfang.lvhualv||''}}%</text></view>
+						<view><text class="gray">装修情况：</text><text>{{ysfang.zhuangxiu||''}}</text></view>
+						<view><text class="gray">占地面积：</text><text>{{ysfang.zdmianji||''}}㎡</text></view>
+						<view><text class="gray">建筑面积：</text><text>{{ysfang.jzmianji||''}}㎡</text></view>
+					</view>
+					<view class="kuai1-right">
+						<view><text class="gray">房屋用途：</text><text>{{ysfang.wuyelx||''}}</text></view>
+						<view><text class="gray">容积率：</text><text>{{ysfang.rongjilv||''}}</text></view>
+						<view><text class="gray">产权年限：</text><text>{{ysfang.cqnx||''}}年</text></view>
+						<view><text class="gray">停车位：</text><text>车位配比 {{ysfang.cwpeibi||''}}</text></view>
+					</view>
+				</view>				
+				<view class="kuai1"><text class="gray">交房时间：</text><text>{{format.formatEmptyDate(ysfang.jiaofangsj)||''}}</text></view>
+				<view class="kuai1"><text class="gray">物管公司：</text><text>{{ysfang.wuyegongsi||''}}</text></view>
+				<view class="kuai1"><text class="gray">开发商：</text><text>{{ysfang.kaifashang||''}}</text></view>
+				<view class="kuai1"><text class="gray">售楼地址：</text><text>{{ysfang.slcdizhi||''}}</text></view>
+				<view class="kuai1"><text class="gray">售楼许可：</text><text>{{ysfang.smzige||''}}</text></view>
+			</view>
+			<view class="fg btngray"></view>
+		</swiper-item>
+		<!-- 推广 -->
+		<swiper-item>
+			<!-- 楼盘海报 -->
+			<view class="bill">
+				<view class="bill-title" bindtap="bill">
+					<text>楼盘海报</text>
+					<view class="all gray">查看全部<image src="{{basicImg}}/public/arrow.png"></image>
+					</view>
+				</view>
+				<scroll-view scroll-x="true" class="bill-list">
+					<block>
+						<view class="bill-itemk" wx:for="{{poster}}" wx:key='index'>
+							<view class="bill-item">
+								<image src="{{item.img_path}}"></image>
+							</view>
+						</view>
+					</block>
+				</scroll-view>
+			</view>
+			<view class="fg btngray"></view>
+			<!-- 项目亮点 -->
+			<view class="highlights">
+				<view class="highlights-title">项目亮点</view>
+				<view class="wenben gray"><text>{{ysfang.liangdian}}</text></view>
+			</view>
+			<view class="fg btngray"></view>
+			<!-- 商务条款 -->
+			<view class="clause">
+				<view class="clause-title">商务条款</view>
+				<view class="wenbens gray"><text>{{ysfang.shangwu}}</text></view>
+			</view>
+			<view class="fg btngray"></view>
+		</swiper-item>
+		<!-- 周边 -->
+		<swiper-item>
+			<!-- 位置及周边配套 -->
+			<view class="groupd" bindtap="periphery">
+				<view class="groupd-title">位置及周边配套</view>
+				<view class="address">位置：<text>{{address}}</text></view>
+				<view class="map" bindtap="intoMap">
+					<view class="map_container" bindtap="intoMap">
+						<map bindtap="intoMap" class="map" id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" show-location="true" markers="{{markers}}" bindmarkertap="makertap"></map>
+					</view>
+				</view>
+			</view>
+			<view class="address-type gray">
+				<view class="{{indexs==index?'actives':''}}" wx:for="{{surrounding}}" wx:key='index' bindtap="clickEvent" data-index="{{index}}">{{item}}</view>
+			</view>
+			<!-- </view> -->
+			<view class="fg btngray"></view>
+			<!-- 推荐周边房源 -->
+			<view class="groupe" style="padding-bottom:163rpx">
+				<view class="groupe-title">
+					<text>推荐周边房源</text>
+					<text class="gray" bindtap="houseList">查看全部 ></text>
+				</view>
+				<view class="sflist">
+					<view class="list-item" wx:for="{{tjysf}}" wx:key='index' bindtap="intoDetails" data-id="{{item.id}}">
+						<view class="pickk">
+							<image src="{{item.img==''?'../../img/public/default.png':item.img}}" data-index='{{index}}' data-img='../../img/public/default.png' binderror='errDetails'></image>
+						</view>
+						<view class="listitem-right">
+							<view class="names">{{item.xmbiaoti}}<text class="btnblue white">{{item.xlpzt}}</text></view>
+							<view class="housexq">{{item.lpdizhi}}</view>
+							<view class="tipszu">
+								<text wx:for="{{item.tese}}" wx:key='index' wx:for-item="i">{{i}}</text>
+							</view><!-- ㎡ -->
+							<view class="qianzu"><text class="orange">26000/㎡</text><text class="gray">建面{{item.ysfjm}}</text></view>
+						</view>
+					</view>
+				</view>
+			</view>
+			<view class="fg btngray"></view>
+		</swiper-item>
+		<!-- 动态 -->
+		<swiper-item>
+			<view class="dynamic">
+				<view class="dynamic-title" bindtap="dynamic">
+					<text>楼盘动态</text>
+					<view class="all gray">查看全部<image src="{{basicImg}}/public/arrow.png"></image>
+					</view>
+				</view>
+				<view class="dynamic-list">
+					<view class="dynamic-item" wx:for="{{ysfdt}}" wx:key='index'>
+						<view class="dongtai"><text>{{item.remark}}</text></view>
+						<view class="shijian gray">{{item.fbshijian}}</view>
+					</view>
+				</view>
+			</view>
+		</swiper-item>
+	</swiper>
+	<!-- 底部 -->
+	<view class="bottom-part">
+		<view class="more" bindtap="goTips">
+			<image src="{{basicImg}}/housecheckin/bar_btn_more@2x.png"></image>
+		</view>
+		<button class="pipei orange" bindtap="tel">电话沟通</button>
+		<button class="hezuo btncolor white" bindtap="baobei">报备</button>
+		<!-- Tooltips -->
+		<view class="tooltipsk" hidden="{{hiddentip}}">
+			<view class="tooltips white">
+				<view bindtap="enjoy">分享</view>
+				<view bindtap="love">添加收藏</view>
+				<view bindtap="onlineContext">在线沟通</view>
+			</view>
+			<view class="sanjiao"></view>
+		</view>
+	</view>
+	<!-- 置顶 -->
+	<view class="goTop" hidden='{{!floorstatus}}' bindtap="goTop">
+		<image src="{{basicImg}}/housecheckin/btn_top@2x.png"></image>
+	</view>
+	<!-- 置顶灰条 -->
+	<view class="goTops white" bindtap="goApp" hidden="{{hiddenTiao}}">
+		<text>使用APP查看房源更多信息！</text>
+		<view class="tips-right">
+			<button type="" class="white btncolor">下载APP</button>
+			<image src="{{basicImg}}/my/guanbi@2x.png"></image>
+		</view>
+	</view>
+	<!-- 弹窗 -->
+	<view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+	<view class="modal-dialog" wx:if="{{showModal}}">
+		<view class="modal-content"><text>即将离开微信</text><text>打开“好房好车”</text></view>
+		<view class="modal-footer">
+			<view class="btn-cancel" bindtap="onCancel" data-status="cancel">取消</view>
+			<button data-status="confirm" open-type="launchApp" style="font-size:30rpx;background:#fff;line-height:108rpx;color:#4A8BF9" app-parameter="wechat" binderror="launchAppError">允许</button>
+		</view>
+	</view>
+	<!-- 分享弹窗 -->
+	<view class="modal-masks" bindtap="hideModals" catchtouchmove="preventTouchMoves" wx:if="{{showModals}}"></view>
+	<view class="modal-dialogs" wx:if="{{showModals}}">
+		<view class="enjoy-list">
+			<button open-type="share" class="enjoy-item">
+				<image src="{{basicImg}}/public/share_btn_wx@2x.png"></image>
+				<text>微信</text>
+			</button>
+		</view>
+		<view class="btn-cancels" bindtap="onCancels">取消</view>
+	</view>
+	<!-- 电话沟通弹窗 -->
+	<view class="modal-mask-tel" bindtap="hideModaltel" catchtouchmove="preventTouchMovetel" wx:if="{{showModaltel}}"></view>
+	<view class="modal-dialog-tel" wx:if="{{showModaltel}}">
+		<view class="tel-title">电话沟通</view>
+		<view class="tel-hang" wx:for="{{zhuchang}}" wx:key='index'>
+			<view class="tel-left">
+				<text>{{item.nickname}}</text>
+				<text class="gray">{{item.phone}}</text>
+			</view>
+			<button type="" class="btncolor white hu" bindtap='call' data-mobile="{{item.phone}}">呼叫</button>
+		</view>
+		<view class="btn-cancel-tel" bindtap="onCanceltel">取消</view>
+	</view>
+	<!-- 在线沟通 -->
+	<view class="modal-mask-tel" bindtap="hideModalOnline" catchtouchmove="preventTouchMovetel" wx:if="{{showModalOnline}}"></view>
+	<view class="modal-dialog-tel" wx:if="{{showModalOnline}}">
+		<view class="tel-title">在线沟通</view>
+		<view class="tel-hang" wx:for="{{zhuchang}}" wx:key='index'>
+			<view class="tel-left">
+				<text>{{item.nickname}}</text>
+				<text class="gray">{{item.phone}}</text>
+			</view>
+			<button type="" class="btncolor white hu" bindtap='chat' data-idx="{{index}}">聊天</button>
+		</view>
+		<view class="btn-cancel-tel" bindtap="onCancelOnline">取消</view>
+	</view>
+</view>

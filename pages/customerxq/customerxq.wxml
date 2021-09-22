@@ -1,0 +1,65 @@
+<!--pages/customerxq/customerxq.wxml-->
+<view class="box {{isIphoneX?'isIPX':''}}">
+  <view class="group">
+    <view class="topname">客户信息<text class="blue" bindtap="edit" data-id="{{ky.id}}" wx:if="{{user_id == ky.weihurenid}}">编辑</text></view>
+    <view class="message">
+      <view class="hang">
+        <view><text class="gray">客户姓名：</text><view style="width:220rpx">{{ky.khxingming}}</view></view>
+        <view><text class="gray">客户性别：</text>{{ky.kehulx==1?'男':'女'}}</view>
+      </view>
+      <view class="hang"><text class="gray">手机号码：</text>{{ky.dianhua}}</view>
+      <view class="hang"><text class="gray">微信号码：</text>{{ky.weixin}}</view>
+      <!-- 暂时不展示这些内容 和编辑一样 -->
+      <!-- <view class="hang"><text class="gray">身份证号：</text>{{ky.sfzheng_d}}</view>
+      <view class="hang">
+        <view><text class="gray">需求付款：</text><view style="width:220rpx">{{ky.fukuan_d}}</view></view>
+        <view><text class="gray">沟通阶段：</text>{{ky.gtjieduan_d}}</view>
+      </view>
+      <view class="hang">
+        <view><text class="gray">客源等级：</text><view style="width:220rpx">{{ky.kydengji_d}}</view></view>
+        <view><text class="gray">消费理念：</text>{{ky.xflinian_d}}</view>
+      </view> -->
+      <view class="hang"><text class="gray">客户来源：</text>{{ky.khlaiyuan_d}}</view>
+      <view class="hang"><text class="gray">备注信息：</text>{{ky.beizhu_d}}</view>
+    </view>
+  </view>
+  <view class="fg btngray"></view>
+  <view class="group">    
+    <view class="topname">求购意向<text class="blue" bindtap="editIntention" data-id="{{ky.id}}" data-dianhua="{{ky.dianhua}}" wx:if="{{user_id == ky.weihurenid}}">编辑</text></view>
+    <view class="message">
+      <view class="hang"><text class="gray">需求区域：</text>{{ky.xqquyu}}</view>      
+      <view class="hang"><text class="gray">意向小区：</text>{{yxxiaoqu}}</view>
+      <view class="hang"><text class="gray">预算：</text>{{ky.xqjiage1}} 万 - {{ky.xqjiage2}}万</view>
+      <view class="hang"><text class="gray">面积：</text>{{ky.xqmianji1}}-{{ky.xqmianji2}}㎡</view>
+      <view class="hang"><text class="gray">户型：</text>{{ky.xqhuxing1}} 室 - {{ky.xqhuxing2}} 室</view>
+      <view class="hang"><text class="gray">楼层：</text>{{ky.louceng1}}-{{ky.louceng2}} 层</view>
+      <view class="hang"><text class="gray">装修：</text><block wx:for="{{ky.zhuangxiu_d}}" wx:key="index">{{item}}</block></view>
+      <view class="hang"><text class="gray">朝向：</text><block wx:for="{{ky.chaoxiang_d}}" wx:key="index">{{item}}</block></view>
+      <view class="hang"><text class="gray">用途：</text>{{ky.xqyongtu_d}}</view>
+    </view>
+  </view>
+  <view class="fg btngray"></view>
+  <view class="group">
+    <view class="topname">跟进记录</view>
+    <view class='expressRecord'>
+      <view class='expressRecord-single-close' wx:for="{{recordArr}}" wx:key="index">
+        <view class='expressRecord-single-noReach-online-top-close'>
+          <view class='dot-closing'><view class="{{item.state == 1?'yuaning':'yuan'}}"></view></view>
+          <view class='online-bottomimg'></view>
+        </view>
+        <view class='expressRecord-text'>
+          <view class='expressRecord-status'>【{{item.gjfs}}】{{item.gjneirong}}</view>
+          <view class='expressRecord-status-address gray'><text>{{item.gjshijian}}</text><text>{{item.ygmingcheng}}</text></view>
+        </view>
+      </view>
+   
+    </view>
+  </view>
+  <view class="fg btngray"></view>
+  <view class="bottompart" wx:if="{{user_id == ky.weihurenid}}">
+    <view class="gen" bindtap="report" wx:if="{{xqysfy ==''}}"><image src="{{basicImg}}/bar_btn_baobei@2x.png"></image></view>
+    <button type="" class="orange btna" bindtap="baobei" wx:if="{{mmzl == '3'}}">报备</button>
+    <button type="" class="orange btna" bindtap="matchHouse" wx:if="{{mmzl != '3'}}">匹配房源</button>
+    <button type="" class="white btncolor" bindtap="addgen">写跟进</button>
+  </view>
+</view>

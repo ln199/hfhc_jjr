@@ -1,0 +1,267 @@
+<!--pages/runshop/runshop.wxml-->
+<view class="box {{isIphoneX?'isIPX':''}}">
+	<view class="top">
+		<view class="top-title">微店信息</view>
+		<view class="hangb">
+			<text>微店头像</text>
+			<view class="piczu">
+				<image src="{{portrait}}" class="tou"></image>
+				<!-- <image src="{{basicImg}}/public/arrow.png" class="arrow"></image> -->
+			</view>
+		</view>
+		<view class="hangb" style="border-bottom:0;padding:43rpx 40rpx;">
+			<text>微店简介</text>
+			<view class="hangb-right">
+				<text class="gray" bindtap="shopIntr">编辑微店简介</text>
+				<image src="{{basicImg}}/public/arrow.png" class="arrow"></image>
+			</view>
+		</view>
+	</view>
+	<view class="fg btngray"></view>
+	<view class="swiper-tab">
+		<view class="swiper-tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="clickTab">新楼盘</view>
+		<view class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab">二手房</view>
+		<view class="swiper-tab-item {{currentTab==2?'active':''}}" data-current="2" bindtap="clickTab">精装二手房</view>
+		<view class="swiper-tab-item {{currentTab==3?'active':''}}" data-current="3" bindtap="clickTab">旅居房</view>
+	</view>
+
+	<swiper current="{{currentTab}}" duration="300" bindchange="swiperTab" style="height:900rpx;">
+		<swiper-item>
+			<view class="list">
+				<view class="list-item">
+					<picker bindchange="bindPickerChange" value="{{index_ysfy_o}}" range="{{newHouse}}" range-key="xmbiaoti">
+						<view class="inside">
+							<view class="item-left">推荐项目一</view>
+							<view class="item-right">
+								<view class="picker gray">{{newHouse[index_ysfy_o].xmbiaoti}}</view>
+								<image src="{{basicImg}}/public/arrow.png"></image>
+							</view>
+						</view>
+					</picker>
+				</view>
+				<view class="list-item">
+					<picker bindchange="bindPickerChange_t" value="{{index_ysfy_t}}" range="{{newHouse}}" range-key="xmbiaoti">
+						<view class="inside">
+							<view class="item-left">推荐项目二</view>
+							<view class="item-right">
+								<view class="picker gray">{{newHouse[index_ysfy_t].xmbiaoti}}</view>
+								<image src="{{basicImg}}/public/arrow.png"></image>
+							</view>
+						</view>
+					</picker>
+				</view>
+				<view class="list-item">
+					<picker bindchange="bindPickerChange_th" value="{{index_ysfy_th}}" range="{{newHouse}}" range-key="xmbiaoti">
+						<view class="inside">
+							<view class="item-left">推荐项目三</view>
+							<view class="item-right">
+								<view class="picker gray">{{newHouse[index_ysfy_th].xmbiaoti}}</view>
+								<image src="{{basicImg}}/public/arrow.png"></image>
+							</view>
+						</view>
+					</picker>
+				</view>
+				<view class="list-item">
+					<picker bindchange="bindPickerChange_f" value="{{index_ysfy_f}}" range="{{newHouse}}" range-key="xmbiaoti">
+						<view class="inside">
+							<view class="item-left">推荐项目四</view>
+							<view class="item-right">
+								<view class="picker gray">{{newHouse[index_ysfy_f].xmbiaoti}}</view>
+								<image src="{{basicImg}}/public/arrow.png"></image>
+							</view>
+						</view>
+					</picker>
+				</view>
+				<view class="list-item">
+					<picker bindchange="bindPickerChange_fi" value="{{index_ysfy_fi}}" range="{{newHouse}}" range-key="xmbiaoti">
+						<view class="inside">
+							<view class="item-left">推荐项目五</view>
+							<view class="item-right">
+								<view class="picker gray">{{newHouse[index_ysfy_fi].xmbiaoti}}</view>
+								<image src="{{basicImg}}/public/arrow.png"></image>
+							</view>
+						</view>
+					</picker>
+				</view>
+			</view>
+		</swiper-item>
+		<swiper-item>
+			<view class="list">
+				<view class="list-item">
+					<picker bindchange="bindPickerChange_e_o" value="{{index_esfy_o}}" range="{{secondList}}" range-key="fybiaoti">
+						<view class="inside">
+							<view class="item-left">推荐项目一</view>
+							<view class="item-right">
+								<view class="picker gray">{{secondList[index_esfy_o].fybiaoti}}</view>
+								<image src="{{basicImg}}/public/arrow.png"></image>
+							</view>
+						</view>
+					</picker>
+				</view>
+				<view class="list-item">
+					<picker bindchange="bindPickerChange_e_t" value="{{index_esfy_t}}" range="{{secondList}}" range-key="fybiaoti">
+						<view class="inside">
+							<view class="item-left">推荐项目二</view>
+							<view class="item-right">
+								<view class="picker gray">{{secondList[index_esfy_t].fybiaoti}}</view>
+								<image src="{{basicImg}}/public/arrow.png"></image>
+							</view>
+						</view>
+					</picker>
+				</view>
+				<view class="list-item">
+					<picker bindchange="bindPickerChange_e_th" value="{{index_esfy_th}}" range="{{secondList}}" range-key="fybiaoti">
+						<view class="inside">
+							<view class="item-left">推荐项目三</view>
+							<view class="item-right">
+								<view class="picker gray">{{secondList[index_esfy_th].fybiaoti}}</view>
+								<image src="{{basicImg}}/public/arrow.png"></image>
+							</view>
+						</view>
+					</picker>
+				</view>
+				<view class="list-item">
+					<picker bindchange="bindPickerChange_e_f" value="{{index_esfy_f}}" range="{{secondList}}" range-key="fybiaoti">
+						<view class="inside">
+							<view class="item-left">推荐项目四</view>
+							<view class="item-right">
+								<view class="picker gray">{{secondList[index_esfy_f].fybiaoti}}</view>
+								<image src="{{basicImg}}/public/arrow.png"></image>
+							</view>
+						</view>
+					</picker>
+				</view>
+				<view class="list-item">
+					<picker bindchange="bindPickerChange_e_fi" value="{{index_esfy_fi}}" range="{{secondList}}" range-key="fybiaoti">
+						<view class="inside">
+							<view class="item-left">推荐项目五</view>
+							<view class="item-right">
+								<view class="picker gray">{{secondList[index_esfy_fi].fybiaoti}}</view>
+								<image src="{{basicImg}}/public/arrow.png"></image>
+							</view>
+						</view>
+					</picker>
+				</view>
+			</view>
+		</swiper-item>
+		<swiper-item>
+			<view class="list">
+				<view class="list-item">
+					<picker bindchange="bindPickerChange_m_o" value="{{index_mz_o}}" range="{{fineList}}" range-key="fybiaoti">
+						<view class="inside">
+							<view class="item-left">推荐项目一</view>
+							<view class="item-right">
+								<view class="picker gray">{{fineList[index_mz_o].fybiaoti}}</view>
+								<image src="{{basicImg}}/public/arrow.png"></image>
+							</view>
+						</view>
+					</picker>
+				</view>
+				<view class="list-item">
+					<picker bindchange="bindPickerChange_m_t" value="{{index_mz_t}}" range="{{fineList}}" range-key="fybiaoti">
+						<view class="inside">
+							<view class="item-left">推荐项目二</view>
+							<view class="item-right">
+								<view class="picker gray">{{fineList[index_mz_t].fybiaoti}}</view>
+								<image src="{{basicImg}}/public/arrow.png"></image>
+							</view>
+						</view>
+					</picker>
+				</view>
+				<view class="list-item">
+					<picker bindchange="bindPickerChange_m_th" value="{{index_mz_th}}" range="{{fineList}}" range-key="fybiaoti">
+						<view class="inside">
+							<view class="item-left">推荐项目三</view>
+							<view class="item-right">
+								<view class="picker gray">{{fineList[index_mz_th].fybiaoti}}</view>
+								<image src="{{basicImg}}/public/arrow.png"></image>
+							</view>
+						</view>
+					</picker>
+				</view>
+				<view class="list-item">
+					<picker bindchange="bindPickerChange_m_f" value="{{index_mz_f}}" range="{{fineList}}" range-key="fybiaoti">
+						<view class="inside">
+							<view class="item-left">推荐项目四</view>
+							<view class="item-right">
+								<view class="picker gray">{{fineList[index_mz_f].fybiaoti}}</view>
+								<image src="{{basicImg}}/public/arrow.png"></image>
+							</view>
+						</view>
+					</picker>
+				</view>
+				<view class="list-item">
+					<picker bindchange="bindPickerChange_m_fi" value="{{index_mz_fi}}" range="{{fineList}}" range-key="fybiaoti">
+						<view class="inside">
+							<view class="item-left">推荐项目五</view>
+							<view class="item-right">
+								<view class="picker gray">{{fineList[index_mz_fi].fybiaoti}}</view>
+								<image src="{{basicImg}}/public/arrow.png"></image>
+							</view>
+						</view>
+					</picker>
+				</view>
+			</view>
+		</swiper-item>
+		<swiper-item>
+			<view class="list">
+				<view class="list-item">
+					<picker bindchange="bindPickerChange_l_o" value="{{index_lj_o}}" range="{{travelList}}" range-key="xmbiaoti">
+						<view class="inside">
+							<view class="item-left">推荐项目一</view>
+							<view class="item-right">
+								<view class="picker gray">{{travelList[index_lj_o].xmbiaoti}}</view>
+								<image src="{{basicImg}}/public/arrow.png"></image>
+							</view>
+						</view>
+					</picker>
+				</view>
+				<view class="list-item">
+					<picker bindchange="bindPickerChange_l_t" value="{{index_lj_t}}" range="{{travelList}}" range-key="xmbiaoti">
+						<view class="inside">
+							<view class="item-left">推荐项目二</view>
+							<view class="item-right">
+								<view class="picker gray">{{travelList[index_lj_t].xmbiaoti}}</view>
+								<image src="{{basicImg}}/public/arrow.png"></image>
+							</view>
+						</view>
+					</picker>
+				</view>
+				<view class="list-item">
+					<picker bindchange="bindPickerChange_l_th" value="{{index_lj_th}}" range="{{travelList}}" range-key="xmbiaoti">
+						<view class="inside">
+							<view class="item-left">推荐项目三</view>
+							<view class="item-right">
+								<view class="picker gray">{{travelList[index_lj_th].xmbiaoti}}</view>
+								<image src="{{basicImg}}/public/arrow.png"></image>
+							</view>
+						</view>
+					</picker>
+				</view>
+				<view class="list-item">
+					<picker bindchange="bindPickerChange_l_f" value="{{index_lj_f}}" range="{{travelList}}" range-key="xmbiaoti">
+						<view class="inside">
+							<view class="item-left">推荐项目四</view>
+							<view class="item-right">
+								<view class="picker gray">{{travelList[index_lj_f].xmbiaoti}}</view>
+								<image src="{{basicImg}}/public/arrow.png"></image>
+							</view>
+						</view>
+					</picker>
+				</view>
+				<view class="list-item">
+					<picker bindchange="bindPickerChange_l_fi" value="{{index_lj_fi}}" range="{{travelList}}" range-key="xmbiaoti">
+						<view class="inside">
+							<view class="item-left">推荐项目五</view>
+							<view class="item-right">
+								<view class="picker gray">{{travelList[index_lj_fi].xmbiaoti}}</view>
+								<image src="{{basicImg}}/public/arrow.png"></image>
+							</view>
+						</view>
+					</picker>
+				</view>
+			</view>
+		</swiper-item>
+	</swiper>
+
+</view>

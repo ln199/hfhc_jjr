@@ -1,0 +1,32 @@
+/* pages/dynamic/dynamic.wxss */
+.tab-scoller{
+  padding: 40rpx 20rpx 0 20rpx;
+  width: 95%;
+  margin: auto;
+}
+.listitem{
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 40rpx;
+}
+.hotpic{
+  width: 63rpx;
+  height: 28rpx;
+}
+.hotpic image{
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.words{
+  width: 85%;
+  font-size: 24rpx;
+  font-weight: 500;
+  margin-left: 19rpx;
+  display: flex;
+  flex-direction: column;
+}
+.words text:first-child{
+  font-size: 32rpx;
+  margin-bottom: 40rpx;
+}

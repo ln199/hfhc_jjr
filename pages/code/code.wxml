@@ -1,0 +1,17 @@
+<!--pages/code/code.wxml-->
+<view class="box {{isIphoneX?'isIPX':''}}">
+  <view class="codek">
+    <view class="hanga">
+      <image src="{{basicImg}}/login/defult_p.png" class="userpic"></image>
+      <view class="ming">
+        <view>李某某的微店</view>
+        <text class="gray">微店介绍微店介绍微店介绍微店介绍微店介绍微店介绍微店介绍。</text>
+      </view>
+    </view>
+    <view class="code">
+      <image src=""></image>
+    </view>
+    <view class="tips gray">扫描二维码可以查看我的微店哦！</view>
+  </view>
+  <button type="" class="btn btncolor white">保存图片</button>
+</view>

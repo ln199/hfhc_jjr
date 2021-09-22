@@ -1,0 +1,218 @@
+/* pages/myshop/myshop.wxss */
+
+page{
+  background-color: #f1f1f1;
+
+}
+
+/* 新样式*/
+
+.userinfo{
+  margin: 20rpx;
+  display: flex;
+  align-items: center;
+  padding: 40rpx 0 40rpx 50rpx;
+  background-color: #ffffff;
+  border-radius: 20rpx;
+}
+.avatar{
+  border-radius: 50%;
+  width: 150rpx;
+  height: 150rpx;
+  position: relative;
+  margin-right: 80rpx;
+}
+.avatar::after{
+  content: "";
+  position: absolute;
+  right: -40rpx;
+  height: 150rpx;
+  width: 1rpx;
+  background-color: #d0cccc;
+}
+.avatar image{
+  border-radius: 50%;
+  width: 150rpx;
+  height: 150rpx;
+
+}
+
+.infos .mobile{
+  margin: 16rpx;
+}
+.infos .mobile,
+.infos .company{
+  display: flex;
+  color: #a5a0a0;
+  height: 20rpx;
+  
+}
+.mobile image,
+.company image{
+  margin-right: 10rpx;
+  width: 36rpx;
+  height: 36rpx;
+  border-radius: 50%;
+}
+/*微店相关*/
+.aboutShop{
+  margin: 20rpx;
+  background-color: #ffffff;
+  border-radius: 20rpx;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 20rpx;
+  align-items: center;
+
+}
+.shopItem{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.setItem{
+  display: flex;
+
+}
+.aboutShopLabel{
+  font-size: 28rpx;
+  font-weight: 300;
+  color: #060606f2;
+}
+.shopItem image{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 30rpx;
+  margin-bottom: 20rpx;
+}
+.setItem:nth-child(2) image{
+  width: 0 !important;
+  height: 0 !important;
+  border: 1px solid red;
+  
+}
+.setItem:nth-child(2),
+.setItem:nth-child(4){
+  width: 1rpx;
+  background-color: #d0cccc;
+  height: 100rpx;
+}
+
+/*微店数据*/
+.wshop{
+  padding: 0rpx 0 40rpx 50rpx;
+  margin: 20rpx;
+  border-radius: 20rpx;
+  background-color: #ffffff;
+}
+.shopData{
+  display: flex;
+  margin: 20rpx;
+  
+}
+
+
+.data{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-right: 140rpx;
+}
+.data::after{
+  content: "";
+  position: absolute;
+  right: -80rpx;
+  height: 150rpx;
+  width: 1rpx;
+  background-color: #d0cccc;
+}
+
+.dataInfos{
+  display: flex;
+  flex-direction: column;
+}
+.totakAccess{
+  font-size: 33rpx;
+  font-weight: 600;
+  margin-bottom: 6rpx;
+}
+.label{
+  font-size: 24rpx;
+  color: gray;
+}
+.label1{
+  font-size: 26rpx;
+  color: black;
+}
+/*最近访客*/
+.visitor{
+  background-color: #ffffff;
+  margin: 20rpx;
+  border-radius: 20rpx;
+}
+.visitor-top{
+  font-size: 40rpx;
+  font-weight: bold;
+  line-height: 118rpx;
+  margin-left: 19rpx;
+}
+.visitorlist{
+  padding: 0 40rpx;
+}
+.visitor-item{
+  width: 100%;
+  margin-bottom: 45rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.pic{
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+}
+.pic image{
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  display: block;
+}
+.visitor-left{
+  width: 75%;
+  margin-left: 40rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.liulan{
+  font-size: 32rpx;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.liulan text:last-child{
+  font-size: 24rpx;
+  font-weight: 500;
+}
+.time{
+  font-size: 24rpx;
+  font-weight: 500;
+}
+.btn{
+  width: 108rpx;
+  height: 48rpx;
+  line-height: 48rpx;
+  border-radius: 10rpx;
+  font-size: 24rpx;
+  background-color: #EA5413;
+  color: white;
+  font-weight: 400;
+}
+

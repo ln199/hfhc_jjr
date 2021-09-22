@@ -1,0 +1,19 @@
+<!--pages/choosevillage/choosevillage.wxml-->
+<view class="box {{isIphoneX?'isIPX':''}}">
+	<!-- 搜索 -->
+	<view class="{{isChecked?'frame':'frames'}}">
+		<image src='{{basicImg}}/login/sousuo@2x.png' class="frame_zuo {{isChecked?'show':'hidden'}}"></image>
+		<input class="frame_zhong" type='text' placeholder='请输入小区名称进行搜索' placeholder-class='placeholder_color' bindtap="goSearch" bindinput="getData"></input>
+		<image src="{{basicImg}}/housecheckin/btn_dels@2x.png" class="frame_you {{isChecked?'hidden':'show'}}" bindtap="close"></image>
+	</view>
+	<!-- 搜索结果 -->
+	<view class="search-list" wx:if="{{show}}">
+		<view class="{{indexs==index?'oranges':'grays'}}" bindtap="reasult" wx:for="{{community}}" data-index="{{index}}" data-id="{{item.id}}">
+      <text>{{item.xiaoqum}}</text>
+		  <image src="{{basicImg}}/housecheckin/icon_sel@2x.png" class="choosed {{indexs==index?'oranges':'grays'}}"></image>
+		</view>
+	</view>
+	<!-- 按钮 -->
+	<!-- <view class="btnk"><button type="" class="btngray gray">确认选择</button></view> -->
+	<view class="btnk"><button type="" bindtap="submit" class="btncolor white">确认选择</button></view>
+</view>

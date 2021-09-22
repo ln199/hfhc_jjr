@@ -1,0 +1,317 @@
+<!--index.wxml-->
+<view class="box {{isIphoneX?'isIPX':''}}">
+	<view style="background-image:url(https://www.hfhchsh.com/Upload/wximg/index/logo.png)" class="topLogo">
+	<!-- 顶部 -->
+	<view class="box-top">
+		<view class="top-left">
+			<view class="avatar">
+				<image src="{{avatar}}" />
+			</view>
+			<view class="username">
+				{{name}}
+			</view>
+		</view>
+		<view class="top">
+			<view style="background-image:url(../../img/public/cityBgm.png)" class="city gray"  bindtap="citySelect"><text>{{cityName?cityName:city}}</text>
+			</view>
+		</view>
+
+	</view>
+		<!-- 轮播图 -->
+		<view class='swiper-box'>
+			<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="swiperChange">
+				<block wx:for="{{imgUrl}}" wx:key="index">
+					<swiper-item>
+						<image src="https://www.hfhchsh.com{{item.img_path}}" class="slide-image" bindtap="advertising" data-action="{{item.action}}" />
+					</swiper-item>
+				</block>
+			</swiper>
+			<view class="dots">
+				<block wx:for="{{imgUrl}}" wx:key="index">
+					<view class="dot{{index == swiperCurrent ? ' active' : ''}}"></view>
+				</block>
+			</view>
+		</view>
+	</view>
+	<!-- 功能按钮 -->
+	<view class="functionk">
+		<navigator url="../newhouse/newhouse" hover-class="none">
+			<view class="icos">
+				<image src="{{basicImg}}/index/icon_xf.png"></image><text>新房</text>
+			</view>
+		</navigator>
+		<navigator url="../secondhouses/secondhouses" hover-class="none">
+			<view class="icos">
+				<image src="{{basicImg}}/index/icon_esf.png"></image><text>二手房</text>
+			</view>
+		</navigator>
+		<navigator url="../beautyhouse/beautyhouse" hover-class="none">
+			<view class="icos">
+				<image src="{{basicImg}}/index/icon_mzf.png"></image><text>精品二手房</text>
+			</view>
+		</navigator>
+		<navigator url="../rentlists/rentlists" hover-class="none">
+			<view class="icos">
+				<image src="{{basicImg}}/index/icon_czf.png"></image><text>出租房</text>
+			</view>
+		</navigator>
+		<navigator url="../sojourn/sojourn" hover-class="none">
+			<view class="icos">
+				<image src="{{basicImg}}/index/icon_ljf.png"></image><text>房源</text>
+			</view>
+		</navigator>
+		<navigator url="" hover-class="none">
+			<view class="icos">
+				<image src="{{basicImg}}/index/icon_mk.png"></image><text>客源</text>
+			</view>
+		</navigator>
+		<!-- <navigator url="../rentlist/rentlist?isQuerySelf=false" hover-class="none">
+			<view class="icos">
+				<image src="{{basicImg}}/index/icon_ky.png"></image><text>租客</text>
+			</view>
+		</navigator> -->
+		<navigator url="../myshop/myshop" hover-class="none">
+			<view class="icos">
+				<image src="{{basicImg}}/index/icon_gj.png"></image><text>微店</text>
+			</view>
+		</navigator>
+		<navigator url="" hover-class="none">
+			<view class="icos">
+				<image src="{{basicImg}}/index/icon_dtzf.png"></image><text>分享拓客</text>
+			</view>
+		</navigator>
+	</view>
+	<view class="line btngray"></view>
+	<!-- 广告 -->
+	<!-- <view class="ad">
+		<image src="{{basicImg}}/index/hftt.png"></image>
+		<swiper class="swiper_zi" vertical="true" autoplay="true" circular="true" interval="3000">
+			<block wx:for="{{text}}">
+			<swiper-item>
+			<view class="zimubox">
+				<view class="swiper_item">{{item}}</view>
+			</view>
+			</swiper-item>
+			</block>
+		</swiper>
+	</view>
+	<view class="line btngray"></view> -->
+
+
+
+	<view class="ad">
+		<image src="{{basicImg}}/index/hftt.png"></image>
+		<view class="img"></view>
+		<view class="marquee_container" style="--marqueeWidth:{{marqueeW}};--allTs:{{allT}};">
+			<view class="marquee_text" style="font-size:{{size}}px">{{textNews}}</view>
+		</view>
+	</view>
+	<view class="line btngray"></view>
+	<!-- 楼盘海报 -->
+	<view class="lphaibao">
+		<view class="topTitle">
+			<view class="left">楼盘海报</view>
+			<view class="right" bindtap="loupanMore">更多</view>
+		</view>
+		<view class='swiper-box2'>
+			<swiper indicator-dots="{{indicatorDots}}" display-multiple-items='3.4'  >
+				<block wx:for="{{loupanImgUrl}}" wx:key="index">
+					<swiper-item>
+								<image src="https://www.hfhchsh.com{{item.img_path}}" class="slide-image" />
+					</swiper-item>
+				</block>
+			</swiper>
+		</view>
+	</view>	
+
+
+	<!-- 资讯精选 -->
+	<view class="info_collection">
+    <view class="title">
+      <view>资讯精选</view>
+      <view style="font-size:24rpx;color:#9c9c9c" bindtap = "zixunMore">更多</view>
+    </view>
+    <view class="content border_top">
+      <view class="info"  style="margin-top:30rpx;" >
+        <view class="text" id="zixun" bindtap="toDetail" data-desc="{{zixun[0].desc}}">
+          <view class="text_content noWrap" id="zixun" bindtap="toDetail" data-desc="{{zixun[0].desc}}">{{zixun[0].title}}</view>
+          <view class="text_title noWrap">{{zixun[0].summary}}</view>
+        </view>
+        <view class="img_view">
+          <image style="width:100%; height:100%;" src="https://www.hfhchsh.com{{zixun[0].img_path}}" bindtap="toDetail" data-desc="{{zixun[0].desc}}"></image>
+        </view>
+      </view>
+    </view>
+    <view class="content">
+      <view class="info" bindtap='toDetail' bindtap='toDetail' data-desc="{{zixun[1].desc}}">
+        <view class="img_view" style="border-radius: 20rpx 0 0 20rpx; overflow:hidden;" >
+          <image style="width:100%; height:100%;" src="https://www.hfhchsh.com{{zixun[1].img_path}}" bindtap="toDetail" data-desc="{{zixun[1].desc}}"></image>
+        </view>
+        <view class="text" style="border-radius:0 20rpx 20rpx 0;">
+          <view class="text_content noWrap" id="zixun" bindtap="toDetail" data-desc="{{zixun[1].desc}}">{{zixun[1].title}}</view>
+          <view class="text_title noWrap" id="zixun" bindtap="toDetail" data-desc="{{zixun[1].desc}}">{{zixun[1].summary}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="content">
+      <view class="info" bindtap='toDetail' data-desc="{{zixun[2].desc}}">
+        <view class="text" bindtap='toDetail' data-desc="{{zixun[2].desc}}">
+          <view class="text_content noWrap" bindtap="toDetail" data-desc="{{zixun[2].desc}}">{{zixun[2].title}}</view>
+          <view class="text_title noWrap" bindtap="toDetail" data-desc="{{zixun[2].desc}}">{{zixun[2].title}}</view>
+        </view>
+        <view class="img_view">
+          <image style="width:100%; height:100%;" src="https://www.hfhchsh.com{{zixun[2].img_path}}" bindtap="toDetail" data-desc="{{zixun[2].desc}}"></image>
+        </view>
+      </view>
+    </view>
+  
+  </view>
+	<!-- Tab -->
+	<view class='container'>
+		<scroll-view class="scroll-view_H" scroll-x="true" bindscroll="scroll" style="width: 100%">
+          <view id="demo1" class="scroll-view-item_H demo-text-1"></view>
+          <view id="demo2"  class="scroll-view-item_H demo-text-2"></view>
+          <view id="demo3" class="scroll-view-item_H demo-text-3"></view>
+        </scroll-view>
+		<!--Tab布局-->
+		<scroll-view class='titlea' scroll-x="true">
+			<!--  -->
+			<view class="{{1 == currentIndex ? 'titleUnsel' : 'titleSel'}}" bindtap='titleClick' data-idx='1'>
+				<text>精选新房</text>
+			</view>
+			<view class="{{2 == currentIndex ? 'titleUnsel' : 'titleSel'}}" bindtap='titleClick' data-idx='2'>
+				<text>精选二手房</text>
+			</view>
+			<view class="{{3 == currentIndex ? 'titleUnsel' : 'titleSel'}}" bindtap='titleClick' data-idx='3'>
+				<text>精装二手房</text>
+			</view>
+			<view class="{{4 == currentIndex ? 'titleUnsel' : 'titleSel'}}" bindtap='titleClick' data-idx='4'>
+				<text>精选租房</text>
+			</view>
+		</scroll-view>
+		<view class="line btngray"></view>
+
+		<!--内容布局-->
+		<swiper class='swiper' bindchange='pagechange' current='{{currentIndex}}'>
+			<swiper-item class='swiper' class='swiper'>
+				<view wx:for="{{firstList}}" wx:key="index" data-id="{{item.id}}" bindtap="intoDetail" class='recordItem'>
+					<view class="pic">
+						<image src="{{item.img_url==''?'../../img/public/default.png':item.img_url}}" data-index='{{index}}' data-img='../../img/public/default.png' binderror='errDetails'></image>
+					</view>
+					<view class="rightp">
+						<view class="biaoti">{{item.title}}</view>
+						<view class="gray xq">{{item.summary}}</view>
+						<view class="gray fb" style="margin-bottom:8rpx;">发布人（单位）名称:{{item.author}}</view>
+						<view class="hangb">
+							<view class="gray fb">{{item.add_time_d}}</view>
+							<view class="ann btncolor white">{{item.tag_d}}</view>
+						</view>
+					</view>
+				</view>
+				<view class="more" bindtap="goMores"><text class="gray">查看全部</text>
+					<image src="{{basicImg}}/index/btn_more@2x.png"></image>
+				</view>
+			</swiper-item>
+			<swiper-item class='swiper'>
+				<view class="list-item" wx:for="{{houseArr}}" wx:key="index" data-path="newhousexq" data-id="{{item.id}}" data-name="{{item.xmbiaoti}}" bindtap="hrefDetails">
+					<view class="pickk">
+						<image src="{{item.img==''?'../../img/public/default.png':item.img}}" data-index='{{index}}' data-img='../../img/public/default.png' binderror='errDetailsHouse'></image>
+					</view>
+					<view class="listitem-right">
+						<view class="name">
+							<view class="names">{{item.xmbiaoti}}</view>
+							<view class="biao btnblue white" wx:if="{{item.xlpzt=='在售'}}">在售</view>
+							<view class="biao btncolor white" wx:if="{{item.xlpzt=='未开盘'}}">待售</view>
+							<view class="biao white btngray" wx:if="{{item.xlpzt=='售罄'}}">售罄</view>
+						</view>
+						<view class="mian">{{item.xfjunjia}}</view>
+						<!-- <view class="housexq">{{item.lpdizhi}}</view> -->
+						<view class="tipszu">
+							<text wx:for="{{item.tese}}" wx:key="index" wx:for-item="items" wx:if="{{index < 3}}">{{items}}</text>
+						</view>
+						<view class="qianzu"><text class="orange">{{item.ysfyongjin || '--'}}</text></view>
+						<!-- <text class="gray">建面 {{item.ysfjm}} ㎡</text> -->
+					</view>
+				</view>
+				<view class="more" data-path="newhouse" bindtap="goMore"><text class="gray">查看全部</text>
+					<image src="{{basicImg}}/index/btn_more@2x.png"></image>
+				</view>
+			</swiper-item>
+			<swiper-item class='swiper'>
+				<view wx:for="{{houseArr}}" class='recordItem' wx:key="index" data-path="secondhousexq" data-id="{{item.id}}" bindtap="hrefDetails">
+					<view class="pic">
+						<image src="{{item.img==''?'../../img/public/default.png':item.img}}" data-index='{{index}}' data-img='../../img/public/default.png' binderror='errDetailsHouse'></image>
+					</view>
+					<view class="rightp">
+						<view class="name">{{item.fybiaoti}}</view>
+						<view class="housexq">{{item.fyhx}}/{{item.mianji}}㎡/{{item.fycx}}/{{item.xqm}}</view>
+						<view class="tipszu">
+							<text wx:for="{{item.biaoqian}}" wx:key="index" wx:for-item="items" wx:if="{{index<3}}">{{items}}</text>
+						</view>
+						<view class="qianzu"><text class="orange">{{item.shoujia}}万</text><text class="gray">{{item.danjia}}/㎡</text></view>
+					</view>
+				</view>
+				<view class="more" data-path="secondhouses" bindtap="goMore"><text class="gray">查看全部</text>
+					<image src="{{basicImg}}/index/btn_more@2x.png"></image>
+				</view>
+			</swiper-item>
+			<swiper-item class='swiper'>
+				<view wx:for="{{houseArr}}" class='recordItem' wx:key="index" data-path="beautyhousexq" data-id="{{item.id}}" bindtap="hrefDetails">
+					<view class="pic">
+						<image src="{{item.img==''?'../../img/public/default.png':item.img}}" data-index='{{index}}' data-img='../../img/public/default.png' binderror='errDetailsHouse'></image>
+					</view>
+					<view class="rightp">
+						<view class="name">{{item.fybiaoti}}</view>
+						<view class="housexq">{{item.fyhx}}/{{item.mianji}}㎡/{{item.fycx}}/{{item.xqm}}</view>
+						<view class="tipszu">
+							<text wx:for="{{item.biaoqian}}" wx:key="index" wx:for-item="items" wx:if="{{index<3}}">{{items}}</text>
+						</view>
+						<view class="qianzu"><text class="orange">{{item.shoujia}}万</text><text class="gray">{{item.danjia}}/㎡</text></view>
+					</view>
+				</view>
+				<view class="more" bindtap="goMore" data-path="beautyhouse"><text class="gray">查看全部</text>
+					<image src="{{basicImg}}/index/btn_more@2x.png"></image>
+				</view>
+			</swiper-item>
+			<swiper-item class='swiper'>
+				<view class="list-item" wx:for="{{houseArr}}" wx:key="index" data-path="rentxq" data-id="{{item.id}}" bindtap="hrefDetails">
+					<view class="pickk">
+						<image src="{{item.img==''?'../../img/public/default.png':item.img}}" data-index='{{index}}' data-img='../../img/public/default.png' binderror='errDetailsHouse'></image>
+						<view class="huic">
+							<image src="{{basicImg}}/housecheckin/icon_lm@2x.png"></image>
+							<text class="white">{{item.lianmeng_gx_yongjin}}</text>
+						</view>
+					</view>
+					<view class="listitem-right">
+						<view class="name">{{item.fybiaoti}}</view>
+						<view class="housexq">{{item.fyhx}}/{{item.mianji}}㎡/{{item.fycx}}/{{item.xqm}}</view>
+						<view class="tipszu">
+							<text wx:for="{{item.biaoqian}}" wx:key="index" wx:for-item="items" wx:if="{{index < 3}}">{{items}}</text>
+						</view>
+						<view class="qianzu"><text class="orange">{{item.zujia}}{{item.zujialx}}</text></view>
+					</view>
+				</view>
+				<view class="more" data-path="rentlists" bindtap="goMore"><text class="gray">查看全部</text>
+					<image src="{{basicImg}}/index/btn_more@2x.png"></image>
+				</view>
+			</swiper-item>
+		</swiper>
+	</view>
+	<!-- 置底灰条 -->
+	<view class="goTops white" wx:if="{{tips}}">
+		<text>使用APP解锁更多功能！</text>
+		<view class="tips-right">
+			<button class="white btncolor" bindtap="goAPP">下载APP</button>
+			<image bindtap="closeTips" src="{{basicImg}}/my/guanbi@2x.png"></image>
+		</view>
+	</view>
+	<!-- 弹窗 -->
+	<view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+	<view class="modal-dialog" wx:if="{{showModal}}">
+		<view class="modal-content"><text>即将离开微信</text><text>打开“好房好车”</text></view>
+		<view class="modal-footer">
+			<view class="btn-cancel" bindtap="onCancel" data-status="cancel">取消</view>
+			<button data-status="confirm" open-type="launchApp" style="font-size:30rpx;background:#fff;line-height:108rpx;color:#4A8BF9" app-parameter="wechat" binderror="launchAppError">允许</button>
+		</view>
+	</view>
+</view>

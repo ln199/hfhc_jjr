@@ -1,0 +1,134 @@
+<!--pages/previewshop/previewshop.wxml-->
+<view class="box {{isIphoneX?'isIPX':''}}">
+	<view class="top">
+		<view class="top-top">
+			<view class="top-left">
+				<view class="pic">
+					<image src="{{avatar}}"></image>
+				</view>
+				<view class="xinxi">
+					<text>{{xingming}}的微店</text>
+					<text class="gray">{{dianhua}}</text>
+				</view>
+			</view>
+			<view class="btnk btncolor white" bindtap="contact">联系TA</view>
+		</view>
+		<view class="tip gray">{{intro}}</view>
+	</view>
+	<view class="fg btngray"></view>
+	<!-- tab -->
+	<view class="swiper-tab">
+		<view class="swiper-tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="clickTab">新楼盘</view>
+		<view class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab">二手房</view>
+		<view class="swiper-tab-item {{currentTab==2?'active':''}}" data-current="2" bindtap="clickTab">精装二手房</view>
+		<view class="swiper-tab-item {{currentTab==3?'active':''}}" data-current="3" bindtap="clickTab">旅居房</view>
+	</view>
+	<!-- 列表 -->
+	<swiper current="{{currentTab}}" duration="300" bindchange="swiperTab" style="height:800rpx;">
+		<swiper-item>
+			<scroll-view style="height:800rpx" scroll-y="true" bindscrolltolower='bindscrolltolower'>
+				<view class="listitem" wx:for="{{ysfyArr}}" wx:key="index" data-id="{{item.entity.id}}" bindtap="intoDetailsYsfynew">
+					<view class="pics">
+						<image src="{{!item.entity.img?'../../img/public/default.png':share ? imgUrl + item.entity.img: item.entity.img}}" data-index='{{index}}' data-img='../../img/public/default.png' binderror='errDetails'></image>
+					</view>
+					<view class="item-right">
+						<view class="linea">
+							<text>{{item.entity.access_name}}</text>
+							<!-- 先用占位 -->
+							<text></text>
+							<!-- <text class="btnblue white">{{item.entity.xlpzt}}</text> -->
+						</view>
+						<view class="address">{{item.entity.lpdizhi}}</view>
+						<!-- <view class="biaozu">
+							<text wx:for="{{item.entity.tese}}" wx:key="index" wx:for-item="i">{{i}}</text>
+						</view> -->
+						<view class="pricek">
+							<text class="orange">{{item.entity.junjia}}</text>
+							<!-- <text class="gray">建面{{item.entity.ysfjm || ''}}</text> -->
+						</view>
+					</view>
+				</view>
+			</scroll-view>
+		</swiper-item>
+
+		<swiper-item>
+			<scroll-view style="height:800rpx" scroll-y="true" bindscrolltolower='bindscrolltolower'>
+				<view class="listitem" wx:for="{{esfyArr}}" wx:key="index" data-id="{{item.entity.id}}" bindtap="hrefDetailSecond">
+					<view class="pickk">
+						<image src="{{!item.entity.img?'../../img/public/default.png':share ? imgUrl + item.entity.img: item.entity.img}}" data-index='{{index}}' data-img='../../img/public/default.png' binderror='errDetails_esf'></image>
+					</view>
+					<view class="listitem-right">
+						<view style="display:flex;justify-content: space-between;">
+							<view class="name">{{item.entity.fybiaoti}}</view>
+							<!-- <view class="btnblue white" style="font-size: 24rpx;font-weight: 500;padding: 9rpx 17rpx;border-radius: 8rpx;">{{item.entity.leixing}}</view> -->
+						</view>
+						<!-- <view class="housexq">{{item.entity.huxing.shi}}室{{item.entity.huxing.ting}}厅/{{item.entity.mianji}}㎡/{{item.entity.chaoxiang}}/{{item.entity.xiaoqum}}</view> -->
+						<view class="housexq">{{item.entity.xiaoqum}}</view>
+						<!-- <view class="tipszu">
+							<text wx:for="{{item.entity.biaoqian}}" wx:key="index" wx:for-item="items">{{items.lxming}}</text>
+						</view> -->
+						<view class="qianzu"><text class="orange">{{item.entity.shoujia}}万</text></view>
+						<!-- <text class="gray">{{item.entity.danjia}}/㎡</text> -->
+					</view>
+				</view>
+			</scroll-view>
+		</swiper-item>
+
+		<swiper-item>
+			<scroll-view style="height:800rpx" scroll-y="true" bindscrolltolower='bindscrolltolower'>
+				<view class="listitem" wx:for="{{meizhuangArr}}" wx:key="index" data-id="{{item.entity.id}}" bindtap="hrefDetailMz">
+					<view class="pickk">
+						<image src="{{!item.entity.img?'../../img/public/default.png': share ? imgUrl + item.entity.img: item.entity.img}}" data-index='{{index}}' data-img='../../img/public/default.png' binderror='errDetails_mzf'></image>
+					</view>
+					<view class="listitem-right">
+						<view style="display:flex;justify-content: space-between;">
+							<view class="name">{{item.entity.access_name}}</view>
+							<!-- <view class="btnblue white" style="font-size: 24rpx;font-weight: 500;padding: 9rpx 17rpx;border-radius: 8rpx;">{{item.entity.leixing}}</view> -->
+						</view>
+						<!-- <view class="housexq">{{item.entity.huxing.shi}}室{{item.entity.huxing.ting}}厅/{{item.entity.mianji}}㎡/{{item.entity.chaoxiang}}/{{item.entity.xiaoqum}}</view> -->
+						<view class="housexq">{{item.entity.xiaoqum}}</view>
+						<!-- <view class="tipszu">
+							<text wx:for="{{item.entity.biaoqian}}" wx:key="index" wx:for-item="items">{{items.lxming}}</text>
+						</view> -->
+						<view class="qianzu"><text class="orange">{{item.entity.shoujia}}万</text></view>
+						<!-- <text class="gray">{{item.entity.danjia}}/㎡</text> -->
+					</view>
+				</view>
+			</scroll-view>
+		</swiper-item>
+
+		<swiper-item>
+			<scroll-view style="height:800rpx" scroll-y="true" bindscrolltolower='bindscrolltolower'>
+				<view class="listitem" wx:for="{{lvjuArr}}" wx:key="index" data-id="{{item.entity.id}}" bindtap="intoDetailsYsfyLj">
+					<view class="pics">
+						<image src="{{!item.entity.img?'../../img/public/default.png':share ? imgUrl + item.entity.img: item.entity.img}}" data-index='{{index}}' data-img='../../img/public/default.png' binderror='errDetails_lvf'></image>
+					</view>
+					<view class="item-right">
+						<view class="linea">
+							<text>{{item.entity.access_name}}</text>
+							<!-- 先用占位 -->
+							<text></text>
+							<!-- <text class="btnblue white">{{item.entity.xlpzt}}</text> -->
+						</view>
+						<view class="address">{{item.entity.lpdizhi}}</view>
+						<!-- <view class="biaozu">
+							<text wx:for="{{item.entity.tese}}" wx:key="index" wx:for-item="i">{{i}}</text>
+						</view> -->
+						<view class="pricek">
+							<text class="orange">{{item.entity.junjia}}</text>
+							<!-- <text class="gray">建面{{item.entity.jzmianji}}㎡</text> -->
+						</view>
+					</view>
+				</view>
+			</scroll-view>
+		</swiper-item>
+	</swiper>
+	<!-- 置顶灰条 -->
+	<!-- <view class="goTops white" wx:if="{{tips}}">
+		<text>使用好房好车小程序解锁更多功能！</text>
+		<view class="tips-right">
+			<button class="white btncolor" bindtap="goApp">启动</button>
+			<image bindtap="closeTips" src="{{basicImg}}/my/guanbi@2x.png"></image>
+		</view>
+	</view> -->
+</view>

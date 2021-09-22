@@ -1,0 +1,24 @@
+<!--pages/brokered/brokered.wxml-->
+<view class="box {{isIphoneX?'isIPX':''}}">
+  <view class="linea">
+    <view class="linea-left">
+      <text>经纪公司</text>
+      <input type="text" placeholder-class="placeholder_color" placeholder="" value="某某某某经纪公司" disabled="disabled"></input>
+    </view>
+    <view class="linea-right">
+      <text class="gray">已绑定</text>
+      <image src="{{basicImg}}/my/icon_bangding_s@2x.png"></image>
+    </view>
+  </view>
+  <view class="btna btncolor white" bindtap="changeCompnay">更换公司</view>
+  <view class="btnb orange" bindtap="departureApply">申请离职</view>
+  <!-- 弹窗 -->
+  <view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+  <view class="modal-dialog" wx:if="{{showModal}}">
+    <view class="modal-content">您现在已经绑定过经济公司，如需更换 经纪公司，请先申请离职。</view>
+    <view class="modal-footer">
+      <view class="btn-cancel" bindtap="onCancel" data-status="cancel">取消</view>
+      <view class="btn-confirm" bindtap="onConfirm" data-status="confirm">申请离职</view>
+    </view>
+  </view>
+</view>

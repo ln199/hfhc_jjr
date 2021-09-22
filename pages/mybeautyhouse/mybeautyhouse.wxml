@@ -1,0 +1,38 @@
+<!--pages/beautyhouse/beautyhouse.wxml-->
+<view class="box {{isIphoneX?'isIPX':''}}">
+	<!-- 搜索 -->
+	<view class="framek">
+		<view class='frame'>
+			<image src='{{basicImg}}/housecheckin/sousuo@2x.png' class="frame_zuo"></image>
+			<input class="frame_you" bindinput="search" type='text' placeholder='请输入楼盘或业主电话进行搜索' placeholder-class='placeholder_color'></input>
+		</view>
+	</view>
+	<!-- 筛选 -->
+
+	<view hidden="{{hidden}}">
+		<scroll-view scroll-y='true' class="nav-content">
+			<block>
+				<view class="list-item" wx:for="{{houseList}}" wx:key="index" data-id="{{item.id}}" bindtap="hrefDetail">
+					<view class="pickk">
+						<image src="{{item.img==''?'../../img/public/default.png':item.img}}" data-index='{{index}}' data-img='../../img/public/default.png' binderror='errDetails'></image>
+						<view class="huic">
+							<image src="{{basicImg}}/housecheckin/icon_lm@2x.png"></image>
+							<text class="white">{{item.lianmeng_gx_yongjin}}</text>
+						</view>
+					</view>
+					<view class="listitem-right">
+						<view class="name">{{item.fybiaoti}}</view>
+						<view class="housexq">{{item.fyhx}}/{{item.mianji}}㎡/{{item.fycx}}/{{item.xqm}}</view>
+						<view class="tipszu">
+							<text wx:for="{{item.biaoqian}}" wx:key="index" wx:for-item="items">{{items}}</text>
+						</view>
+						<view class="qianzu"><text class="orange">{{item.shoujia}}万</text><text class="gray">{{item.danjia}}/㎡</text></view>
+					</view>
+				</view>
+			</block>
+		</scroll-view>
+	</view>
+	<view class="add" bindtap="addHouse">
+		<image src="{{basicImg}}/housecheckin/btn_add@2x.png"></image>
+	</view>
+</view>

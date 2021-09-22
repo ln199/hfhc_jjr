@@ -1,0 +1,730 @@
+/* pages/rentxq/rentxq.wxss */
+/* 地图 */
+.map_container{ 
+  height: 100%; 
+  width: 100%; 
+} 
+
+.map { 
+  height: 100%; 
+  width: 100%; 
+} 
+/* 轮播 */
+.swiper {
+  height: 468rpx;
+  width: 100%;
+}
+.swiper image {
+  height: 100%;
+  width: 100%;
+}
+.swiper video {
+  height: 100%;
+  width: 100%;
+}
+.swiper-box{
+  position: relative;
+  width: 100%;
+}
+.dots{ 
+  display: flex; 
+  justify-content: space-around; 
+  width:300rpx;
+  height:60rpx;
+  background:rgba(255,255,255,0.75);
+  border-radius:30rpx;
+  margin: auto;
+  position: absolute; 
+  left: 0; 
+  right: 0; 
+  bottom: 29rpx; 
+  font-size: 30rpx;
+  font-weight: 500;
+} 
+.dots .dot{ 
+  width: 100rpx; 
+  height: 60rpx; 
+  background: transparent; 
+  border-radius: 60rpx;
+  transition: all .6s; 
+  text-align: center;
+  line-height: 60rpx;
+} 
+.dots .dot.active{ 
+  width: 100rpx;
+  background: #EA5413; 
+  font-weight: bold;
+  color: #fff;
+}
+/* 房源信息 */
+.groupa{
+  padding: 26rpx 20rpx 29.5rpx 26rpx;
+}
+.name{
+  font-size: 50rpx;
+  font-weight: bold;
+  line-height: 85rpx;
+}
+.tips text{
+  font-size: 24rpx;
+  font-weight: 500;
+  background:#fafafa;
+  border:2rpx solid #2f2f2f;
+  border-radius:8rpx;
+  padding: 9rpx 17rpx;
+  margin-right: 8rpx;
+}
+.kuai{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40rpx 0;
+}
+.xian{
+  width:2rpx;
+  height:80rpx;
+  background:rgba(159,159,159,1);
+  margin-right: 38rpx;
+}
+.sj{
+  display: flex;
+  flex-direction: column;
+  font-size: 27rpx;
+  font-weight: 500;
+  width: 266rpx;
+}
+.sj text:first-child{
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 18rpx;
+}
+.kuai1{
+  display: flex;
+  justify-content: flex-start;
+  font-size: 27rpx;
+  font-weight: 500rpx;
+  line-height: 48rpx;
+}
+.kuai1-left{
+  margin-right: 57rpx;
+}
+.kuai1-left view{
+  display: flex;
+  justify-content: flex-start;
+}
+.kuai1-right view{
+  display: flex;
+  justify-content: flex-start;
+}
+.kuai1-left view.ku{
+  width: 130rpx;
+  justify-content: flex-end;
+}
+.kuai1-right view.ku{
+  width: 130rpx;
+  justify-content: flex-end;
+}
+.ku{
+  width: 130rpx;
+  text-align: right;
+}
+.fg{
+  width: 100%;
+  height: 8rpx;
+  margin: auto;
+}
+/* 配套信息 */
+.peitao{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.peitao view{
+  font-size: 27rpx;
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 40rpx 40rpx 40rpx;
+}
+.peitao view image{
+  width: 60rpx;
+  height: 60rpx;
+  margin-bottom: 18rpx;
+}
+/* 小区信息 */
+.groupb{
+  padding: 0 20rpx 29.5rpx 20rpx;
+}
+.groupb-title{
+  font-size: 40rpx;
+  font-weight: bold;
+  line-height: 116rpx;
+}
+.kfhang{
+  font-size: 27rpx;
+  font-weight: 500;
+  line-height: 48rpx;
+  display: flex;
+  justify-content: flex-start;
+}
+/* 位置及周边配套 */
+.groupd{
+  padding: 0 20rpx 17rpx 20rpx;
+}
+.groupd-title{
+  font-size: 40rpx;
+  font-weight: bold;
+  line-height: 116rpx;
+}
+.address{
+  font-size: 27rpx;
+  font-weight: 500;
+  margin-bottom: 19rpx;
+}
+.map{
+  width:710rpx;
+  height:267rpx;
+  border-radius:8rpx;
+  margin: auto;
+  position: relative;
+}
+.mp{
+  width: 710rpx;
+  height: 267rpx;
+  display: block;
+  border-radius: 8rpx;
+}
+.address-type{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 27rpx;
+  font-weight: 500;
+  line-height: 80rpx;
+}
+.actives{
+  font-weight: bold;
+  color: #EA5413;
+}
+/* 定位 */
+.dwk{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+}
+.dw{
+  width: 40rpx;
+  height: 40rpx;
+  display: block;
+}
+.tishi{
+  background:rgba(234,84,19,.65);
+  border-radius:27rpx;
+  font-size: 24rpx;
+  font-weight: 500;
+  line-height: 53rpx;
+  height: 53rpx;
+  padding: 0 12rpx;
+  margin-left: 46rpx;
+}
+/* 周边二手房 */
+.groupe{
+  padding:  0 20rpx 0 20rpx;
+}
+.groupe-title{
+  line-height: 109rpx;
+  font-size: 21rpx;
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.groupe-title text:first-child{
+  font-size: 40rpx;
+  font-weight: bold;
+}
+.list-item{
+  width: 100%;
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: row;
+  padding-bottom: 40rpx;
+  background: white;
+  align-items: center;
+}
+.pickk{
+  width:267rpx;
+  height:200rpx;
+  border-radius:8rpx;
+  position: relative;
+}
+.pickk image{
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.huic{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  width: 100%;
+  height: 40rpx;
+  border-bottom-left-radius: 8rpx;
+  border-bottom-right-radius: 8rpx;
+  background-color: rgba(0,0,0,0.35);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.huic image{
+  width: 32rpx;
+  height: 32rpx;
+  display: block;
+  margin-right: 8rpx;
+  margin-left: 5rpx;
+}
+.huic text{
+  font-size: 24rpx;
+  font-weight: 500;
+}
+.listitem-right{
+  margin-left: 19rpx;
+  width: 60%;
+}
+.names{
+  height: 50rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 8rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.housexq{
+  font-size: 24rpx;
+  font-weight: 500;
+  margin-bottom: 8rpx;
+}
+.tipszu{
+  margin-bottom: 20rpx;
+}
+.tipszu text{
+  border:2rpx solid rgba(47,47,47,1);
+  border-radius:8rpx;
+  font-size: 24rpx;
+  font-weight: 500;
+  padding: 9rpx 17rpx;
+  margin-right: 8rpx;
+}
+.qianzu{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.qianzu text:first-child{
+  font-size: 32rpx;
+  font-weight: bold;
+}
+.qianzu text:last-child{
+  font-size: 24rpx;
+  font-weight: 500;
+}
+/* 底部 */
+.bottom-part{
+  width:100%;
+  height:150rpx;
+  margin: auto;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  padding-top: 13rpx;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+.more{
+  width: 80rpx;
+  height: 80rpx;
+  margin-right: 35rpx;
+}
+.more image{
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.bottom-part button{
+  width:280rpx;
+  height:80rpx;
+  border-radius:40rpx;
+  text-align: center;
+  line-height: 80rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+  margin: 0;
+}
+.pipei{
+  border:2rpx solid rgba(234,84,19,1);
+  background-color: #ffffff;
+  margin-right: 21rpx !important;
+}
+/* Tooltips */
+.tooltipsk{
+  position: absolute;
+  bottom: 163rpx;
+  left: 32.5rpx;
+  z-index: 9;
+}
+.tooltips{
+  width: 200rpx;
+  padding: 0 20rpx;
+  background-color: #2f2f2f;
+  font-size: 32rpx;
+  font-weight: 500;
+  border-radius: 8rpx;
+  text-align: center;
+}
+.tooltips view{
+  border-bottom: 1rpx solid #FFFFFF;
+  line-height: 79rpx;
+}
+.tooltips view:last-child{
+  border-bottom: 0;
+}
+.sanjiao{
+  width: 0;
+  height: 0;
+  border-left: 15rpx solid transparent;
+  border-right: 15rpx solid transparent;
+  border-top: 20rpx solid #2F2F2F;
+  margin-left: 25rpx;
+}
+/* 置顶 */
+.goTop{
+  width: 80rpx;
+  height: 80rpx;
+  position: fixed;
+  bottom: 207rpx;
+  right: 19rpx;
+  z-index: 9;
+}
+.goTop image{
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+/* 弹层 */
+.whitec{
+  width: 95%;
+  height:600rpx;
+  background:#ffffff;
+  border-radius:8px 8px 0px 0px;
+  position: fixed;
+  bottom: 0;
+  padding: 0 21rpx;
+}
+.whitec-title{
+  line-height: 111rpx;
+  font-size: 40rpx;
+  font-weight: bold;
+}
+.whitec-tips{
+  font-size: 32rpx;
+  font-weight: 500;
+  line-height: 60rpx;
+  margin-bottom: 38rpx;
+}
+.whitec-tips text{
+  font-weight: bold;
+  font-size: 40rpx;
+  margin: 0 10rpx;
+}
+.whitec-beizhu{
+  font-size: 27rpx;
+  font-weight: 500;
+}
+.btnzu{
+  width: 95%;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+}
+.btnzu button{
+  width:648rpx;
+  height:80rpx;
+  border-radius:40rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+  margin-bottom: 21rpx;
+}
+.btnzu button:last-child{
+  border: 1rpx solid #EA5413;
+  background-color: #fff;
+  margin-bottom: 42rpx;
+}
+/* 置顶灰条 */
+.goTops{
+  width: 100%;
+  height: 80rpx;
+  background:rgba(47,47,47,.45);
+  margin: auto;
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 32rpx;
+  font-weight: 500;
+}
+.goTops text{
+  margin-left: 41rpx;
+}
+.tips-right{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.tips-right button{
+  width:140rpx;
+  height:60rpx;
+  border-radius:30rpx;
+  font-size: 24rpx;
+  font-weight: 500;
+  padding: 0;
+}
+.tips-right image{
+  width: 32rpx;
+  height: 32rpx;
+  display: block;
+  margin-left: 42rpx;
+  margin-right: 39rpx;
+}
+/* 弹窗 */
+.modal-mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.5;
+  overflow: hidden;
+  z-index: 9000;
+  color: #fff;
+}
+.modal-dialog {
+  width: 640rpx;
+  height: 320rpx;
+  overflow: hidden;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 9999;
+  border-radius: 16rpx;
+  margin-top: -160rpx;
+  margin-left: -320rpx;
+  background-color: #fff;
+}
+.modal-content {
+  padding: 60rpx 50rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.modal-footer {
+  display: flex;
+  flex-direction: row;
+  height: 109rpx;
+  border-top: 1px solid #F2F2F2;
+  font-size: 32rpx;
+  line-height: 109rpx;
+}
+.btn-cancel {
+  width: 50%;
+  text-align: center;
+  border-right: 1px solid #F2F2F2;
+}
+.btn-confirm {
+  width: 50%;
+  color: #4A8BF9;
+  text-align: center;
+  background-color: #fff;
+}
+button::after{
+  border: none;
+}
+/* 分享弹窗 */
+.modal-masks {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.5;
+  overflow: hidden;
+  z-index: 9000;
+  color: #fff;
+}
+.modal-dialogs {
+  width: 100%;
+  height: 480rpx;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  z-index: 9999;
+  border-radius:8rpx 8rpx 0rpx 0rpx;
+  background-color: #fff;
+}
+.enjoy-list{
+  width: 100%;
+  height: 307rpx;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.enjoy-item{
+  font-size: 27rpx;
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.enjoy-item image{
+  width: 100rpx;
+  height: 100rpx;
+  display: block;
+  margin-bottom: 21rpx;
+}
+.btn-cancels{
+  width: 670rpx;
+  height: 172rpx;
+  border-top: 1rpx solid #F2F2F2;
+  font-size: 32rpx;
+  font-weight: 500;
+  text-align: center;
+  line-height: 120rpx;
+  margin: auto;
+}
+/* 电话沟通 */
+.modal-mask-tel {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.5;
+  overflow: hidden;
+  z-index: 9000;
+  color: #fff;
+}
+.modal-dialog-tel {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  z-index: 9999;
+  border-radius:8rpx 8rpx 0rpx 0rpx;
+  background-color: #fff;
+}
+.tel-title{
+  font-size: 40rpx;
+  font-weight: bold;
+  line-height: 133rpx;
+  margin-left: 22rpx;
+}
+.tel-hang{
+  width: 670rpx;
+  height: 145rpx;
+  margin: auto;
+  border-bottom: 1rpx solid #F2F2F2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.tel-left{
+  font-size: 27rpx;
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+}
+.tel-left text:first-child{
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 21rpx;
+}
+.hu{
+  width:140rpx;
+  height:53rpx;
+  border-radius:27rpx;
+  font-size: 27rpx;
+  font-weight: 500;
+  text-align: center;
+  line-height: 53rpx;
+  padding: 0;
+  margin: 0;
+}
+.btn-cancel-tel{
+  width: 670rpx;
+  height: 174rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+  text-align: center;
+  line-height: 120rpx;
+  margin: auto;
+}
+.housetype-list{
+  white-space: nowrap;
+  display: flex;
+  box-sizing: border-box;
+}
+.housetype-itemk{
+  width: 533rpx;
+  display: inline-block;
+  margin-right: 23rpx;
+  position: relative;
+  height: 410rpx;
+}
+.housetype-item{
+  width: 533rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+}
+.hxpic{
+  width: 533rpx;
+  height: 400rpx;
+  margin-bottom: 38rpx;
+}
+.hxpic image{
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.fy-image {
+  width: 100%;
+  height: 100%;
+  background-size:100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}

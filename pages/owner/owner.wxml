@@ -1,0 +1,45 @@
+<!--pages/owner/owner.wxml-->
+<view class="box {{isIphoneX?'isIPX':''}}">
+  <form bindsubmit="updataUserInfo">
+    <view class="graoupa">
+      <view class="line">
+        <view class="lineleft"><text class="red">*</text>业主姓名</view>
+        <input type="text" name="username" value="{{diaoqu.yezhu}}" placeholder-class="placeholder_color" placeholder="" class="input-text"></input>
+      </view>
+      <view class="line">
+        <view class="lineleft">业主性别</view>
+        <radio-group class="radio-group" bindchange="radioChange">
+          <label class="radio" wx:for="{{classes_array}}" wx:key="index">
+            <radio value="{{item.name}}" checked="{{item.checked}}" />
+            <text>{{item.value}}</text>
+          </label>
+        </radio-group>
+      </view>
+      <view class="line">
+        <view class="lineleft"><text class="red">*</text>手机号码</view>
+        <input type="number" value="{{diaoqu.yezhudianhua}}" name="mobile" placeholder-class="placeholder_color" placeholder="" class="input-text"></input>
+      </view>
+      <view class="line">
+        <view class="lineleft">手机归属</view>
+        <view class="lineright">
+          <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}" style="width:90%;">
+            <view class="picker gray">{{array[index]}}</view>
+          </picker>
+          <image src="{{basicImg}}/public/arrow.png" class="arrow"></image>
+        </view>
+      </view>
+      <view class="line">
+        <view class="lineleft">证件类型</view>
+        <input type="number" value="身份证" bindinput="" placeholder-class="placeholder_color" placeholder="" class="input-text" disabled="disabled"></input>
+      </view>
+      <view class="line">
+        <view class="lineleft">证件号码</view>
+        <input type="number" value="{{diaoqu.personcardno}}" name="number" placeholder-class="placeholder_color" placeholder="" class="input-text"></input>
+      </view>
+    </view>
+    <view class="btnzu">
+      <button type="" class="btncolor white" form-type='submit'>保存</button>
+      <button type="" class="orange">返回</button>
+    </view>
+  </form>
+</view>

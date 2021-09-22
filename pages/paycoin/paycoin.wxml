@@ -1,0 +1,32 @@
+<!--pages/buytopping/buytopping.wxml-->
+<view class="box {{isIphoneX?'isIPX':''}}">
+	<view class="top">
+		<view class="top_l">好房币余额：<text class="orange">{{coinVal}}</text></view>
+	</view>
+	<view class="fg btngray"></view>
+	<view class="cont">
+		<view class="cont_title">套餐选择</view>
+		<view class="list">
+			<block wx:for='{{package}}' wx:key='index'>
+				<view data-num="{{index}}" class="list_item {{_num==index?'cur':''}}" bindtap="menuClick" data-id='{{item.package_id}}' data-money="{{item.package_money}}">
+					<text data-num="{{index}}" bindtap="menuClick" data-id='{{item.package_id}}' data-money="{{item.package_money}}">{{item.package_money}}元</text>
+					<text class="orange" data-num="{{index}}" data-id='{{item.package_id}}' data-money="{{item.package_money}}" bindtap="menuClick">{{item.package_coin}}好房币</text>
+					<!-- <view class="tuijian white btncolor" data-num="{{index}}" bindtap="menuClick" wx:if='{{item.recommend == 1}}'>推荐</view> -->
+				</view>
+			</block>
+		</view>
+		<view class="input_coin">
+			<text style="width:100%;display:block;font-size:26rpx;font-weight:700;text-align:center;padding-top:20rpx">自定义金额</text>
+			<input class="coin_input" bindinput="anyCoin" placeholder="请输入任意金额" type="number"></input>
+		</view>
+		<view class="xieyi">
+			<checkbox bindtap="checkChange" checked="{{checked}}"></checkbox>
+			<text class="gray">我已阅读并同意</text>
+			<text class="blue">《好房好车增值服务产品使用协议》</text>
+		</view>
+	</view>
+
+	<view class="btnzu">
+		<button type="" class="btncolor white" bindtap="buy">充值</button>
+	</view>
+</view>

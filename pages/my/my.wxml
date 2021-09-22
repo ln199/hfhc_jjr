@@ -1,0 +1,127 @@
+<!-- pages/my/my.wxml -->
+<view class="box {{isIphoneX?'isIPX':''}}">
+				<!-- 顶部 -->
+				<view class="mytop">
+								<!-- 未登录 -->
+					<view class="hanga" wx:if="{{tokenHide}}">
+						<view class="headk">
+							<image src="{{basicImg}}/login/defult_p.png"></image>
+						</view>
+						<view class="message">
+							<button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" style="background:none;text-align:left;font-size:32rpx">
+											点击登陆账户
+							</button>
+						</view>
+					</view>
+								<!-- 登录 -->
+					<view class="hanga" bindtap="hrefMyInfo" wx:if="{{tokenShow}}">
+						<view class="headk">
+										<image src="{{portrait}}"></image>
+						</view>
+						<view>
+						<view class="message">
+							<view class="name">
+											<text class="userName">{{userName?userName:"暂未设置"}}</text>
+											<text class="tag white btncolor" wx:if="{{is_ally == 1}}">联盟</text>
+							</view>
+							<view class="corporation gray">{{company?company:"暂无公司"}}</view>
+							<view class="corporation gray">{{uRole?uRole:"暂未填写"}}</view>
+						</view>
+						<view class="hangb" bindtap="goCoin" wx:if="{{tokenShow}}">
+							<view class="hangb-left">
+								<view class="coin">金币中心</view>
+								<view class="yucoin orange">
+									<text class="gray">当前余额</text>
+									<text class="coinVal">{{coinval}}</text>
+									<text class="gray" style="margin-left:9rpx;">枚好房币</text>
+								</view>
+							</view>
+							<view class="arrow">
+								<image src="{{basicImg}}/public/arrow.png"></image>
+							</view>
+						</view>
+						</view>
+					</view>
+				</view>
+				<view class="fg btngray"></view>
+				<!-- 功能按钮 -->
+				<view class="function">
+					<view class="functionItem" wx:for="{{testArr}}" wx:for-index="index" wx:for-item="cell" wx:key="index">
+						<navigator url="{{cell.navi}}" hover-class="none">
+							<view  data-name="{{cell.name}}" class="itemClass">
+								<image src="{{cell.image}}"></image>
+								<text>{{cell.name}}</text>
+							</view>
+						</navigator>
+					</view>
+				</view>
+				<view wx:if="{{uType == '1'}}" class="manageList">
+					<view class="functionItem" wx:for="{{manageList}}" wx:for-index="index" wx:for-item="cell" wx:key="index">
+						<navigator url="{{cell.navi}}" hover-class="none">
+							<view  data-name="{{cell.name}}" class="itemClass">
+								<image src="{{cell.image}}"></image>
+								<text>{{cell.name}}</text>
+							</view>
+						</navigator>
+					</view>
+				</view>
+				<!-- 与我相关的 -->
+				<view class="aboutMe">
+								<view class="aboutMeLine">
+												<view class="functionItem aboutMeItem" wx:for="{{aboutMeList}}" wx:for-index="index" wx:for-item="cell" wx:key="index">
+																<navigator url="{{cell.navi}}" hover-class="none" class="itemClass">
+																				<view data-name="{{cell.name}}">
+																								<image src="{{cell.image}}"></image>
+																								<text>{{cell.name}}</text>
+																				</view>
+																</navigator>
+												</view>
+								</view>
+								<view class="aboutMeLine">
+												<view class="functionItem aboutMeItem" wx:for="{{aboutMeListSecond}}" wx:for-index="index" wx:for-item="cell" wx:key="index">
+																<navigator url="{{cell.navi}}" hover-class="none">
+																				<view  data-name="{{cell.name}}">
+																								<image src="{{cell.image}}"></image>
+																								<text>{{cell.name}}</text>
+																				</view>
+																</navigator>
+												</view>
+								</view>
+				</view>
+				<view class="aboutMe" style="padding:0 0 40rpx 0">
+								<view class="linef">
+												<text class="zhishu">精英指数</text>
+												<text class="more">更多</text>
+								</view>
+								<view class="aboutMeLine jingjiline">
+												<view class="functionItem" wx:for="{{weekData}}" wx:for-index="index" wx:for-item="cell" wx:key="index">
+																<navigator url="{{cell.navi}}" hover-class="none">
+																				<view  data-name="{{cell.name}}" class="itemClass jingjiItem">
+																								<view class="circle">{{cell.num}}</view>
+																								<text>{{cell.name}}</text>
+																				</view>
+																</navigator>
+												</view>
+								</view>
+								<view class="aboutMeLine jingjiline">
+												<view class="functionItem" wx:for="{{monthData}}" wx:for-index="index" wx:for-item="cell" wx:key="index">
+																<navigator url="{{cell.navi}}" hover-class="none">
+																				<view  data-name="{{cell.name}}" class="itemClass jingjiItem">
+																								<view class="circle">{{cell.num}}</view>
+																								<text>{{cell.name}}</text>
+																				</view>
+																</navigator>
+												</view>
+								</view>
+								<view class="aboutMeLine">
+												<view class="functionItem" wx:for="{{quarterData}}" wx:for-index="index" wx:for-item="cell" wx:key="index">
+																<navigator url="{{cell.navi}}" hover-class="none">
+																				<view  data-name="{{cell.name}}" class="itemClass jingjiItem">
+																								<view class="circle">{{cell.num}}</view>
+																								<text>{{cell.name}}</text>
+																				</view>
+																</navigator>
+												</view>
+								</view>
+				</view>
+</view>

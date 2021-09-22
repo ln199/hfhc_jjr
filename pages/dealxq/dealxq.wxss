@@ -1,0 +1,93 @@
+/* pages/dealxq/dealxq.wxss */
+/* 成交信息 */
+.group{
+  padding: 0 21rpx;
+}
+.group-title{
+  line-height: 80rpx;
+  font-size: 40rpx;
+  font-weight: bold;
+  margin-bottom: 23rpx;
+}
+.xinxi{
+  font-size: 27rpx;
+  font-weight: 500;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16rpx;
+}
+.list{
+  padding-top: 28rpx;
+  padding-bottom: 43rpx;
+}
+.first{
+  width: 182rpx;
+  text-align: right;
+}
+.fg{
+  width: 100%;
+  height: 8rpx;
+  margin: auto;
+}
+/* 房屋信息 */
+.li{ 
+  display: flex; 
+  flex-direction: row;
+  justify-content: space-between; 
+  align-items: center;
+  position: relative;
+}
+.li .icon-xiala{ 
+  color: #9f9f9f;
+  width: 15rpx; 
+  height: 15rpx; 
+  border-top: 2rpx solid #9f9f9f; 
+  border-right: 2rpx solid #9f9f9f; 
+  position: absolute; 
+  right: 12rpx; 
+  transform: rotate(-45deg);
+} 
+.li .icon-shangjiantou{ 
+  color: #9f9f9f; 
+  width: 15rpx; 
+  height: 15rpx; 
+  border-bottom: 2rpx solid #9f9f9f; 
+  border-left: 2rpx solid #9f9f9f; 
+  position: absolute; 
+  right: 12rpx; 
+  transform: rotate(-45deg);
+  margin-top: -5rpx;
+} 
+.linea{
+  font-size: 27rpx;
+  font-weight: 500;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  line-height: 48rpx;
+}
+.group-titles{
+  line-height: 80rpx;
+  font-size: 40rpx;
+  font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+.bg-gray{ 
+  background-color: #ccc!important;
+  border-bottom: 1rpx solid #fff!important;
+} 
+
+
+.gray { color: #8e8e8e; } 
+.red { color: #fe2e2e; } 
